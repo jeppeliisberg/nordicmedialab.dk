@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "headline": "Duckling",
+    "logo": "ida_logo.svg"
+  },
+  {
+    "id": 2,
+    "headline": "Oase",
+    "logo": "dtu_logo.svg"
+  },
+  {
+    "id": 3,
+    "headline": "Meningspunktet",
+    "logo": "ida_logo.svg"
+  },
+  {
+    "id": 4,
+    "headline": "Zen Social",
+    "logo": "dtu_logo.svg"
+  }
+]
