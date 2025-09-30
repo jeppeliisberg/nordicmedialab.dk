@@ -1,0 +1,181 @@
+{
+  "nav": {
+    "why": "Why?",
+    "projects": "Projects",
+    "members": "Members",
+    "pact": "Pact",
+    "values": "Values",
+    "team": "Team",
+    "organization": "Organization",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Why?",
+    "title": "Do you want to help build a world where technology and data serve people and not the other way around?",
+    "paragraph1": "Today, our digital infrastructure is controlled and monopolized by a few tech giants. But right now, we have a unique opportunity to change that. There is political will and public attention to do something different.",
+    "paragraph2": "That's why we launched Nordic Media Lab: A technology laboratory rooted in <1>three Nordic values</1>: enlightenment, trust, cohesion.",
+    "paragraph3": "We bring together entrepreneurs and passionate individuals who are building the infrastructure of the future. We are not building against Big Tech - we are building around it. Our vision is to make the Nordic region a global role model for a future where technology serves people and not the other way around.",
+    "visitUs": "Visit us here:",
+    "joinOase": "Join our Oase Techtopia chat"
+  },
+  "projects": {
+    "tagline": "Projects",
+    "description1": "We act as an umbrella and coordinator for a number of tech projects focusing on development, research and education.",
+    "description2": "Read more about our projects below:",
+    "cards": [
+      {
+        "id": 2,
+        "headline": "Data Without Borders",
+        "text": "In collaboration with the DATA for GOOD Foundation and others, we map and develop platforms, initiatives and projects that work to ensure that data is not controlled by a few private companies.",
+        "hero": "data_without_borders.jpg",
+        "logo": "dfg_logo_white.svg",
+        "projecturl": ""
+      },
+      {
+        "id": 3,
+        "headline": "Heart in the Cloud",
+        "text": "We are developing an open and collectively owned cloud solution as an alternative to Amazon and Google, where startups avoid being locked into tech giants.",
+        "hero": "heart_in_the_cloud.jpg",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 4,
+        "headline": "Techtopia Think Tank",
+        "text": "How should we build alternatives to tech giants? This conversation has been organized by journalist Henrik Føhns and the Danish Society of Engineers (IDA) with physical meetings and ongoing online knowledge sharing on Oase Chat.",
+        "hero": "techtopia.jpg",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 5,
+        "headline": "Promise Authentication",
+        "text": "What if all alternatives to tech giants were tied together by one secure and private password? That's the idea behind Promise. We make it easy to choose alternative tech platforms because you're already authenticated.",
+        "hero": "top_2.png",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 6,
+        "headline": "Challenge your story",
+        "text": "In this project, we explore how storytelling can be used as a tool to create digital enlightenment, dialogue and healthier communities in a world dominated by social media.",
+        "hero": "challenge_your_story.jpg",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 7,
+        "headline": "Recoding democracy",
+        "text": "We are rapidly moving down a path where AI is rewriting the foundation of democracy. Together with DemAI, we explore how AI can be used as a positive force for democracy - and become a tool for democratic renewal rather than breakdown.",
+        "hero": "recoding_democracy.jpg",
+        "logo": "",
+        "projecturl": "https://dk.linkedin.com/company/demaitech"
+      },
+      {
+        "id": 8,
+        "headline": "Manifesto for Sustainable Software Design",
+        "text": "A manifesto with principles to guide software development towards a future where technology serves the needs of society, humanity and the planet.",
+        "hero": "sustainable_manifesto.jpg",
+        "logo": "",
+        "projecturl": "https://sustainablemanifesto.org/"
+      }
+    ]
+  },
+  "members": {
+    "tagline": "Members",
+    "title": "Entrepreneur members",
+    "description": "As an entrepreneur, you can become a member and gain access to infrastructure, knowledge, network and investment. You must sign our Nordic Media Pact and contribute to projects. Write to <1>hej@nordicmedialab.dk</1> to learn more.",
+    "cards": [
+      {
+        "id": 1,
+        "headline": "Duckling",
+        "text": "Democratic media where young people can become journalists and storytellers. Alternative to Instagram and TikTok.",
+        "hero": "duckling_hero.jpg",
+        "logo": "duckling_logo.png",
+        "memberurl": "duckling.co"
+      },
+      {
+        "id": 2,
+        "headline": "Oase",
+        "text": "A chat app without ads and endless feeds, designed to be a healthy alternative to Messenger and Snapchat.",
+        "hero": "oase_hero.png",
+        "logo": "oase_logo.svg",
+        "memberurl": "oase.app"
+      },
+      {
+        "id": 3,
+        "headline": "Meningspunktet",
+        "text": "A new Danish social media focusing on credible conversations, digital well-being and data sovereignty, designed with people at the center. Alternative to Facebook.",
+        "hero": "meningspunktet_hero.png",
+        "logo": "meningspunktet_logo.svg",
+        "memberurl": "meningspunktet.dk"
+      },
+      {
+        "id": 4,
+        "headline": "Zen Social",
+        "text": "Online communities built for people, not consumers. Create a circle for your community in a simple, calm environment.",
+        "hero": "zensocial_hero.png",
+        "logo": "zensocial_logo.svg",
+        "memberurl": "zensocial.dk"
+      }
+    ]
+  },
+  "pact": {
+    "tagline": "Our pact",
+    "title": "To be an entrepreneur member, you must sign and comply with our common pact:",
+    "mainTitle": "Nordic Media Pact",
+    "mainDescription": "By signing this pact, we declare that we work to develop and support technology that puts people before machines, community and privacy before profit, and transparency before manipulation. We thereby become part of Nordic Media Lab. We commit to:",
+    "transparency": {
+      "title": "Transparent business models",
+      "description": "We work to ensure that our business models are open, understandable and fair. Users must know the terms - and have real power over their own data. Our solutions must give people control, not just consent boxes."
+    },
+    "design": {
+      "title": "Design with conscience",
+      "description": "We do not build technology for technology's sake. We design with people at the center - with respect for their attention, well-being and dignity. Users must be able to see through how the design affects them and have the opportunity to change it. We build on protocols, standards and technology where data can be freely exchanged and moved between platforms and services."
+    },
+    "ownership": {
+      "title": "Organization and ownership",
+      "description": "We will work for an organization and ownership that supports transparent business models and conscientious design. This means that we will do everything to ensure that our project or company cannot be sold to owners who work against the Nordic Media Pact. This can be, for example, through foundation ownership or by establishing a limited liability company, but can take many other forms."
+    },
+    "beliefs": {
+      "title": "We believe:",
+      "items": [
+        "That democratic infrastructure is a prerequisite for a free and enlightened society.",
+        "That collective ownership and cooperation create stronger and fairer solutions.",
+        "That long-term thinking and responsibility must prevail over short-term growth."
+      ]
+    }
+  },
+  "values": {
+    "tagline": "Values",
+    "title": "We are based on three Nordic values:",
+    "enlightenment": {
+      "title": "Enlightenment",
+      "description": "We believe that technology and digital infrastructure must be based on insight, education and critical thinking. We work for an enlightened public, where we as citizens understand and can influence the systems that shape our everyday lives - including digital ones."
+    },
+    "trust": {
+      "title": "Trust",
+      "description": "We believe that technology should be a tool for community, well-being and sustainable development. We make demands on how technology is designed, who benefits from it - and who is excluded. We support associations and other communities. We build digital communities that support physical communities."
+    },
+    "cohesion": {
+      "title": "Cohesion",
+      "description": "We build digital infrastructure that thinks holistically and benefits both human systems and nature's ecosystems. We believe that openness, transparency and co-creation create better systems."
+    },
+    "inspirationTitle": "Inspiration:",
+    "inspiration": {
+      "folkHighSchool": "<0>The Folk High School movement</0> created space for lifelong learning, reflection and personal enlightenment - not just for the elite, but for everyone. The movement also became part of the foundation for the Nordic welfare model.",
+      "cooperative": "<0>The Cooperative movement</0> showed that you can build strong economies and structures through community and shared responsibility - and still have room for capitalist business models."
+    }
+  },
+  "team": {
+    "title": "We are started and led by a small group of passionate individuals and entrepreneurs"
+  },
+  "organization": {
+    "tagline": "Organization",
+    "description": "We are working to establish Nordic Media Lab as a non-profit with an ownership structure that ensures our values and mission. We are in the process of deciding whether to register as a foundation, cooperative or association, or a mix. Stay tuned..."
+  },
+  "contact": {
+    "tagline": "Contact",
+    "title": "Write to us"
+  }
+}

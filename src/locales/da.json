@@ -1,0 +1,181 @@
+{
+  "nav": {
+    "why": "Hvorfor?",
+    "projects": "Projekter",
+    "members": "Medlemmer",
+    "pact": "Pagt",
+    "values": "Værdier",
+    "team": "Team",
+    "organization": "Organisering",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "tagline": "Hvorfor?",
+    "title": "Vil du være med til at bygge en verden, hvor teknologi og data tjener mennesker og ikke omvendt?",
+    "paragraph1": "I dag kontrolleres og monopoliseres vores digitale infrastruktur af få tech-giganter. Men lige nu har vi en unik mulighed for at ændre det. Der er politisk vilje og folkelig opmærksomhed til at gøre noget andet.",
+    "paragraph2": "Derfor har vi lanceret Nordic Media Lab: Et teknologi-laboratorium forankret i <1>tre nordiske værdier</1>: oplysning, tillid, sammenhængskraft.",
+    "paragraph3": "Vi samler iværksættere og ildsjæle, som bygger fremtidens infrastruktur. Vi bygger ikke mod Big Tech - vi bygger udenom. Vores vision er at gøre Norden til globalt forbillede for en fremtid, hvor teknologi tjener mennesker og ikke omvendt.",
+    "visitUs": "Besøg os her:",
+    "joinOase": "Deltag i vores Oase Techtopia chat"
+  },
+  "projects": {
+    "tagline": "Projekter",
+    "description1": "Vi fungerer som paraply og koordinator for en række tech-projekter, der fokuserer på udvikling, research og oplysning.",
+    "description2": "Læs mere om vores projekter herunder:",
+    "cards": [
+      {
+        "id": 2,
+        "headline": "Data Uden Grænser",
+        "text": "I samarbejde med bl.a. DATA for GOOD Foundation kortlægger og udvikler vi platforme, initiativer og projekter, som arbejder med at sikre, at data ikke kontrolleres af få private selskaber.",
+        "hero": "data_without_borders.jpg",
+        "logo": "dfg_logo_white.svg",
+        "projecturl": ""
+      },
+      {
+        "id": 3,
+        "headline": "Hjertet i Skyen",
+        "text": "Vi udvikler en åben og kollektivt ejet cloud-løsning som alternativ til f.eks Amazon og Google, hvor startups undgår at blive låst til tech-giganterne.",
+        "hero": "heart_in_the_cloud.jpg",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 4,
+        "headline": "Techtopia Tænketank",
+        "text": "Hvordan skal vi bygge alternativer til tech giganterne? Den samtale har journalist Henrik Føhns og Ingeniørforeningen IDA organiseret med fysiske møder og en løbende online vidensdeling på Oase Chat.",
+        "hero": "techtopia.jpg",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 5,
+        "headline": "Promise Authentication",
+        "text": "Hvad hvis alle alternativer til tech-giganterne var bundet sammen af ét sikkert og privat kodeord? Det er tanken med Promise. Vi gør det nemt at vælge alternative tech platforme, fordi man allerede er autentificeret.",
+        "hero": "top_2.png",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 6,
+        "headline": "Challenge your story",
+        "text": "I dette projekt undersøger vi, hvordan fortælllinger kan bruges som et redskab til at skabe digital dannelse, dialog og sundere fællesskaber i en verden domineret af sociale medier.",
+        "hero": "challenge_your_story.jpg",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 7,
+        "headline": "Recoding democracy",
+        "text": "Vi bevæger os i hast ned ad en vej, hvor AI er ved at omskrive fundamentet for demokrati. Sammen med DemAI undersøger vi, hvordan AI kan bruges som en positiv kraft for demokratiet - og blive et redskab til demokratisk fornyelse i stedet for nedbrydning.",
+        "hero": "recoding_democracy.jpg",
+        "logo": "",
+        "projecturl": "https://dk.linkedin.com/company/demaitech"
+      },
+      {
+        "id": 8,
+        "headline": "Manifesto for Sustainable Software Design",
+        "text": "Et manifest med principper, der skal guide softwareudvikling mod en fremtid, hvor teknologi tjener samfundets, menneskehedens og planetens behov.",
+        "hero": "sustainable_manifesto.jpg",
+        "logo": "",
+        "projecturl": "https://sustainablemanifesto.org/"
+      }
+    ]
+  },
+  "members": {
+    "tagline": "Medlemmer",
+    "title": "Iværksætter medlemmer",
+    "description": "Som iværksætter kan du blive medlem og få adgang til infrastruktur, viden, netværk og investering. Du skal underskrive vores Nordic Media Pagt og bidrage til projekter. Skriv til <1>hej@nordicmedialab.dk</1> for at høre mere.",
+    "cards": [
+      {
+        "id": 1,
+        "headline": "Duckling",
+        "text": "Demokratisk medie, hvor unge kan blive journalister og storytellere. Alternativ til Instagram og TikTok.",
+        "hero": "duckling_hero.jpg",
+        "logo": "duckling_logo.png",
+        "memberurl": "duckling.co"
+      },
+      {
+        "id": 2,
+        "headline": "Oase",
+        "text": "En chat-app uden reklamer og endeløse feeds, designet til at være et sundt alternativ til Messenger og Snapchat.",
+        "hero": "oase_hero.png",
+        "logo": "oase_logo.svg",
+        "memberurl": "oase.app"
+      },
+      {
+        "id": 3,
+        "headline": "Meningspunktet",
+        "text": "Et nyt dansk socialt medie med fokus på troværdige samtaler, digital trivsel og datasuverænitet, designet med mennesket i centrum. Alternativ til Facebook.",
+        "hero": "meningspunktet_hero.png",
+        "logo": "meningspunktet_logo.svg",
+        "memberurl": "meningspunktet.dk"
+      },
+      {
+        "id": 4,
+        "headline": "Zen Social",
+        "text": "Online fællesskaber bygget til mennesker ikke forbrugere. Lav en cirkel til dit fællesskab i et simpelt, roligt miljø.",
+        "hero": "zensocial_hero.png",
+        "logo": "zensocial_logo.svg",
+        "memberurl": "zensocial.dk"
+      }
+    ]
+  },
+  "pact": {
+    "tagline": "Vores pagt",
+    "title": "For at være iværksætter-medlem skal man underskrive og overholde vores fælles pagt:",
+    "mainTitle": "Nordic Media Pagt",
+    "mainDescription": "Ved at underskrive denne pagt erklærer vi, at vi arbejder for at udvikle og understøtte teknologi, der sætter mennesket før maskinen, fællesskab og privatliv før profit, og gennemsigtighed før manipulation. Vi bliver dermed en del af Nordic Media Lab. Vi forpligter os til:",
+    "transparency": {
+      "title": "Transparente forretningsmodeller",
+      "description": "Vi arbejder for, at vores forretningsmodeller er åbne, forståelige og retfærdige. Brugerne skal kende vilkårene - og have reel magt over deres egne data. Vores løsninger skal give mennesker kontrol, ikke blot samtykkebokse."
+    },
+    "design": {
+      "title": "Design med samvittighed",
+      "description": "Vi bygger ikke teknologi for teknologiens skyld. Vi designer med mennesker i centrum - med respekt for deres opmærksomhed, trivsel og værdighed. Brugere skal kunne gennemskue, hvordan designet påvirker dem og have mulighed for at ændre det. Vi bygger på protokoller, standarder og teknologi, hvor data kan udveksles og flyttes frit mellem platforme og tjenester."
+    },
+    "ownership": {
+      "title": "Organisering og ejerskab",
+      "description": "Vi vil arbejde for en organisering og et ejerskab, som understøtter transparente forretningsmodeller og samvittighedsfuldt design. Det indebærer, at vi vil gøre alt for at sikre, at vores projekt eller virksomhed ikke kan sælges til ejere, som arbejder imod Nordic Media Pagt. Det kan f.eks være via fondsejerskab eller ved at stifte et anpartsselskab, men kan have mange andre former."
+    },
+    "beliefs": {
+      "title": "Vi tror på:",
+      "items": [
+        "At demokratisk infrastruktur er en forudsætning for et frit og oplyst samfund.",
+        "At fælleseje og samarbejde skaber stærkere og mere retfærdige løsninger.",
+        "At langsigtethed og ansvar må vinde over kortsigtet vækst."
+      ]
+    }
+  },
+  "values": {
+    "tagline": "Værdier",
+    "title": "Vi er baseret på tre nordiske værdier:",
+    "enlightenment": {
+      "title": "Oplysning",
+      "description": "Vi tror på, at teknologi og digital infrastruktur skal bygge på indsigt, dannelse og kritisk tænkning. Vi arbejder for en oplyst offentlighed, hvor vi som borgere forstår og kan påvirke de systemer, der former vores hverdag – også de digitale."
+    },
+    "trust": {
+      "title": "Tillid",
+      "description": "Vi mener, at teknologi skal være et redskab for fællesskab, trivsel og bæredygtig udvikling. Vi stiller krav til, hvordan teknologi designes, hvem den gavner – og hvem der ekskluderes. Vi understøtter foreningsliv og andre fællesskaber. Vi bygger digitale fællesskaber, som understøtter de fysiske fællesskaber."
+    },
+    "cohesion": {
+      "title": "Sammenhængskraft",
+      "description": "Vi bygger digital infrastruktur, der tænker i helheder, og som gavner både menneskelige systemer og naturens økosystemer. Vi tror på, at åbenhed, transparens og medskabelse skaber bedre systemer."
+    },
+    "inspirationTitle": "Inspiration:",
+    "inspiration": {
+      "folkHighSchool": "<0>Højskolebevægelsen</0> skabte rum for livslang læring, refleksion og personlig dannelse – ikke kun for eliten, men for alle. Bevægelsen blev også en del af grundlaget for den nordiske velfærdsmodel.",
+      "cooperative": "<0>Andelsbevægelsen</0> viste, at man kan bygge stærke økonomier og strukturer gennem fællesskab og delt ansvar – og stadig have plads til kapitalistiske forretningsmodeller."
+    }
+  },
+  "team": {
+    "title": "Vi er startet og ledet af en lille gruppe ildsjæle og iværksættere"
+  },
+  "organization": {
+    "tagline": "Organisering",
+    "description": "Vi arbejder for at etablere Nordic Media Lab som en non-profit med et ejerskab, som sikrer vores værdier og mission. Vi er i process med at afgøre, om vi skal registreres som fond, kooperativ eller forening, eller et miks. Stay tuned..."
+  },
+  "contact": {
+    "tagline": "Kontakt",
+    "title": "Skriv til os"
+  }
+}

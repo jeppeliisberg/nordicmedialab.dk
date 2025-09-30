@@ -1,10 +1,16 @@
 
 import React, { FC, useEffect, useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 
 const Header = () => {
+     const { t, i18n } = useTranslation();
      const [isOpen, setIsOpen] = useState<boolean>(false);
+
+     const changeLanguage = (lng: string) => {
+       i18n.changeLanguage(lng);
+     };
     
       const backdropVariants: Variants = {
         hidden: {
@@ -75,17 +81,43 @@ const Header = () => {
                     <span className="font-bold font-serif text-sm text-neutral-600 leading-none">Nordic<br/>Media<br/>Lab</span>
                 </div>
                
-                <ul className="hidden lg:flex gap-x-5 text-base font-sans font-medium pr-5">
-                    <li><a className="hover:underline underline-offset-4" href="#hvorfor">Hvorfor</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#projekter">Projekter</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#pagt">Vores pagt</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#values">Værdier</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#team">Team</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#organisering">Organisering</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#kontakt">Kontakt os</a></li>
+                <ul className="hidden lg:flex gap-x-5 text-base font-sans font-medium pr-5 items-center">
+                    <li><a className="hover:underline underline-offset-4" href="#hvorfor">{t('nav.why')}</a></li>
+                    <li><a className="hover:underline underline-offset-4" href="#projekter">{t('nav.projects')}</a></li>
+                    <li><a className="hover:underline underline-offset-4" href="#pagt">{t('nav.pact')}</a></li>
+                    <li><a className="hover:underline underline-offset-4" href="#values">{t('nav.values')}</a></li>
+                    <li><a className="hover:underline underline-offset-4" href="#team">{t('nav.team')}</a></li>
+                    <li><a className="hover:underline underline-offset-4" href="#organisering">{t('nav.organization')}</a></li>
+                    <li><a className="hover:underline underline-offset-4" href="#kontakt">{t('nav.contact')}</a></li>
+                    <li className="flex gap-x-2 ml-2">
+                      <button
+                        onClick={() => changeLanguage('da')}
+                        className={`px-2 py-1 rounded text-sm ${i18n.language === 'da' ? 'bg-emerald-500 text-white' : 'hover:bg-gray-100'}`}
+                      >
+                        DA
+                      </button>
+                      <button
+                        onClick={() => changeLanguage('en')}
+                        className={`px-2 py-1 rounded text-sm ${i18n.language === 'en' ? 'bg-emerald-500 text-white' : 'hover:bg-gray-100'}`}
+                      >
+                        EN
+                      </button>
+                    </li>
                 </ul>
-                {!isOpen && 
-                <div className="flex lg:hidden items-center gap-2 pr-5">
+                {!isOpen &&
+                <div className="flex lg:hidden items-center gap-x-2 pr-5">
+                    <button
+                      onClick={() => changeLanguage('da')}
+                      className={`px-2 py-1 rounded text-sm font-sans font-medium ${i18n.language === 'da' ? 'bg-emerald-500 text-white' : 'hover:bg-gray-100'}`}
+                    >
+                      DA
+                    </button>
+                    <button
+                      onClick={() => changeLanguage('en')}
+                      className={`px-2 py-1 rounded text-sm font-sans font-medium ${i18n.language === 'en' ? 'bg-emerald-500 text-white' : 'hover:bg-gray-100'}`}
+                    >
+                      EN
+                    </button>
                     <button
                       id="primary-menu-toggle"
                       aria-label="Open menu"
@@ -141,13 +173,13 @@ const Header = () => {
                     </button>
                   </div>
                   <ul className="flex lg:hidden text-white flex-col gap-y-8 text-5xl font-serif text-center w-full font-medium" onClick={onMenuClick}>
-                      <li><a className="hover:underline underline-offset-4" href="#hvorfor">Hvorfor</a></li>
-                      <li><a className="hover:underline underline-offset-4" href="#projekter">Projekter</a></li>
-                      <li><a className="hover:underline underline-offset-4" href="#pagt">Vores pagt</a></li>
-                      <li><a className="hover:underline underline-offset-4" href="#values">Værdier</a></li>
-                      <li><a className="hover:underline underline-offset-4" href="#team">Team</a></li>
-                      <li><a className="hover:underline underline-offset-4" href="#organisering">Organisering</a></li>
-                      <li><a className="hover:underline underline-offset-4" href="#kontakt">Kontakt os</a></li>
+                      <li><a className="hover:underline underline-offset-4" href="#hvorfor">{t('nav.why')}</a></li>
+                      <li><a className="hover:underline underline-offset-4" href="#projekter">{t('nav.projects')}</a></li>
+                      <li><a className="hover:underline underline-offset-4" href="#pagt">{t('nav.pact')}</a></li>
+                      <li><a className="hover:underline underline-offset-4" href="#values">{t('nav.values')}</a></li>
+                      <li><a className="hover:underline underline-offset-4" href="#team">{t('nav.team')}</a></li>
+                      <li><a className="hover:underline underline-offset-4" href="#organisering">{t('nav.organization')}</a></li>
+                      <li><a className="hover:underline underline-offset-4" href="#kontakt">{t('nav.contact')}</a></li>
                   </ul>
                 </div>
               </motion.div>
