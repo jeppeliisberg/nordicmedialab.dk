@@ -84,11 +84,9 @@ const Header = () => {
                 <ul className="hidden lg:flex gap-x-5 text-base font-sans font-medium pr-5 items-center">
                     <li><a className="hover:underline underline-offset-4" href="#hvorfor">{t('nav.why')}</a></li>
                     <li><a className="hover:underline underline-offset-4" href="#projekter">{t('nav.projects')}</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#pagt">{t('nav.pact')}</a></li>
+                    <li><a className="hover:underline underline-offset-4" href="#medlemmer">{t('nav.members')}</a></li>
                     <li><a className="hover:underline underline-offset-4" href="#values">{t('nav.values')}</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#team">{t('nav.team')}</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#organisering">{t('nav.organization')}</a></li>
-                    <li><a className="hover:underline underline-offset-4" href="#kontakt">{t('nav.contact')}</a></li>
+                    <li><a className="hover:underline underline-offset-4" href="#team">{t('nav.contact')}</a></li>
                     <li className="flex gap-x-2 ml-2">
                       <button
                         onClick={() => changeLanguage('da')}

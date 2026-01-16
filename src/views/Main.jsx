@@ -33,7 +33,7 @@ const Main = () => {
                         <li className="font-sans font-bold text-sm">{t('hero.visitUs')}</li>
                         <li><a href="https://oase.app/oase/46ec46bf-5445-4a32-bb21-ada8a61b4b0a/join/8f84eb1a-1e07-478c-9153-6e21850141fe" className="text-emerald-500 text-xl">{t('hero.joinOase')}</a></li>
                         <li><a href="https://duckling.co" className="text-emerald-500 text-xl">Duckling</a></li>
-                        <li><a href="https://zensocial.dk" className="text-emerald-500 text-xl">ZenSocial</a></li>
+                        <li><a href="https://zensocial.dk" className="text-emerald-500 text-xl">Zen Social</a></li>
                         <li><a href="https://meningspunktet.dk" className="text-emerald-500 text-xl">Meningspunktet</a></li>
                     </ul>
                 </div>
@@ -160,14 +160,6 @@ const Main = () => {
                 </div>
                 <div className="max-w-7xl mx-auto px-5">
                 <img src="people.png" className="w-full h-auto"/>
-                </div>
-            </section>
-            <Divider backgroundColor="#FEFBF3" />
-            <section className="bg-[#FEFBF3] pb-32">
-                <a className="anchor" id="organisering"></a>
-                <div className="relative px-10 max-w-2xl mx-auto">
-                    <span className="text-emerald-500 font-semibold uppercase text-base font-sans">{t('organization.tagline')}</span>
-                    <h1 className="font-serif font-bold text-2xl lg:text-3xl">{t('organization.description')}</h1>
                 </div>
             </section>
             <Divider backgroundColor="#FEFBF3" />
