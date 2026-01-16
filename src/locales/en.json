@@ -1,8 +1,8 @@
 {
   "nav": {
     "why": "Why?",
-    "projects": "Projects",
-    "members": "Members",
+    "projects": "Activities",
+    "members": "Free membership",
     "pact": "Pact",
     "values": "Values",
     "team": "Team",
@@ -11,7 +11,7 @@
   },
   "hero": {
     "tagline": "Why?",
-    "title": "Do you want to help build a world where technology and data serve people and not the other way around?",
+    "title": "Do you want to help create a world where technology and data serve people and not the other way around?",
     "paragraph1": "Today, our digital infrastructure is controlled and monopolized by a few tech giants. But right now, we have a unique opportunity to change that. There is political will and public attention to do something different.",
     "paragraph2": "That's why we launched Nordic Media Lab: A technology laboratory rooted in <1>three Nordic values</1>: enlightenment, trust, cohesion.",
     "paragraph3": "We bring together entrepreneurs and passionate individuals who are building the infrastructure of the future. We are not building against Big Tech - we are building around it. Our vision is to make the Nordic region a global role model for a future where technology serves people and not the other way around.",
@@ -19,9 +19,27 @@
     "joinOase": "Join our Oase Techtopia chat"
   },
   "projects": {
-    "tagline": "Projects",
-    "description1": "We act as an umbrella and coordinator for a number of tech projects focusing on development, research and education.",
-    "description2": "Read more about our projects below:",
+    "tagline": "Activities & Projects",
+    "description1": "We act as an umbrella and facilitator for a number of activities & tech projects focusing on development, research and education.",
+    "description2": "Read more about the projects below:",
+    "cards_hidden": [
+      {
+        "id": 6,
+        "headline": "Challenge your story",
+        "text": "In this project, we explore how storytelling can be used as a tool to create digital enlightenment, dialogue and healthier communities in a world dominated by social media.",
+        "hero": "challenge_your_story.jpg",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 3,
+        "headline": "Heart in the Cloud",
+        "text": "We are developing an open and collectively owned cloud solution as an alternative to Amazon and Google, where startups avoid being locked into tech giants.",
+        "hero": "heart_in_the_cloud.jpg",
+        "logo": "",
+        "projecturl": ""
+      }
+    ],
     "cards": [
       {
         "id": 2,
@@ -32,12 +50,12 @@
         "projecturl": ""
       },
       {
-        "id": 3,
-        "headline": "Heart in the Cloud",
-        "text": "We are developing an open and collectively owned cloud solution as an alternative to Amazon and Google, where startups avoid being locked into tech giants.",
-        "hero": "heart_in_the_cloud.jpg",
+        "id": 8,
+        "headline": "Manifesto for Sustainable Software Design",
+        "text": "A manifesto with principles to guide software development towards a future where technology serves the needs of society, humanity and the planet.",
+        "hero": "sustainable_manifesto.jpg",
         "logo": "",
-        "projecturl": ""
+        "projecturl": "https://sustainablemanifesto.org/"
       },
       {
         "id": 4,
@@ -50,16 +68,8 @@
       {
         "id": 5,
         "headline": "Promise Authentication",
-        "text": "What if all alternatives to tech giants were tied together by one secure and private password? That's the idea behind Promise. We make it easy to choose alternative tech platforms because you're already authenticated.",
+        "text": "What if all alternatives to tech giants were tied together by one secure and private password? That's the idea behind Promise. Promise makes it easy to choose alternative tech platforms because you're already authenticated.",
         "hero": "top_2.png",
-        "logo": "",
-        "projecturl": ""
-      },
-      {
-        "id": 6,
-        "headline": "Challenge your story",
-        "text": "In this project, we explore how storytelling can be used as a tool to create digital enlightenment, dialogue and healthier communities in a world dominated by social media.",
-        "hero": "challenge_your_story.jpg",
         "logo": "",
         "projecturl": ""
       },
@@ -70,21 +80,13 @@
         "hero": "recoding_democracy.jpg",
         "logo": "",
         "projecturl": "https://dk.linkedin.com/company/demaitech"
-      },
-      {
-        "id": 8,
-        "headline": "Manifesto for Sustainable Software Design",
-        "text": "A manifesto with principles to guide software development towards a future where technology serves the needs of society, humanity and the planet.",
-        "hero": "sustainable_manifesto.jpg",
-        "logo": "",
-        "projecturl": "https://sustainablemanifesto.org/"
       }
     ]
   },
   "members": {
     "tagline": "Members",
-    "title": "Entrepreneur members",
-    "description": "As an entrepreneur, you can become a member and gain access to infrastructure, knowledge, network and investment. You must sign our Nordic Media Pact and contribute to projects. Write to <1>hej@nordicmedialab.dk</1> to learn more.",
+    "title": "Free membership",
+    "description": "Everyone can become a member for free and thus become part of our network. As a member, we expect you to work for and support our Nordic Media Pact. Here is a selection of our members:",
     "cards": [
       {
         "id": 1,
@@ -122,9 +124,9 @@
   },
   "pact": {
     "tagline": "Our pact",
-    "title": "To be an entrepreneur member, you must sign and comply with our common pact:",
+    "title": "To be a member, you must work for and support our common pact:",
     "mainTitle": "Nordic Media Pact",
-    "mainDescription": "By signing this pact, we declare that we work to develop and support technology that puts people before machines, community and privacy before profit, and transparency before manipulation. We thereby become part of Nordic Media Lab. We commit to:",
+    "mainDescription": "With this pact, we declare that we work to develop and support technology that puts people before machines, community and privacy before profit, and transparency before manipulation. We thereby become part of Nordic Media Lab. We commit to:",
     "transparency": {
       "title": "Transparent business models",
       "description": "We work to ensure that our business models are open, understandable and fair. Users must know the terms - and have real power over their own data. Our solutions must give people control, not just consent boxes."
@@ -169,10 +171,6 @@
   },
   "team": {
     "title": "We are started and led by a small group of passionate individuals and entrepreneurs"
-  },
-  "organization": {
-    "tagline": "Organization",
-    "description": "We are working to establish Nordic Media Lab as a non-profit with an ownership structure that ensures our values and mission. We are in the process of deciding whether to register as a foundation, cooperative or association, or a mix. Stay tuned..."
   },
   "contact": {
     "tagline": "Contact",

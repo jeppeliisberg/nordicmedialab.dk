@@ -1,8 +1,8 @@
 {
   "nav": {
     "why": "Hvorfor?",
-    "projects": "Projekter",
-    "members": "Medlemmer",
+    "projects": "Aktiviteter",
+    "members": "Gratis medlemsskab",
     "pact": "Pagt",
     "values": "Værdier",
     "team": "Team",
@@ -11,7 +11,7 @@
   },
   "hero": {
     "tagline": "Hvorfor?",
-    "title": "Vil du være med til at bygge en verden, hvor teknologi og data tjener mennesker og ikke omvendt?",
+    "title": "Vil du være med til at skabe en verden, hvor teknologi og data tjener mennesker og ikke omvendt?",
     "paragraph1": "I dag kontrolleres og monopoliseres vores digitale infrastruktur af få tech-giganter. Men lige nu har vi en unik mulighed for at ændre det. Der er politisk vilje og folkelig opmærksomhed til at gøre noget andet.",
     "paragraph2": "Derfor har vi lanceret Nordic Media Lab: Et teknologi-laboratorium forankret i <1>tre nordiske værdier</1>: oplysning, tillid, sammenhængskraft.",
     "paragraph3": "Vi samler iværksættere og ildsjæle, som bygger fremtidens infrastruktur. Vi bygger ikke mod Big Tech - vi bygger udenom. Vores vision er at gøre Norden til globalt forbillede for en fremtid, hvor teknologi tjener mennesker og ikke omvendt.",
@@ -19,9 +19,27 @@
     "joinOase": "Deltag i vores Oase Techtopia chat"
   },
   "projects": {
-    "tagline": "Projekter",
-    "description1": "Vi fungerer som paraply og koordinator for en række tech-projekter, der fokuserer på udvikling, research og oplysning.",
-    "description2": "Læs mere om vores projekter herunder:",
+    "tagline": "Aktiviteter & Projekter",
+    "description1": "Vi fungerer som paraply og facilitator for en række aktiviteter & tech-projekter, der fokuserer på udvikling, research og oplysning.",
+    "description2": "Læs mere om projekterne herunder:",
+    "cards_hidden": [
+      {
+        "id": 6,
+        "headline": "Challenge your story",
+        "text": "I dette projekt undersøger vi, hvordan fortælllinger kan bruges som et redskab til at skabe digital dannelse, dialog og sundere fællesskaber i en verden domineret af sociale medier.",
+        "hero": "challenge_your_story.jpg",
+        "logo": "",
+        "projecturl": ""
+      },
+      {
+        "id": 3,
+        "headline": "Hjertet i Skyen",
+        "text": "Vi udvikler en åben og kollektivt ejet cloud-løsning som alternativ til f.eks Amazon og Google, hvor startups undgår at blive låst til tech-giganterne.",
+        "hero": "heart_in_the_cloud.jpg",
+        "logo": "",
+        "projecturl": ""
+      }
+    ],
     "cards": [
       {
         "id": 2,
@@ -32,12 +50,12 @@
         "projecturl": ""
       },
       {
-        "id": 3,
-        "headline": "Hjertet i Skyen",
-        "text": "Vi udvikler en åben og kollektivt ejet cloud-løsning som alternativ til f.eks Amazon og Google, hvor startups undgår at blive låst til tech-giganterne.",
-        "hero": "heart_in_the_cloud.jpg",
+        "id": 8,
+        "headline": "Manifesto for Sustainable Software Design",
+        "text": "Et manifest med principper, der skal guide softwareudvikling mod en fremtid, hvor teknologi tjener samfundets, menneskehedens og planetens behov.",
+        "hero": "sustainable_manifesto.jpg",
         "logo": "",
-        "projecturl": ""
+        "projecturl": "https://sustainablemanifesto.org/"
       },
       {
         "id": 4,
@@ -50,16 +68,8 @@
       {
         "id": 5,
         "headline": "Promise Authentication",
-        "text": "Hvad hvis alle alternativer til tech-giganterne var bundet sammen af ét sikkert og privat kodeord? Det er tanken med Promise. Vi gør det nemt at vælge alternative tech platforme, fordi man allerede er autentificeret.",
+        "text": "Hvad hvis alle alternativer til tech-giganterne var bundet sammen af ét sikkert og privat kodeord? Det er tanken med Promise. Promise gør det nemt at vælge alternative tech platforme, fordi man allerede er autentificeret.",
         "hero": "top_2.png",
-        "logo": "",
-        "projecturl": ""
-      },
-      {
-        "id": 6,
-        "headline": "Challenge your story",
-        "text": "I dette projekt undersøger vi, hvordan fortælllinger kan bruges som et redskab til at skabe digital dannelse, dialog og sundere fællesskaber i en verden domineret af sociale medier.",
-        "hero": "challenge_your_story.jpg",
         "logo": "",
         "projecturl": ""
       },
@@ -70,21 +80,13 @@
         "hero": "recoding_democracy.jpg",
         "logo": "",
         "projecturl": "https://dk.linkedin.com/company/demaitech"
-      },
-      {
-        "id": 8,
-        "headline": "Manifesto for Sustainable Software Design",
-        "text": "Et manifest med principper, der skal guide softwareudvikling mod en fremtid, hvor teknologi tjener samfundets, menneskehedens og planetens behov.",
-        "hero": "sustainable_manifesto.jpg",
-        "logo": "",
-        "projecturl": "https://sustainablemanifesto.org/"
       }
     ]
   },
   "members": {
     "tagline": "Medlemmer",
-    "title": "Iværksætter medlemmer",
-    "description": "Som iværksætter kan du blive medlem og få adgang til infrastruktur, viden, netværk og investering. Du skal underskrive vores Nordic Media Pagt og bidrage til projekter. Skriv til <1>hej@nordicmedialab.dk</1> for at høre mere.",
+    "title": "Gratis medlemsskab",
+    "description": "Alle kan gratis blive medlem og dermed blive en del af vores netværk. Som medlem forventer vi at du arbejder for og støtter op om vores Nordic Media Pagt. Her er et udvalg af vores medlemmer:",
     "cards": [
       {
         "id": 1,
@@ -122,9 +124,9 @@
   },
   "pact": {
     "tagline": "Vores pagt",
-    "title": "For at være iværksætter-medlem skal man underskrive og overholde vores fælles pagt:",
+    "title": "For at være medlem skal man arbejde for og støtte op om vores fælles pagt:",
     "mainTitle": "Nordic Media Pagt",
-    "mainDescription": "Ved at underskrive denne pagt erklærer vi, at vi arbejder for at udvikle og understøtte teknologi, der sætter mennesket før maskinen, fællesskab og privatliv før profit, og gennemsigtighed før manipulation. Vi bliver dermed en del af Nordic Media Lab. Vi forpligter os til:",
+    "mainDescription": "Med denne denne pagt erklærer vi, at vi arbejder for at udvikle og understøtte teknologi, der sætter mennesket før maskinen, fællesskab og privatliv før profit, og gennemsigtighed før manipulation. Vi bliver dermed en del af Nordic Media Lab. Vi forpligter os til:",
     "transparency": {
       "title": "Transparente forretningsmodeller",
       "description": "Vi arbejder for, at vores forretningsmodeller er åbne, forståelige og retfærdige. Brugerne skal kende vilkårene - og have reel magt over deres egne data. Vores løsninger skal give mennesker kontrol, ikke blot samtykkebokse."
@@ -169,10 +171,6 @@
   },
   "team": {
     "title": "Vi er startet og ledet af en lille gruppe ildsjæle og iværksættere"
-  },
-  "organization": {
-    "tagline": "Organisering",
-    "description": "Vi arbejder for at etablere Nordic Media Lab som en non-profit med et ejerskab, som sikrer vores værdier og mission. Vi er i process med at afgøre, om vi skal registreres som fond, kooperativ eller forening, eller et miks. Stay tuned..."
   },
   "contact": {
     "tagline": "Kontakt",
