@@ -1,5 +1,4 @@
 import Divider from "../components/Divider";
-import IndustryMembersSwiper from "../components/IndustryMembersSwiper";
 import MembersSwiper from "../components/MembersSwiper";
 import ProjectsSwiper from "../components/ProjectsSwiper";
 import { useTranslation, Trans } from 'react-i18next';
