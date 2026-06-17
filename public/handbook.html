@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nordic Media Lab — Handbook</title>
+<title>Nordic Media Lab Handbook</title>
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=inter:400,500,600|playfair-display:400,500,700,900&display=swap" rel="stylesheet">
 <style>
@@ -36,8 +36,13 @@
   .wordmark{font-family:var(--serif); font-weight:900; font-size:1.7rem; line-height:.96; letter-spacing:-.012em}
   .wordmark span{display:block}
 
+  /* ---- title page ---- */
+  .titleblock{padding:34px 0 8px}
+  .doctitle{font-family:var(--serif); font-weight:700; font-size:clamp(2.4rem, 1.4rem + 4vw, 3.6rem); line-height:1.02; letter-spacing:-.022em; margin:0; color:var(--ink)}
+  .subtitle{font-family:var(--serif); font-style:italic; color:var(--muted); font-size:clamp(1.05rem, .9rem + .6vw, 1.3rem); margin:16px 0 0; line-height:1.4; max-width:36ch}
+
   /* ---- hero / thesis ---- */
-  .hero{padding:54px 0 6px}
+  .hero{padding:40px 0 6px}
   .lede{
     font-family:var(--serif); font-weight:500; font-style:normal;
     font-size:clamp(1.55rem, 1rem + 2.4vw, 2.15rem); line-height:1.27;
@@ -160,6 +165,11 @@
     <svg class="pine" viewBox="-8 0 130 182" role="img" aria-label="Nordic Media Lab pine"><path d="M62.9185 0C63.0374 0.0875785 100.976 28.056 106.529 63.75C107.624 70.7892 82.5537 49.9799 69.9439 39.1299L69.8433 54.8398C83.2477 62.8301 111.797 82.7946 116.029 110C117.169 117.328 84.161 97.3654 69.6274 88.2578L69.5171 105.396C80.77 112.642 101.974 128.751 113.029 153C116.07 159.67 84.0775 144.73 69.3091 137.561L69.0806 173.103L69.0669 173.515C68.8253 177.74 65.3088 181.078 61.0288 181.051C56.7488 181.023 53.2756 177.64 53.0884 173.412L53.0806 173L53.3023 138.552C34.5588 148.073 -7.05332 168.01 1.02882 153C3.67925 148.078 37.3234 120.791 53.5005 107.834L53.5845 94.8076C40.7953 108.862 18.8542 129.996 14.0288 115.5C11.5394 108.021 38.9834 76.835 53.8042 60.7266L53.9194 42.7832C40.827 56.3685 17.5933 77.7762 13.1216 63.75C10.5353 55.6376 62.9185 0 62.9185 0Z" fill="currentColor"/></svg>
     <div class="wordmark"><span>Nordic</span><span>Media</span><span>Lab</span></div>
   </header>
+
+  <div class="titleblock reveal">
+    <h1 class="doctitle">Handbook</h1>
+    <p class="subtitle">What we are all about, and how we communicate it to the world.</p>
+  </div>
 
   <div class="hero reveal">
     <p class="lede">We are the only alliance that provides knowledge, funding and shared infrastructure for entrepreneurs building ethical technology rooted in Nordic values <em>(dannelse, tillid, sammenhængskraft)</em> — unlike the dominant startup model, built to prioritise scale over ethics.</p>
