@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordic Media Lab — Handbook</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=inter:400,500,600|playfair-display:400,500,700,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FEFBF4;
+    --ink:#1D1F29;
+    --forest:#5BA77F;
+    --ember:#FF881B;
+    --muted:rgba(29,31,41,.56);
+    --body:rgba(29,31,41,.9);
+    --hair:rgba(29,31,41,.13);
+    --maxw:680px;
+    --serif:'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:18px; line-height:1.72;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+  ::selection{background:var(--forest); color:var(--paper)}
+  a{color:inherit; text-decoration:none; border-bottom:2px solid var(--ember); padding-bottom:1px}
+
+  /* ---- masthead ---- */
+  .masthead{display:flex; align-items:center; gap:20px; padding:64px 0 0}
+  .pine{height:74px; width:auto; color:var(--forest); flex:none}
+  .wordmark{font-family:var(--serif); font-weight:900; font-size:1.7rem; line-height:.96; letter-spacing:-.012em}
+  .wordmark span{display:block}
+
+  /* ---- hero / thesis ---- */
+  .hero{padding:54px 0 6px}
+  .lede{
+    font-family:var(--serif); font-weight:500; font-style:normal;
+    font-size:clamp(1.55rem, 1rem + 2.4vw, 2.15rem); line-height:1.27;
+    letter-spacing:-.012em; color:var(--ink); margin:0;
+  }
+  .lede em{font-style:italic}
+  .epigraph{margin:28px 0 0; padding-left:18px; border-left:2px solid var(--forest); color:var(--muted); font-size:.96rem}
+  .epigraph cite{display:block; margin-top:6px; font-style:normal; font-size:.82rem; letter-spacing:.02em}
+
+  /* ---- generic section ---- */
+  section{padding:58px 0}
+  section + section{border-top:1px solid var(--hair)}
+  .eyebrow{
+    font-family:var(--sans); font-size:.72rem; font-weight:600;
+    letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+    margin:0 0 18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:18px; height:2px; background:var(--ember); display:inline-block}
+  h2{
+    font-family:var(--serif); font-weight:700; line-height:1.1; letter-spacing:-.015em;
+    font-size:clamp(1.7rem, 1.2rem + 2vw, 2.3rem); margin:0 0 22px;
+  }
+  .note{font-family:var(--serif); font-style:italic; color:var(--muted); margin:-12px 0 26px; font-size:1.02rem}
+  p{margin:0 0 1.15em; color:var(--body)}
+  p:last-child{margin-bottom:0}
+  .dk{font-style:italic}
+
+  /* ---- twins: mission + vision ---- */
+  .twins{display:grid; grid-template-columns:1fr 1fr; gap:46px}
+  .twins .eyebrow{margin-bottom:14px}
+  .twins h3{font-family:var(--serif); font-weight:700; font-size:1.15rem; margin:0 0 14px}
+  .twins p{font-family:var(--serif); font-weight:500; font-size:1.18rem; line-height:1.4; color:var(--ink)}
+
+  /* ---- nutshell ---- */
+  .oneline{font-family:var(--serif); font-weight:700; font-size:clamp(1.3rem,1rem + 1.6vw,1.7rem); line-height:1.3; letter-spacing:-.01em; margin:0 0 26px}
+
+  /* ---- values & neighborhood blocks ---- */
+  .block{padding:30px 0; border-top:1px solid var(--hair)}
+  .block:first-of-type{border-top:none; padding-top:6px}
+  .term{font-family:var(--serif); font-style:italic; font-weight:500; font-size:1.55rem; line-height:1.1; margin:0 0 4px}
+  .term-rule{width:34px; height:2px; background:var(--forest); margin:10px 0 16px}
+  .gloss{font-family:var(--serif); font-style:italic; color:var(--muted); font-size:1.05rem; margin:0 0 14px}
+  .tag{font-size:.72rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin:0 0 12px}
+
+  /* ---- pact ---- */
+  .commit{padding:24px 0; border-top:1px solid var(--hair)}
+  .commit h3{font-family:var(--serif); font-weight:700; font-size:1.18rem; margin:0 0 10px}
+  .believe{list-style:none; margin:26px 0 0; padding:0}
+  .believe li{position:relative; padding-left:28px; margin:0 0 13px; color:var(--body)}
+  .believe li::before{content:""; position:absolute; left:0; top:11px; width:9px; height:9px; background:var(--forest); border-radius:50%}
+
+  /* ---- how we sound ---- */
+  .voice{padding:18px 0; border-top:1px solid var(--hair)}
+  .voice:first-of-type{border-top:none}
+  .voice b{font-family:var(--serif); font-weight:700; font-style:italic; color:var(--ink)}
+  .altitudes{margin-top:40px; padding-top:34px; border-top:1px solid var(--hair)}
+  .altitudes h3{font-family:var(--serif); font-weight:700; font-size:1.2rem; margin:0 0 18px}
+
+  /* ---- key messages ---- */
+  .km{display:flex; gap:26px; align-items:flex-start; padding:30px 0; border-top:1px solid var(--hair)}
+  .km:first-of-type{border-top:none}
+  .km .num{font-family:var(--serif); font-weight:700; font-size:3.2rem; line-height:.8; color:var(--ember); flex:none; width:56px}
+  .km h3{font-family:var(--serif); font-weight:700; font-size:1.28rem; line-height:1.22; margin:2px 0 10px}
+  .km p{margin:0}
+
+  /* ---- how we look ---- */
+  .lockup{
+    display:flex; align-items:center; justify-content:center; gap:24px;
+    padding:48px 20px; border:1px solid var(--hair); border-radius:4px; margin:8px 0 40px;
+  }
+  .lockup .pine{height:96px}
+  .lockup .wordmark{font-size:2rem}
+  .specimen{display:grid; grid-template-columns:1fr 1fr; gap:34px; margin:0 0 44px}
+  .spec h4{margin:0 0 4px; font-size:.72rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--muted)}
+  .spec .glyph{font-size:3.4rem; line-height:1.1; color:var(--ink)}
+  .spec .glyph.serif{font-family:var(--serif); font-weight:700}
+  .spec .glyph.sans{font-family:var(--sans); font-weight:600; letter-spacing:-.02em}
+  .spec .sample{font-size:.95rem; color:var(--muted); margin-top:6px}
+  .spec .sample.serif{font-family:var(--serif)}
+  .swatches{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:8px 0 48px}
+  .chip{height:92px; border-radius:4px; margin-bottom:12px}
+  .swatch .name{font-weight:600; font-size:.95rem}
+  .swatch .hex{font-size:.78rem; color:var(--muted); letter-spacing:.04em; margin-top:1px}
+  .swatch .role{font-size:.82rem; color:var(--muted); margin-top:6px; line-height:1.45}
+  .woodwrap{text-align:center; margin:8px 0 0}
+  .wood{height:150px; width:auto; color:var(--forest)}
+  .woodcap{font-family:var(--serif); font-style:italic; color:var(--muted); margin-top:14px; font-size:1rem}
+
+  /* ---- footer ---- */
+  footer{border-top:1px solid var(--hair); padding:50px 0 70px; text-align:center}
+  .footpine{height:40px; color:var(--forest); opacity:.9}
+  footer .fname{font-family:var(--serif); font-weight:700; font-size:1.05rem; margin-top:10px}
+  footer .ftag{color:var(--muted); font-size:.88rem; margin-top:4px}
+
+  /* ---- motion ---- */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease}
+    .reveal.in{opacity:1; transform:none}
+  }
+
+  @media (max-width:640px){
+    body{font-size:17px}
+    .twins, .specimen, .swatches{grid-template-columns:1fr}
+    .swatches{grid-template-columns:1fr 1fr}
+    .masthead{gap:16px}
+    .pine{height:60px}
+    .wordmark{font-size:1.45rem}
+    .km{gap:18px}
+    .km .num{width:42px; font-size:2.6rem}
+    .lockup{gap:18px; padding:36px 16px}
+    .lockup .pine{height:80px}
+    .lockup .wordmark{font-size:1.55rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead reveal">
+    <svg class="pine" viewBox="-8 0 130 182" role="img" aria-label="Nordic Media Lab pine"><path d="M62.9185 0C63.0374 0.0875785 100.976 28.056 106.529 63.75C107.624 70.7892 82.5537 49.9799 69.9439 39.1299L69.8433 54.8398C83.2477 62.8301 111.797 82.7946 116.029 110C117.169 117.328 84.161 97.3654 69.6274 88.2578L69.5171 105.396C80.77 112.642 101.974 128.751 113.029 153C116.07 159.67 84.0775 144.73 69.3091 137.561L69.0806 173.103L69.0669 173.515C68.8253 177.74 65.3088 181.078 61.0288 181.051C56.7488 181.023 53.2756 177.64 53.0884 173.412L53.0806 173L53.3023 138.552C34.5588 148.073 -7.05332 168.01 1.02882 153C3.67925 148.078 37.3234 120.791 53.5005 107.834L53.5845 94.8076C40.7953 108.862 18.8542 129.996 14.0288 115.5C11.5394 108.021 38.9834 76.835 53.8042 60.7266L53.9194 42.7832C40.827 56.3685 17.5933 77.7762 13.1216 63.75C10.5353 55.6376 62.9185 0 62.9185 0Z" fill="currentColor"/></svg>
+    <div class="wordmark"><span>Nordic</span><span>Media</span><span>Lab</span></div>
+  </header>
+
+  <div class="hero reveal">
+    <p class="lede">We are the only alliance that provides knowledge, funding and shared infrastructure for entrepreneurs building ethical technology rooted in Nordic values <em>(dannelse, tillid, sammenhængskraft)</em> — unlike the dominant startup model, built to prioritise scale over ethics.</p>
+    <p class="epigraph">A brand is not what you say it is. It's what they say it is.<cite>— Marty Neumeier</cite></p>
+  </div>
+
+  <section class="reveal">
+    <p class="eyebrow">Purpose</p>
+    <p class="note">Why we exist. The reason that never changes.</p>
+    <p>How we communicate, trust, organise, and remember has quietly been moved into the hands of a few multinational corporations whose incentives were never ours. No one decided this. It happened one convenient login at a time. A people that no longer owns its digital ground slowly loses what that ground was meant to hold: the trust between strangers, the cohesion that lets a society act as one, the formation of free and capable citizens.</p>
+    <p>The Nordics know another way. We built cooperatives, folk high schools, and movements that put people before growth and kept the economy ethical. We made small countries strong by trusting one another. That tradition has no home yet in the digital world.</p>
+    <p>Nordic Media Lab exists to give it one. Our unique role is to build an ethical, democratic digital infrastructure that benefits all of us, and is owned by all of us.</p>
+  </section>
+
+  <section class="reveal">
+    <div class="twins">
+      <div>
+        <p class="eyebrow">Mission</p>
+        <h3>The how</h3>
+        <p>Gather the people building ethical technology and give them the knowledge, funding, and shared infrastructure to stay independent.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Vision</p>
+        <h3>The what</h3>
+        <p>A Nordic region the world looks to, where the digital world is owned by everyone who lives in it, and technology serves people, not the other way around.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <p class="eyebrow">In a nutshell</p>
+    <p class="oneline">Nordic Media Lab is the alliance helping Nordic founders build ethical technology, by giving them the knowledge, funding, and shared infrastructure to stay independent.</p>
+    <p>Nordic Media Lab gathers the people building ethical technology based on three Nordic values (dannelse, tillid, sammenhængskraft). We exist because the digital ground we live on, how we communicate, trust, and organise, has slipped into the hands of a few corporations whose incentives were never ours. We give founders three things to stay independent: knowledge, funding, and shared infrastructure. Together we are building a digital world, owned by everyone who lives in it, where technology serves us and not the other way around.</p>
+  </section>
+
+  <section class="reveal">
+    <p class="eyebrow">Our values</p>
+    <p class="note">These are the three things a people loses when it no longer owns its digital ground, and the three we exist to protect.</p>
+    <div class="block">
+      <p class="term">Dannelse</p><div class="term-rule"></div>
+      <p class="gloss">The lifelong formation of a free, whole, and capable human being.</p>
+      <p>There is no clean English word for it. It sits closer to the German <span class="dk">Bildung</span> than to "education," and it is the opposite of training. We build for the person who is becoming more themselves, not less. Technology should form people, not capture them.</p>
+    </div>
+    <div class="block">
+      <p class="term">Tillid</p><div class="term-rule"></div>
+      <p class="gloss">Trust. The quiet confidence that lets strangers cooperate without watching their backs.</p>
+      <p>It is the social capital that makes small Nordic societies strong, and the first thing surveillance takes. We build infrastructure you do not have to fear: systems where you own your data, where incentives are visible, and where keeping your word still means something.</p>
+    </div>
+    <div class="block">
+      <p class="term">Sammenhængskraft</p><div class="term-rule"></div>
+      <p class="gloss">Cohesion. The force that holds a society together.</p>
+      <p>The nearest English, "social cohesion," sounds like policy. The Danish means something closer to gravity. We build the shared ground, the common protocols and open infrastructure, that lets a society act as one again instead of fracturing into a thousand audiences.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <p class="eyebrow">Our neighborhood</p>
+    <p class="note">A brand is partly defined by the company it keeps. We do not claim them. We learn from them, and we hope to be counted among them.</p>
+    <div class="block">
+      <p class="tag">Dannelse</p>
+      <p class="term" style="font-style:normal;font-size:1.3rem">The Folk High School Movement</p>
+      <p>Grundtvig's idea, made real in 1844: a school with no exams and no ranking, where free people form themselves by living and learning together. We are building its digital descendant, a place that forms people rather than captures them.</p>
+    </div>
+    <div class="block">
+      <p class="tag">Sammenhængskraft</p>
+      <p class="term" style="font-style:normal;font-size:1.3rem">Andelsbevægelsen</p>
+      <p>From 1882, Danish farmers pooled their money to own the dairy together, one member one vote, so no middleman could own them. We are building its digital form: infrastructure owned in common, so the people who depend on it are never at the mercy of those who would extract from them.</p>
+    </div>
+    <div class="block">
+      <p class="tag">The commons</p>
+      <p class="term" style="font-style:normal;font-size:1.3rem">Creative Commons</p>
+      <p>A simple legal idea that changed the internet: knowledge and culture can be shared and owned by everyone. What they did for culture, we want to do for digital infrastructure.</p>
+    </div>
+    <div class="block">
+      <p class="tag">Tillid</p>
+      <p class="term" style="font-style:normal;font-size:1.3rem">The Mozilla Foundation</p>
+      <p>A non-profit that keeps a piece of critical internet infrastructure open and answerable to no shareholder, and sustains the open-source movement with funding, knowledge, and advocacy, the same things we set out to give.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <p class="eyebrow">Our pact</p>
+    <p>To be a member, you must work for and support our common pact. With it, we declare that we work to develop and support technology that puts people before machines, community and privacy before profit, and transparency before manipulation. We thereby become part of Nordic Media Lab. We commit to:</p>
+    <div class="commit">
+      <h3>Transparent business models</h3>
+      <p>Our business models are open, understandable and fair. Users must know the terms, and have real power over their own data. Our solutions must give people control, not just consent boxes.</p>
+    </div>
+    <div class="commit">
+      <h3>Design with conscience</h3>
+      <p>We do not build technology for technology's sake. We design with people at the center, with respect for their attention, well-being and dignity. We build on protocols and standards where data can be freely exchanged and moved between platforms and services.</p>
+    </div>
+    <div class="commit">
+      <h3>Organization and ownership</h3>
+      <p>We work for an organization and ownership that protects transparent business models and conscientious design, so that our project cannot be sold to owners who work against the Nordic Media Pact.</p>
+    </div>
+    <ul class="believe">
+      <li>That democratic infrastructure is a prerequisite for a free and enlightened society.</li>
+      <li>That collective ownership and cooperation create stronger and fairer solutions.</li>
+      <li>That long-term thinking and responsibility must prevail over short-term growth.</li>
+    </ul>
+  </section>
+
+  <section class="reveal">
+    <p class="eyebrow">How we sound</p>
+    <p class="note">Our voice is the Pact, spoken. Plain enough for a citizen, precise enough for a minister, warm enough that a founder wants to join.</p>
+    <div class="voice"><b>Plain, not technical.</b> We explain, we do not impress. Jargon keeps people out. We write to let them in.</div>
+    <div class="voice"><b>Hopeful, not doom-saying.</b> We name what is broken, then turn to what we are building. Others sell fear. We offer a way forward.</div>
+    <div class="voice"><b>Confident, not grandiose.</b> Nordic understatement. We say what we will do, and then we do it.</div>
+    <div class="voice"><b>Collective, not corporate.</b> We speak as "we" and "us," a fællesskab. The members are the movement.</div>
+    <div class="voice"><b>Concrete, not abstract.</b> We show the dairy, the browser, the folk high school. We avoid empty words like ecosystem, synergy, leverage, disruption.</div>
+    <div class="voice"><b>Honest about the terms, never manipulative.</b> We state the price, the trade-off, the catch. How we write is itself proof of the Pact.</div>
+    <div class="voice"><b>Inviting, not selling.</b> We open a door. We do not close a deal.</div>
+    <div class="voice"><b>Rooted, not nostalgic.</b> We honour Grundtvig and the cooperatives, but we build forward.</div>
+    <div class="altitudes">
+      <h3>One voice, three altitudes</h3>
+      <p>To founders, we are peers and fellow builders: practical, candid, useful. To ministers and foundations, we are serious and credible, but we never hide the human stakes behind policy language. To citizens, we are clear and welcoming, never talking down. The test in every room is the same: does this sound like a person who respects the reader?</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <p class="eyebrow">Key messages</p>
+    <p class="note">Three things every member can say, so we speak with one voice.</p>
+    <div class="km"><div class="num">1</div><div><h3>The digital world we depend on is owned by the wrong people.</h3><p>How we communicate, trust, and organise has slipped into the hands of a few corporations whose incentives were never ours.</p></div></div>
+    <div class="km"><div class="num">2</div><div><h3>We help the people building the alternative stay independent.</h3><p>Nordic Media Lab gives founders of ethical technology three things they cannot easily get alone: knowledge, funding, and shared infrastructure.</p></div></div>
+    <div class="km"><div class="num">3</div><div><h3>The Nordics have built fairer systems before, and can again.</h3><p>We did it with cooperatives and folk high schools. Now we can build a digital world owned by everyone who lives in it.</p></div></div>
+  </section>
+
+  <section class="reveal">
+    <p class="eyebrow">How we look</p>
+    <p class="note">Rooted and considered. An evergreen Nordic pine, beside a classical serif.</p>
+
+    <div class="lockup">
+      <svg class="pine" viewBox="-8 0 130 182" role="img" aria-label="Nordic Media Lab pine"><path d="M62.9185 0C63.0374 0.0875785 100.976 28.056 106.529 63.75C107.624 70.7892 82.5537 49.9799 69.9439 39.1299L69.8433 54.8398C83.2477 62.8301 111.797 82.7946 116.029 110C117.169 117.328 84.161 97.3654 69.6274 88.2578L69.5171 105.396C80.77 112.642 101.974 128.751 113.029 153C116.07 159.67 84.0775 144.73 69.3091 137.561L69.0806 173.103L69.0669 173.515C68.8253 177.74 65.3088 181.078 61.0288 181.051C56.7488 181.023 53.2756 177.64 53.0884 173.412L53.0806 173L53.3023 138.552C34.5588 148.073 -7.05332 168.01 1.02882 153C3.67925 148.078 37.3234 120.791 53.5005 107.834L53.5845 94.8076C40.7953 108.862 18.8542 129.996 14.0288 115.5C11.5394 108.021 38.9834 76.835 53.8042 60.7266L53.9194 42.7832C40.827 56.3685 17.5933 77.7762 13.1216 63.75C10.5353 55.6376 62.9185 0 62.9185 0Z" fill="currentColor"/></svg>
+      <div class="wordmark"><span>Nordic</span><span>Media</span><span>Lab</span></div>
+    </div>
+
+    <div class="specimen">
+      <div class="spec">
+        <span class="glyph serif">Aa</span>
+        <h4>Playfair Display — display</h4>
+        <p class="sample serif">Titles, headlines, the wordmark.</p>
+      </div>
+      <div class="spec">
+        <span class="glyph sans">Aa</span>
+        <h4>Inter — text</h4>
+        <p class="sample">Running text, open-source, self-hosted.</p>
+      </div>
+    </div>
+
+    <div class="swatches">
+      <div class="swatch">
+        <div class="chip" style="background:#FEFBF4; border:1px solid var(--hair)"></div>
+        <div class="name">Paper</div><div class="hex">#FEFBF4</div>
+        <div class="role">Default background.</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#1D1F29"></div>
+        <div class="name">Ink</div><div class="hex">#1D1F29</div>
+        <div class="role">Text and the wordmark.</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#5BA77F"></div>
+        <div class="name">Forest</div><div class="hex">#5BA77F</div>
+        <div class="role">The pine. Our signature.</div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#FF881B"></div>
+        <div class="name">Ember</div><div class="hex">#FF881B</div>
+        <div class="role">Accent, used sparingly.</div>
+      </div>
+    </div>
+
+    <div class="woodwrap">
+      <svg class="wood" viewBox="0 0 251 265" role="img" aria-label="A wood of four pines"><path d="M40.1177 91C40.1935 91.0561 64.3838 108.976 67.9243 131.845C68.6225 136.355 52.6374 123.022 44.5972 116.071L44.5331 126.136C53.0799 131.255 71.2831 144.047 73.9816 161.477C74.7085 166.173 53.6623 153.382 44.3955 147.547L44.3251 158.527C51.5001 163.17 65.0202 173.491 72.0688 189.028C74.0077 193.301 53.609 183.729 44.1925 179.136L44.0468 201.907L44.038 202.171C43.884 204.879 41.6418 207.018 38.9128 207C36.1839 206.982 33.9693 204.815 33.8499 202.106L33.8449 201.842L33.9863 179.771C22.0352 185.871 -4.4973 198.644 0.655989 189.028C2.34594 185.874 23.7979 168.391 34.1127 160.09L34.1662 151.744C26.0117 160.748 12.0217 174.289 8.94498 165.001C7.3577 160.21 24.8564 140.228 34.3063 129.908L34.3798 118.411C26.0319 127.115 11.2177 140.832 8.36652 131.845C6.71746 126.647 40.1177 91 40.1177 91Z" fill="currentColor"/><path d="M225.359 108C225.417 108.043 243.723 121.637 246.402 138.986C246.931 142.407 234.834 132.293 228.749 127.019L228.701 134.655C235.169 138.539 248.944 148.242 250.986 161.466C251.536 165.028 235.609 155.325 228.597 150.898L228.543 159.228C233.973 162.75 244.204 170.58 249.539 182.366C251.006 185.608 235.569 178.346 228.443 174.861L228.333 192.137L228.326 192.337C228.209 194.391 226.513 196.013 224.448 196C222.382 195.986 220.706 194.342 220.616 192.287L220.612 192.087L220.719 175.343C211.675 179.971 191.597 189.661 195.496 182.366C196.775 179.973 213.009 166.711 220.815 160.413L220.856 154.081C214.684 160.913 204.097 171.185 201.769 164.139C200.568 160.504 213.81 145.346 220.962 137.516L221.017 128.795C214.7 135.398 203.489 145.803 201.331 138.986C200.083 135.043 225.359 108 225.359 108Z" fill="currentColor"/><path d="M122.224 71C122.351 71.0938 162.886 101.063 168.819 139.31C169.989 146.852 143.203 124.555 129.73 112.929L129.623 129.762C143.945 138.324 174.447 159.716 178.969 188.867C180.187 196.72 144.921 175.329 129.392 165.57L129.274 183.934C141.297 191.698 163.953 208.96 175.764 234.943C179.013 242.09 144.831 226.081 129.052 218.399L128.808 256.483L128.793 256.925C128.535 261.452 124.778 265.029 120.205 265C115.632 264.97 111.921 261.345 111.721 256.815L111.713 256.373L111.95 219.461C91.9238 229.663 47.464 251.026 56.0992 234.943C58.931 229.669 94.8776 200.43 112.162 186.546L112.252 172.588C98.5871 187.648 75.1445 210.293 69.9889 194.761C67.3291 186.747 96.6512 153.33 112.486 136.07L112.609 116.843C98.6209 131.4 73.7973 154.339 69.0196 139.31C66.2563 130.617 122.224 71 122.224 71Z" fill="currentColor"/><path d="M194.612 0C194.676 0.0469211 214.943 15.0313 217.91 34.1548C218.495 37.9261 205.102 26.7773 198.365 20.9643L198.311 29.381C205.472 33.6619 220.724 44.3581 222.985 58.9337C223.594 62.8599 205.96 52.1645 198.196 47.2851L198.137 56.4668C204.149 60.349 215.476 68.9798 221.382 81.9714C223.006 85.5452 205.916 77.5407 198.026 73.6996L197.904 92.7416L197.897 92.9623C197.768 95.2261 195.889 97.0147 193.603 96.9999C191.316 96.9851 189.461 95.1726 189.361 92.9074L189.357 92.6866L189.475 74.2306C179.462 79.3316 157.232 90.013 161.55 81.9714C162.966 79.3343 180.939 64.715 189.581 57.7732L189.626 50.7942C182.794 58.3241 171.072 69.6467 168.494 61.8804C167.165 57.8737 181.826 41.1652 189.743 32.5349L189.805 22.9216C182.81 30.2 170.399 41.6694 168.01 34.1548C166.628 29.8085 194.612 0 194.612 0Z" fill="currentColor"/></svg>
+      <p class="woodcap">A single pine is one builder. A wood is the movement.</p>
+    </div>
+  </section>
+
+  <footer>
+    <svg class="footpine" viewBox="-8 0 130 182" aria-hidden="true"><path d="M62.9185 0C63.0374 0.0875785 100.976 28.056 106.529 63.75C107.624 70.7892 82.5537 49.9799 69.9439 39.1299L69.8433 54.8398C83.2477 62.8301 111.797 82.7946 116.029 110C117.169 117.328 84.161 97.3654 69.6274 88.2578L69.5171 105.396C80.77 112.642 101.974 128.751 113.029 153C116.07 159.67 84.0775 144.73 69.3091 137.561L69.0806 173.103L69.0669 173.515C68.8253 177.74 65.3088 181.078 61.0288 181.051C56.7488 181.023 53.2756 177.64 53.0884 173.412L53.0806 173L53.3023 138.552C34.5588 148.073 -7.05332 168.01 1.02882 153C3.67925 148.078 37.3234 120.791 53.5005 107.834L53.5845 94.8076C40.7953 108.862 18.8542 129.996 14.0288 115.5C11.5394 108.021 38.9834 76.835 53.8042 60.7266L53.9194 42.7832C40.827 56.3685 17.5933 77.7762 13.1216 63.75C10.5353 55.6376 62.9185 0 62.9185 0Z" fill="currentColor"/></svg>
+    <div class="fname">Nordic Media Lab</div>
+    <div class="ftag">Sammen skaber vi en demokratisk digital infrastruktur.</div>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>
