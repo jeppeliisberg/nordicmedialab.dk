@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forest · Nordic Media Lab</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=inter:400,500,600|playfair-display:400,500,700,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FEFBF4; --ink:#1D1F29; --forest:#39A97C; --ember:#FF881B;
+    --muted:rgba(29,31,41,.56); --body:rgba(29,31,41,.9); --hair:rgba(29,31,41,.13);
+    --faint:rgba(29,31,41,.045);
+    --content:680px; --nav:232px; --gap:52px;
+    --serif:'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono:'SFMono-Regular', ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:20px}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:18px; line-height:1.72;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--forest); color:var(--paper)}
+
+  /* ---- page frame ---- */
+  .page{max-width:var(--content); margin:0 auto; padding:0 28px}
+  .content{min-width:0}
+
+  a{color:inherit}
+  .content a, .pagehead a{text-decoration:none; border-bottom:2px solid var(--ember); padding-bottom:1px}
+  .content a:hover, .pagehead a:hover{color:var(--ink)}
+  :focus-visible{outline:2px solid var(--forest); outline-offset:3px; border-radius:2px}
+
+  /* ---- masthead ---- */
+  .masthead{display:flex; align-items:center; gap:20px; padding:64px 0 0}
+  .pine{height:74px; width:auto; color:var(--forest); flex:none}
+  .wordmark{font-family:var(--serif); font-weight:900; font-size:1.7rem; line-height:.96; letter-spacing:-.012em}
+  .wordmark span{display:block}
+
+  /* ---- page head ---- */
+  .pagehead{padding:34px 0 6px; max-width:var(--content)}
+  .doctitle{font-family:var(--serif); font-weight:700; font-size:clamp(2.6rem,1.5rem+4.4vw,4rem); line-height:1.0; letter-spacing:-.024em; margin:0; color:var(--ink)}
+  .subtitle{font-family:var(--serif); font-style:italic; color:var(--muted); font-size:clamp(1.05rem,.9rem+.6vw,1.32rem); margin:18px 0 0; line-height:1.4; max-width:40ch}
+  .pagehead .standfirst{font-family:var(--serif); font-weight:500; font-size:clamp(1.2rem,1rem+1vw,1.5rem); line-height:1.34; letter-spacing:-.01em; color:var(--ink); margin:26px 0 0}
+  .pagehead .source{margin:24px 0 0; padding-left:18px; border-left:2px solid var(--forest); color:var(--muted); font-size:.92rem; line-height:1.5}
+  .pagehead .source code{font-size:.85em}
+
+  /* ---- table of contents ---- */
+  .toc{padding:30px 32px 32px; margin:42px 0 0; border:1px solid var(--hair);
+       border-radius:10px; background:var(--faint); scroll-margin-top:20px}
+  .toc-head{font-size:.7rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0 0 22px}
+  .toc-list{display:grid; grid-template-columns:1fr 1fr; gap:28px 44px}
+  .toc-doc{margin:0; min-width:0}
+  .toc-doc-link{display:flex; gap:9px; align-items:baseline; font-family:var(--serif); font-weight:700;
+                font-size:1.05rem; line-height:1.2; color:var(--ink); border:none; padding:0; margin:0 0 10px}
+  .toc-doc-link:hover{color:var(--forest)}
+  .toc-num{font-size:.74rem; font-weight:600; color:var(--ember); font-family:var(--sans); flex:none; position:relative; top:-1px}
+  .toc-sub{list-style:none; margin:0 0 0 23px; padding:0; border-left:1px solid var(--hair)}
+  .toc-sub li{margin:0}
+  .toc-sub a{display:block; color:var(--muted); border:none; padding:3px 0 3px 14px; margin-left:-1px;
+             line-height:1.34; font-size:.85rem; border-left:2px solid transparent}
+  .toc-sub a:hover{color:var(--ink); border-left-color:var(--forest)}
+
+  /* ---- floating back-to-contents link ---- */
+  .backtop{position:fixed; right:22px; bottom:22px; z-index:50;
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 16px 10px 13px; background:var(--paper);
+    border:1px solid var(--hair); border-radius:999px; text-decoration:none;
+    font-family:var(--sans); font-size:.82rem; font-weight:600; letter-spacing:.03em; color:var(--ink);
+    box-shadow:0 6px 22px rgba(29,31,41,.12); cursor:pointer;
+    opacity:0; visibility:hidden; transform:translateY(8px);
+    transition:opacity .35s ease, transform .35s ease, visibility .35s ease, border-color .2s ease, color .2s ease}
+  .backtop.show{opacity:1; visibility:visible; transform:none}
+  .backtop:hover{border-color:var(--forest); color:var(--forest)}
+  .backtop svg{width:14px; height:14px; color:var(--forest); flex:none}
+  .backtop:hover svg{color:var(--forest)}
+
+  /* ---- documents ---- */
+  .doc{padding:60px 0; scroll-margin-top:20px}
+  .doc + .doc{border-top:1px solid var(--hair)}
+  .doc:first-of-type{padding-top:30px}
+  .eyebrow{font-family:var(--sans); font-size:.72rem; font-weight:600; letter-spacing:.2em;
+           text-transform:uppercase; color:var(--muted); margin:0 0 18px; display:flex; align-items:center; gap:10px}
+  .eyebrow::before{content:""; width:18px; height:2px; background:var(--ember); display:inline-block}
+  .doc-title{font-family:var(--serif); font-weight:700; line-height:1.04; letter-spacing:-.02em;
+             font-size:clamp(2rem,1.4rem+2.4vw,2.7rem); margin:0 0 8px; color:var(--ink); scroll-margin-top:24px}
+
+  /* ---- prose ---- */
+  .content h2{font-family:var(--serif); font-weight:700; line-height:1.12; letter-spacing:-.015em;
+              font-size:clamp(1.55rem,1.15rem+1.6vw,2rem); margin:54px 0 18px; scroll-margin-top:24px}
+  .content h3{font-family:var(--serif); font-weight:700; font-size:1.24rem; line-height:1.2;
+              margin:34px 0 12px; letter-spacing:-.01em; scroll-margin-top:24px}
+  .content p{margin:0 0 1.15em; color:var(--body)}
+  .content p.note{font-family:var(--serif); font-style:italic; color:var(--muted); font-size:1.05rem; margin:-2px 0 24px; line-height:1.5}
+  .doc-title + .note{margin-top:6px}
+  .content strong{font-weight:600; color:var(--ink)}
+  .content em{font-style:italic}
+
+  /* ---- lists ---- */
+  .content ul, .content ol{margin:0 0 1.15em; padding:0 0 0 2px; color:var(--body)}
+  .content li{position:relative; list-style:none; padding-left:26px; margin:0 0 11px; line-height:1.6}
+  .content ul > li::before{content:""; position:absolute; left:4px; top:.62em; width:8px; height:8px; background:var(--forest); border-radius:50%}
+  .content ol{counter-reset:li}
+  .content ol > li{counter-increment:li}
+  .content ol > li::before{content:counter(li); position:absolute; left:0; top:.04em;
+        font-family:var(--serif); font-weight:700; font-size:.92rem; color:var(--ember); line-height:1.6}
+  .content li > ul, .content li > ol{margin:11px 0 4px}
+
+  /* ---- inline code ---- */
+  .content code{font-family:var(--mono); font-size:.82em; background:var(--faint);
+                border:1px solid var(--hair); border-radius:4px; padding:.08em .36em}
+
+  /* ---- pre / ascii diagram ---- */
+  .content pre{font-family:var(--mono); background:var(--faint); border:1px solid var(--hair);
+               border-radius:6px; padding:20px 22px; margin:0 0 1.4em; overflow-x:auto;
+               line-height:1.5; font-size:.8rem; color:var(--ink); white-space:pre; tab-size:2}
+  .content pre code{background:none; border:none; padding:0; font-size:inherit}
+
+  /* ---- tables ---- */
+  .table-wrap{overflow-x:auto; margin:0 0 1.6em; border:1px solid var(--hair); border-radius:6px;
+              -webkit-overflow-scrolling:touch}
+  .content table{border-collapse:collapse; width:100%; font-size:.82rem; line-height:1.45; min-width:560px}
+  .content th, .content td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--hair);
+                           border-right:1px solid var(--hair); vertical-align:top; color:var(--body)}
+  .content th:last-child, .content td:last-child{border-right:none}
+  .content thead th{font-family:var(--sans); font-weight:600; color:var(--ink);
+                    background:var(--faint); letter-spacing:.01em; white-space:nowrap}
+  .content tbody tr:last-child td{border-bottom:none}
+  .content tbody td:first-child{font-weight:600; color:var(--ink); white-space:nowrap}
+
+  /* ---- blockquote (fallback) ---- */
+  .content blockquote{margin:0 0 1.3em; padding-left:18px; border-left:2px solid var(--forest); color:var(--muted)}
+
+  /* ---- footer ---- */
+  footer{border-top:1px solid var(--hair); padding:50px 0 70px; text-align:center; margin-top:8px}
+  .footpine{height:40px; color:var(--forest); opacity:.9}
+  footer .fname{font-family:var(--serif); font-weight:700; font-size:1.05rem; margin-top:10px}
+  footer .ftag{color:var(--muted); font-size:.88rem; margin-top:4px}
+
+  /* ---- document header with print button ---- */
+  .doc-head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin:0 0 18px}
+  .doc-head .eyebrow{margin:0}
+  .printbtn{flex:none; display:inline-flex; align-items:center; gap:7px;
+    font-family:var(--sans); font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); background:none; border:1px solid var(--hair); border-radius:999px;
+    padding:6px 13px; cursor:pointer; line-height:1; transition:border-color .2s ease, color .2s ease}
+  .printbtn:hover{border-color:var(--forest); color:var(--forest)}
+  .printbtn:active{transform:translateY(1px)}
+  .printbtn svg{width:13px; height:13px}
+
+  /* ---- motion ---- */
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease}
+    .reveal.in{opacity:1; transform:none}
+  }
+
+  /* ---- responsive ---- */
+  @media (max-width:640px){
+    body{font-size:17px}
+    .masthead{gap:16px}
+    .pine{height:60px}
+    .wordmark{font-size:1.45rem}
+    .content pre{font-size:.72rem; padding:16px}
+    .toc{padding:26px 22px 28px}
+    .toc-list{grid-template-columns:1fr; gap:24px}
+    .backtop{right:14px; bottom:14px}
+  }
+
+  /* ---- print ---- */
+  @page{margin:18mm}
+  @media print{
+    html, body{background:#fff}
+    .reveal{opacity:1 !important; transform:none !important}
+    .backtop, .printbtn{display:none !important}
+    .content a{border-bottom:none}
+    /* single-document print: hide page chrome and the other documents */
+    body.printing .masthead,
+    body.printing .pagehead,
+    body.printing .toc,
+    body.printing footer{display:none !important}
+    body.printing .doc{display:none !important}
+    body.printing .doc.print-target{display:block !important; padding-top:0; border-top:none}
+    /* sensible page breaks */
+    .doc-title, .content h2, .content h3{break-after:avoid-page}
+    .content pre, .table-wrap, .content li{break-inside:avoid}
+    .content p{orphans:3; widows:3}
+  }
+</style>
+<noscript><style>.reveal{opacity:1 !important; transform:none !important}</style></noscript>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead reveal">
+    <svg class="pine" viewBox="-8 0 130 182" role="img" aria-label="Nordic Media Lab pine"><path d="M62.9185 0C63.0374 0.0875785 100.976 28.056 106.529 63.75C107.624 70.7892 82.5537 49.9799 69.9439 39.1299L69.8433 54.8398C83.2477 62.8301 111.797 82.7946 116.029 110C117.169 117.328 84.161 97.3654 69.6274 88.2578L69.5171 105.396C80.77 112.642 101.974 128.751 113.029 153C116.07 159.67 84.0775 144.73 69.3091 137.561L69.0806 173.103L69.0669 173.515C68.8253 177.74 65.3088 181.078 61.0288 181.051C56.7488 181.023 53.2756 177.64 53.0884 173.412L53.0806 173L53.3023 138.552C34.5588 148.073 -7.05332 168.01 1.02882 153C3.67925 148.078 37.3234 120.791 53.5005 107.834L53.5845 94.8076C40.7953 108.862 18.8542 129.996 14.0288 115.5C11.5394 108.021 38.9834 76.835 53.8042 60.7266L53.9194 42.7832C40.827 56.3685 17.5933 77.7762 13.1216 63.75C10.5353 55.6376 62.9185 0 62.9185 0Z" fill="currentColor"/></svg>
+    <div class="wordmark"><span>Nordic</span><span>Media</span><span>Lab</span></div>
+  </header>
+
+  <div class="pagehead reveal">
+    <h1 class="doctitle">Forest</h1>
+    <p class="subtitle">A Nordic media federation framework, in four documents.</p>
+    <p class="standfirst">Forest lets independent Nordic platforms interoperate as one network while each stays sovereign. It is built on ActivityPub and owned in common through Nordic Media Lab.</p>
+  </div>
+
+<nav class="toc reveal" id="contents" aria-label="Table of contents">
+  <p class="toc-head">Contents</p>
+  <div class="toc-list">
+  <div class="toc-doc">
+    <a class="toc-doc-link" href="#d1-top"><span class="toc-num">1</span>Forest: A Nordic Media Federation Framework</a>
+    <ul class="toc-sub">
+      <li><a href="#d1-in-one-line">In one line</a></li>
+      <li><a href="#d1-the-name">The name</a></li>
+      <li><a href="#d1-where-it-comes-from">Where it comes from</a></li>
+      <li><a href="#d1-why-activitypub-not-at-protocol">Why ActivityPub, not AT Protocol</a></li>
+      <li><a href="#d1-the-vocabulary">The vocabulary</a></li>
+      <li><a href="#d1-the-three-layers">The three layers</a></li>
+      <li><a href="#d1-how-forest-extends-activitypub">How Forest extends ActivityPub</a></li>
+      <li><a href="#d1-two-ways-to-adopt-it-native-or-at-the-edge">Two ways to adopt it: native or at the edge</a></li>
+      <li><a href="#d1-why-a-platform-would-adopt-it">Why a platform would adopt it</a></li>
+      <li><a href="#d1-how-a-platform-onboards">How a platform onboards</a></li>
+      <li><a href="#d1-what-forest-defines">What Forest defines</a></li>
+      <li><a href="#d1-governance-owned-in-common">Governance: owned in common</a></li>
+      <li><a href="#d1-why-build-it-this-way">Why build it this way</a></li>
+      <li><a href="#d1-status-and-next-step">Status and next step</a></li>
+    </ul>
+  </div>
+  <div class="toc-doc">
+    <a class="toc-doc-link" href="#d2-top"><span class="toc-num">2</span>Forest: Node Architecture</a>
+    <ul class="toc-sub">
+      <li><a href="#d2-the-node">The node</a></li>
+      <li><a href="#d2-a-picture-before-the-details">A picture, before the details</a></li>
+      <li><a href="#d2-sub-nodes-optional">Sub-nodes, optional</a></li>
+      <li><a href="#d2-indexing-within-a-node">Indexing within a node</a></li>
+      <li><a href="#d2-discovery-across-the-network">Discovery across the network</a></li>
+      <li><a href="#d2-moderation-at-two-scopes">Moderation, at two scopes</a></li>
+      <li><a href="#d2-the-topology">The topology</a></li>
+      <li><a href="#d2-open-questions">Open questions</a></li>
+    </ul>
+  </div>
+  <div class="toc-doc">
+    <a class="toc-doc-link" href="#d3-top"><span class="toc-num">3</span>Forest: Card Format Specification</a>
+    <ul class="toc-sub">
+      <li><a href="#d3-the-model">The model</a></li>
+      <li><a href="#d3-identity-and-sequence-are-separate">Identity and sequence are separate</a></li>
+      <li><a href="#d3-what-belongs-in-the-protocol-and-what-does-not">What belongs in the protocol, and what does not</a></li>
+      <li><a href="#d3-the-four-basic-card-types">The four basic card types</a></li>
+      <li><a href="#d3-settings-advisory-hints-only">Settings: advisory hints only</a></li>
+      <li><a href="#d3-fallback-a-guarantee-not-a-choice">Fallback: a guarantee, not a choice</a></li>
+      <li><a href="#d3-beyond-the-basics-interactive-cards-later">Beyond the basics: interactive cards (later)</a></li>
+      <li><a href="#d3-access-and-monetization">Access and monetization</a></li>
+      <li><a href="#d3-open-decisions">Open decisions</a></li>
+      <li><a href="#d3-the-same-collection-on-different-platforms">The same collection, on different platforms</a></li>
+    </ul>
+  </div>
+  <div class="toc-doc">
+    <a class="toc-doc-link" href="#d4-top"><span class="toc-num">4</span>Forest: Protocol Evaluation</a>
+    <ul class="toc-sub">
+      <li><a href="#d4-what-we-are-choosing-for">What we are choosing for</a></li>
+      <li><a href="#d4-the-model-we-already-trust-email">The model we already trust: email</a></li>
+      <li><a href="#d4-option-a-activitypub">Option A: ActivityPub</a></li>
+      <li><a href="#d4-option-b-at-protocol-atproto-bluesky">Option B: AT Protocol (atproto / Bluesky)</a></li>
+      <li><a href="#d4-option-c-build-our-own-protocol">Option C: Build our own protocol</a></li>
+      <li><a href="#d4-option-d-extend-an-existing-protocol-the-recommended-directi">Option D: Extend an existing protocol (the recommended direction)</a></li>
+      <li><a href="#d4-two-questions-that-decide-how-far-we-can-lean-on-a-protocol">Two questions that decide how far we can lean on a protocol</a></li>
+      <li><a href="#d4-recommendation">Recommendation</a></li>
+      <li><a href="#d4-the-one-glance-comparison">The one-glance comparison</a></li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+  <main class="content">
+<section class="doc reveal" id="d1-top">
+  <div class="doc-head"><p class="eyebrow">Document 1 of 4</p><button class="printbtn" type="button" aria-label="Print this document"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg><span>Print</span></button></div>
+  <h1 class="doc-title" id="d1">Forest: A Nordic Media Federation Framework</h1>
+  
+<p class="note"><em>A concept brief. Forest lets independent Nordic media platforms interoperate as one network, while each stays sovereign. It is grown out of Duckling, built on ActivityPub, and owned in common through Nordic Media Lab. This is conceptual, not a technical spec. The Duckling briefs are the first implementation of these ideas.</em></p>
+<hr/>
+<h2 id="d1-in-one-line">In one line</h2>
+<p>Forest is a shared framework that lets independent Nordic media platforms, such as Duckling, Meningspunktet, Zen Social, Mio, Oase, Sociii, Theta, and Bobleberg, see each other's members, read each other's collections, and search across the whole network, while each platform governs itself. It is built on ActivityPub rather than invented from scratch, and it is owned in common through Nordic Media Lab, not by any single platform.</p>
+<p>It is also a framework that lets end users connect independently of platforms, the way email does. Two people only need each other's handles: one can be on Meningspunktet and the other on Theta, and neither ever has to leave their own platform to reach the other. This breaks the lock-in that captured network effects create. The value of being widely reachable, the thing that keeps people inside the big platforms, no longer belongs to any single platform, so no one is trapped by the fear of losing their network if they leave.</p>
+<hr/>
+<h2 id="d1-the-name">The name</h2>
+<p>Forest is the metaphor made literal, and it is where the framework gets both its name and its shape. Each platform is a tree: alive on its own, with its own roots, growing in its own direction. Forest is what lets the separate trees stand together as one wood, many sovereign platforms experienced as one network, with no single trunk owning the rest. The name carries the philosophy it serves: grow seed by seed, stay autonomous, belong to a whole.</p>
+<hr/>
+<h2 id="d1-where-it-comes-from">Where it comes from</h2>
+<p>Forest grew out of Duckling. Bjarke Winding's vision for Duckling's architecture, self-contained units, a uniting index, federation, and collections built from cards, turned out to be a general shape, not a Duckling-only one. Forest lifts that shape up one level: from one platform's own communities to a network of platforms. Duckling is the originating member and the first implementation. It is not the owner. The whole point of Forest is that no single platform owns it.</p>
+<hr/>
+<h2 id="d1-why-activitypub-not-at-protocol">Why ActivityPub, not AT Protocol</h2>
+<p>There are really only two viable foundations: ActivityPub, the protocol behind Mastodon and most of the fediverse, and the AT Protocol, the protocol behind Bluesky. Everything else is unproven, niche, or dead, and building our own would speak to no one, which is the single outcome a federation framework cannot afford. So the real choice is between these two.</p>
+<p>Forest is built on ActivityPub, for two reasons. The first is decisive: its shape is our shape. ActivityPub is a network of sovereign instances that federate as peers, each governing itself. That is exactly the forest, autonomous trees standing together. Self-hosting is normal and inexpensive, it is mature and widely spoken (Mastodon, WordPress, and more), and building on it means Forest platforms interoperate with the entire existing fediverse from day one, not only with each other.</p>
+<p>The second reason matters for a values-led network: governance. ActivityPub is an open standard stewarded by the World Wide Web Consortium, the independent, multi-stakeholder body that has maintained the core standards of the web for thirty years. AT Protocol's main support, by contrast, currently rests with a single company, Bluesky. Forest would rather build on a standard held by an independent body than on one whose direction depends largely on one firm. That is not anti-Bluesky; it is the same commitment Forest makes about itself, to be owned in common rather than by any single party.</p>
+<p>AT Protocol is impressive, and genuinely better at two things: portable identity, and built-in discovery. But its center of gravity is the opposite of ours. It is designed around one very large shared network with central aggregation, and in practice it is effectively a single network. That is the silo a forest is meant to be an alternative to. So we do not adopt its shape. We borrow its one genuinely better idea, portable identity, and layer it on top of ActivityPub, taking the good part without the centralization.</p>
+<p>Choosing ActivityPub does not cut us off from AT Protocol either. The two do not interoperate natively today, but bridges between them are being actively built (Bridgy Fed is the best known), so a Forest platform can still reach Bluesky and the wider AT Protocol world through a bridge, and that interoperability is more likely to grow than to shrink. We are choosing a foundation, not building a wall.</p>
+<p>In short: ActivityPub because it is a forest already and an open standard held in common, AT Protocol's best idea borrowed on top, our own protocol rejected because it would federate with nobody, and no door closed to AT Protocol because bridges are coming.</p>
+<hr/>
+<h2 id="d1-the-vocabulary">The vocabulary</h2>
+<p>Forest is platform-neutral, so it uses neutral words. Each platform maps its own names onto them.</p>
+<ul>
+<li><strong>Node</strong>: a platform on the network. Every platform is exactly one node. A node publishes its index, holds its safety seat, and federates with other nodes. Duckling is a node, and implements the node's index and safety seat as its Home Pond.</li>
+<li><strong>Sub-node</strong>: a self-contained community that sits beside a node and federates through it. A sub-node is the same kind of thing as a node, with its own members, roles, and content; only two things make it a sub-node rather than a node. It reaches the network through its node rather than federating directly, and it must expose the node's central feed. A node may have many sub-nodes or none. Duckling calls its sub-nodes Ponds.</li>
+<li><strong>Network</strong>: the whole Forest, all the nodes connected. Duckling and each partner platform is a node in it.</li>
+<li><strong>Card</strong>: the basic unit of content, holding one main thing (text, an image, video, or sound) plus its blocks and a few settings.</li>
+<li><strong>Collection</strong>: an ordered group of cards, the unit of content that travels. Duckling calls a collection a story.</li>
+</ul>
+<p>Sub-nodes are optional, the node is not. Every platform that federates is a node; most platforms are a single community and have no sub-nodes at all, which is the ordinary case, not a lesser one. A platform adds sub-nodes only if it wants to host several self-governing communities beside it that share its federation and its central feed. Cross-network federation always runs node to node; a sub-node's content reaches the network through its node, so another platform only ever sees nodes, never how many sub-nodes sit behind one. A sub-node that wants its own direct federation simply becomes a node.</p>
+<p>This is also how a platform grows without centralizing. Rather than scaling as one ever-larger central system, a node can let communities form beside it as self-governing sub-nodes, each running itself and each able to graduate into a full node. That federated, side-by-side way of growing is closer to Nordic Media Lab's values, communities that govern themselves, than the centralized growth of big tech, where scale means one company's servers and one company's rules.</p>
+<hr/>
+<h2 id="d1-the-three-layers">The three layers</h2>
+<p>Forest is a middle layer, and it is precise about what it is and what it is not.</p>
+<ol>
+<li><strong>ActivityPub underneath.</strong> The transport, shared with the whole fediverse. It moves objects between nodes and handles addressing and signatures. Forest does not reinvent this. Building on it means Forest platforms can already interoperate, at a basic level, with the entire existing fediverse, not only with each other.</li>
+<li><strong>Forest in the middle.</strong> What NML owns and shares: the card content format, the discovery conventions, portable identity, and the safety conventions. This is the layer that makes Nordic platforms interoperate richly, rather than at the lowest common denominator.</li>
+<li><strong>Each platform's own product on top.</strong> Duckling's Ponds and card essays, and each partner's own experience and design. This stays each platform's own.</li>
+</ol>
+<p>This layering is what keeps "built on ActivityPub, not our own protocol" true, while still giving NML something real to own and govern.</p>
+<hr/>
+<h2 id="d1-how-forest-extends-activitypub">How Forest extends ActivityPub</h2>
+<p>Forest is not a new protocol in the wire sense, and it is worth being precise about that, because it changes what a developer builds. ActivityPub does two jobs: it is a <strong>transport</strong> (how servers deliver activities to each other) and a <strong>vocabulary</strong> (ActivityStreams, expressed in JSON-LD, the shape of the objects sent: article, image, audio, with their properties). Forest touches only the vocabulary. It never touches the transport.</p>
+<p>That distinction is the whole discipline. The vocabulary is designed to be extended: JSON-LD lets anyone add their own terms under their own namespace, without colliding with anyone else's and without changing the base. Forest declares its terms, a card, a collection, a fit hint, under a Forest namespace, and they ride inside ordinary ActivityPub objects. A platform that understands Forest reads the Forest terms; one that does not ignores them and sees the standard article or audio underneath, which is exactly the fallback already built into the card format. This is the intended mechanism, not a workaround. It is how events, polls, and content warnings were all added to the fediverse without forking anything.</p>
+<p>So Forest is, technically, a profile and vocabulary extension of ActivityPub. "Framework" is the umbrella, because Forest is more than the vocabulary: it is the card format, plus the discovery, identity, and safety conventions, plus the shared governance. But underneath, the rule is simple and strict: <strong>extend the vocabulary freely, leave the transport alone.</strong> The moment anyone modifies the transport, Forest forks off the fediverse and has to be maintained as a separate protocol forever, the exact cost we are avoiding. Extension keeps us compatible with everyone. Modification cuts us off.</p>
+<p>One honest nuance. The standard makes Forest content carryable by every ActivityPub platform, and renderable in fallback by every one, for free. Making it richly understood, where a partner platform truly re-presents a Forest card rather than just storing it, depends on partners adopting the Forest vocabulary. That is cooperative work, not something the standard hands us. It is the same shape as everything else in Forest: an open base for everyone, a rich layer among those who agree to it.</p>
+<hr/>
+<h2 id="d1-two-ways-to-adopt-it-native-or-at-the-edge">Two ways to adopt it: native or at the edge</h2>
+<p>Forest can be adopted at two depths, and both are valid. A platform can make Forest cards its native internal format, the shape it actually stores and serves, so there is no translation step, because the card is the content. This is the deeper commitment, and it is the path Duckling takes as the originating member: federation becomes nearly free, because the platform already speaks the language, and the product gets the cleaner model as a side benefit. Or a platform can keep its own internal format and translate to and from cards only at the federation boundary, leaving its core untouched. That is the lighter on-ramp. The fallback rule makes both identical on the wire, a card with its plain fallback, so a receiving platform cannot tell which depth produced it, and the protocol mandates neither. Each platform chooses how deep into its stack the cards go.</p>
+<hr/>
+<h2 id="d1-why-a-platform-would-adopt-it">Why a platform would adopt it</h2>
+<p>A partner with a working content format will rightly ask why they should spend effort on Forest when plain ActivityPub already federates for free. The honest starting point is to concede what is true: you do not need Forest to federate, and rebuilding your format would be a bad trade. Neither is what Forest asks.</p>
+<p>Forest is a translator at the edge, not a rebuild. A platform keeps its own internal format untouched and adds an adapter at the federation boundary: emit a card with its plain fallback on the way out, read the fallback on the way in if it does not understand the card. That is the same move email made for a new attachment type, learn to emit and read one more part, not rewrite how mail is stored. The honest size is an export-and-import adapter, days to weeks, not a months-long rebuild. Anyone quoting months has mis-scoped it.</p>
+<p>What the adapter buys is the part no platform can build alone. Plain ActivityPub gives reach but flattens rich content at the border: a structured, multi-part piece arrives elsewhere as a plain post or a link. Forest is the layer that lets rich content stay rich among the platforms that speak it, while still arriving readable everywhere else. And it lets a member on one platform read, follow, and support a creator on another, natively. That cross-platform graph is a collective good. Quality on your own island cannot manufacture it; a shared vocabulary is the only way to get it.</p>
+<p>On lock-in, the honest answer is that the fallback removes the hard kind: every Forest card is also a plain ActivityStreams object, so a platform can stop speaking Forest tomorrow and still federate, just plainer. The real alternative to a shared standard is not freedom, it is building and maintaining a separate bridge to every other platform, forever, which is the heavier cage. And Forest is owned in common through NML, so a partner is a co-owner with a vote, not a licensee on someone's leash.</p>
+<p>One honest limit: a platform that only publishes simple text posts gains little from Forest, since plain ActivityPub already carries that well. For them the reason to join is the shared network and solidarity, not format richness, and it is better to say so than to oversell.</p>
+<hr/>
+<h2 id="d1-how-a-platform-onboards">How a platform onboards</h2>
+<p>Onboarding to Forest is roughly five steps, in dependency order. Most platforms already have the first, so the real work is the card format and the index.</p>
+<ol>
+<li><strong>Speak ActivityPub.</strong> Forest sits on it, so federation starts with the base transport. A platform that already federates has this.</li>
+<li><strong>Speak the card format at the boundary.</strong> Emit content as Forest cards with their plain fallbacks, and read incoming ones. Native or edge-translated, the platform's choice.</li>
+<li><strong>Map your platform to the vocabulary.</strong> Name your node, its sub-nodes, collections, and members in your own terms.</li>
+<li><strong>Publish your visible index.</strong> Your node exposes its members, its sub-nodes, and visible collections for discovery, while private content stays local.</li>
+<li><strong>Adopt the shared conventions.</strong> Network-wide handles for identity, the safety and moderation norms, and optionally the support pointers, agreed in common with the partners through NML.</li>
+</ol>
+<p>The weight is in steps 2 and 4. The rest is either already done or a matter of agreement rather than engineering.</p>
+<hr/>
+<h2 id="d1-what-forest-defines">What Forest defines</h2>
+<h3 id="d1-content-the-card-format">Content: the card format</h3>
+<p>Collections are built from typed cards: an article card for long text, a sound card for audio, a photo card, a video card, and so on. A collection is an ordered grouping of cards. (Each platform names a collection in its own way; Duckling calls it a story.) This is defined as an extension on top of ActivityStreams, the same way email's MIME defines attachment types on top of email's transport.</p>
+<p>Two rules make it federate cleanly:</p>
+<ul>
+<li>Every card also carries a plain fallback (a standard article, audio, or image), so a platform that does not know the card format still receives the content, just plainer.</li>
+<li>Presentation is the platform's choice. The format carries meaning, not layout. The same collection can be a swipeable deck on one platform, a long page on another, or individual posts on a third. Cards may carry a few generic, optional presentation hints, but they stay advisory: ignoring them must still produce a correct rendering.</li>
+</ul>
+<p>(The full card format, the four basic types, their blocks, settings, and fallbacks, is specified in the <a href="#d3-top">Card Format Specification</a>.)</p>
+<h3 id="d1-discovery-searchable-across-the-network-owned-by-no-one">Discovery: searchable across the network, owned by no one</h3>
+<p>Each node keeps the source of truth for its own index. A node publishes a stream of what it makes visible: its members, its sub-nodes, and visible collections. Network-wide search is then an aggregator: a combined, searchable view built by ingesting everyone's published streams. The aggregator is never a new source of truth. It is a derived view that anyone could rebuild from the same public streams.</p>
+<p>This buys three things:</p>
+<ul>
+<li>Privacy is inherited. Each node publishes only what is visible, so private content never enters the network-wide index, by construction.</li>
+<li>No lock-in. Because the aggregator is just a combination of public streams, anyone can run one, and it is always replaceable.</li>
+<li>The ethos holds. No single party owns the index of the whole network.</li>
+</ul>
+<p>The practical sweet spot for a small, aligned group of partners is a shared aggregator, governed cooperatively through NML: thin, because it only combines published streams, and replaceable by design, because any partner can run their own from the same streams. That gives fast, unified search without handing one platform the keys.</p>
+<h3 id="d1-identity-authentication-and-profile">Identity, authentication, and profile</h3>
+<p>Three things are easy to bundle together and important to keep apart: authentication (proving who you are), identity (your handle across the network), and profile (your name, description, and picture). Federation handles each differently, and the network effect, a member of one platform connecting with a member of another, comes from the second and third, not the first.</p>
+<p><strong>Authentication stays local.</strong> You do not log in across platforms, and Forest does not centralize login. You authenticate to your node, the way you log in to your own email provider, and each platform keeps its own login however it likes. When your node acts on your behalf toward another node, it signs the request, and the receiving node verifies that signature against your node's key. Trust between platforms is cryptographic, node to node, not a shared password. This is ActivityPub's existing mechanism, inherited, not invented. Your node vouches for you.</p>
+<p>The important consequence: a member of one platform connecting with a member of another does not require single sign-on. They stay logged in to their own platform, which acts on their behalf toward the other, signed. This is exactly how following someone on another server works in the fediverse today. You never log in to their server. So the network effect does not need the hard thing, shared login. It is a deliberate non-goal. The effect comes from the next two, which are much easier.</p>
+<p>Unified login across platforms, if it is wanted in its own right, is a separate concern from Forest. Projects like Promise could provide it, and Nordic Media Lab can support such a project alongside Forest. Forest stays focused on letting platforms federate; a shared sign-on can be built next to it, not inside it.</p>
+<p><strong>Identity is a network-wide handle.</strong> For a person on one platform to find and reference a person on another, each member needs an address that works across the network, in the style of the fediverse's <code>user@node</code> handles (resolved by a standard lookup called WebFinger). This is what makes a member discoverable and connectable from any platform, and Forest adopts it rather than inventing it. The improvement to layer on is the email lesson again: a <code>user@node</code> handle breaks if the node changes hosts, which ties identity to a host and creates lock-in, so Forest pairs the handle with a portable identity (the AT Protocol idea, an identity not bound to a host) so a member keeps who they are even if their node moves. Discoverable today via the standard handle, portable tomorrow via the added identity.</p>
+<p><strong>Profile is mostly already solved.</strong> ActivityPub already standardizes the basic profile: a member's handle, display name, description, and avatar are part of the standard actor record that every node can fetch and display. So name, description, and image federate for free, and a member of one platform already sees a member of another's name, bio, and picture with no new protocol. Forest only needs a thin profile extension for the Nordic-specific fields the partners agree matter (for example, a member's featured collections, beat, or role), following the same rule as the card format: extend the standard record, and always keep the standard fields filled, so a platform that does not know the extension still shows a correct basic profile.</p>
+<p>One caveat ties identity back to safety. Signature trust assumes nodes are honest, and a malicious node can vouch for fake members it invented. That is not a new problem; it is the same as any bad actor, and the answer is the same, the network stops trusting that node (see Safety). Identity and safety are the same governance question seen twice.</p>
+<h3 id="d1-privacy-the-framework-carries-only-what-is-visible">Privacy: the framework carries only what is visible</h3>
+<p>Private sub-nodes and private content stay local and never federate. Forest moves only what a node chooses to make visible. Private means "does not leave the node," not "leaves the node but asks others not to look." This is the same rule Duckling already follows for private Ponds and private nests.</p>
+<h3 id="d1-safety-moderation-across-sovereign-networks">Safety: moderation across sovereign networks</h3>
+<p>Forest needs shared conventions for keeping the network safe: how nodes publish moderation signals, and, the hard part, whose moderation a shared aggregator honours when nodes disagree. Within one node, the node is the safety backstop for its sub-nodes. Across the network, the backstop becomes removing content from the shared index and, as a last resort, defederating a node that will not keep its people safe. This is more a cooperative-governance problem than a technical one, and it is worth naming now even though it is firmly a later question to solve.</p>
+<hr/>
+<h2 id="d1-governance-owned-in-common">Governance: owned in common</h2>
+<p>The whole point of Forest is that it is not Duckling's, and not any single platform's. The specification is open, and the shared aggregator is thin and replaceable. NML is the natural steward: the place where partners agree the shared format, the discovery conventions, and the safety norms together. This cooperative ownership is what keeps the network of platforms a forest rather than a silo. The moment one platform owns the framework or the index, it becomes the center, which is the outcome Forest exists to avoid.</p>
+<hr/>
+<h2 id="d1-why-build-it-this-way">Why build it this way</h2>
+<p>It is the email lesson. Standards win by being widely spoken. Build your own and you interoperate with no one. Build on ActivityPub and you interoperate with the whole fediverse from day one. Then add the Forest layer on top, so that among Nordic partners the experience is rich rather than lowest-common-denominator. And own that layer in common, so no platform becomes the center. Open base, shared middle, sovereign platforms.</p>
+<hr/>
+<h2 id="d1-status-and-next-step">Status and next step</h2>
+<p>Forest is a direction, not a build in progress. The natural first concrete piece is the card format, because it is also just a good internal content model for each platform, so partners benefit from it before anything federates. Prototyping that format together, through NML, is the highest-leverage first step, and it is low cost and high learning.</p>
+<p>Everything else, identity, discovery, the shared aggregator, and the safety conventions, is deferred, and named here so the shape is agreed before anyone builds toward it. Until then, each platform keeps its node boundaries and identity clean, so the path stays open.</p>
+</section>
+<section class="doc reveal" id="d2-top">
+  <div class="doc-head"><p class="eyebrow">Document 2 of 4</p><button class="printbtn" type="button" aria-label="Print this document"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg><span>Print</span></button></div>
+  <h1 class="doc-title" id="d2">Forest: Node Architecture</h1>
+  
+<p class="note"><em>The structural companion to the card format spec. Where the card format defines what content is, this defines what holds it: the node, its optional sub-nodes, how a node is indexed, and how discovery and moderation work within a node and across the network. It is the platform-neutral version of Duckling's pond architecture. Read it alongside <a href="#d1-top">A Nordic Media Federation Framework</a>; the card format is in <a href="#d3-top">Card Format Specification</a>. In Duckling terms, Duckling is a node, its Ponds are sub-nodes, and its Home Pond is how Duckling implements the node's own index and safety seat.</em></p>
+<hr/>
+<h2 id="d2-the-node">The node</h2>
+<p>A node is a platform on the network: its own members, its own roles, its own content, its own moderation, and its own index. Every platform that federates is exactly one node. That is the floor, the minimal thing it means to be on Forest at all.</p>
+<p>Nodes are peers, not children. They federate node to node, no node sits above another, and no node owns the network. The node is also the federation interface: it is the thing that publishes an index, holds a safety seat, and signs on behalf of its members toward other nodes. Another node only ever talks to your node, never to its sub-nodes directly.</p>
+<p>This is the part to hold onto, because it is what keeps the floor low. Being a node is not extra structure a platform has to build. It is the interface any platform needs in order to federate at all: something has to publish your index and be the unit other nodes federate with, or defederate from, if it comes to that. A single-community platform is already a complete node. It needs nothing below.</p>
+<hr/>
+<h2 id="d2-a-picture-before-the-details">A picture, before the details</h2>
+<p>Before the precise definitions, the shape in plain terms.</p>
+<p>A node is the broad platform. Duckling is a node: a medium for visual documentary storytelling. A sub-node is a niche community inside that world, organized around an interest or a place. On Duckling, a sub-node might be your school's community, or one for nature photography. The node is the wide thing; sub-nodes are the focused ones beside it.</p>
+<p>A member can enter from either direction. You can come in sideways: you find the nature photography community, join it, and that is your home and your main way into the network. You mostly live there, and when you want to see beyond it you open the node feed, Duckling's whole stream, and find other kinds of photography and other stories. Or you can enter top-down: you find Duckling, take in everything across it, and never once go to a niche community. Both are first-class. No one is forced up into the broad platform or down into a niche; you sit wherever you entered and reach the rest when you want it.</p>
+<p>And across platforms, people simply find each other. If you and I are on different platforms, two different nodes, we can find, follow, and read each other without either of us leaving home. All we need is each other's handle, the way you email an Apple Mail user from Gmail without both being on the same service. Each of us stays on our own platform, and our platforms carry the connection between us. That reach across independent platforms, by handle, with no shared login and no central service, is the whole point of Forest in one sentence.</p>
+<hr/>
+<h2 id="d2-sub-nodes-optional">Sub-nodes, optional</h2>
+<p>A sub-node is not contained in a node. It sits beside the node, as a peer, and it is the same kind of thing: a self-contained community with its own members, roles, content, index, and moderation. Picture two communities side by side, not one nested in the other.</p>
+<p>Two things, and only two, make a sub-node a sub-node rather than a full node:</p>
+<ol>
+<li><strong>It federates through the node.</strong> A node has its own direct connection to the wider network; a sub-node does not, and reaches the network through its node instead. The node is its gateway. A sub-node's visible content still travels out to other nodes, it just travels by way of the node rather than on its own wire.</li>
+<li><strong>It must expose the node's central feed.</strong> A member of a sub-node always has the node's uniting feed within reach, so no sub-node can wall its members off from the shared index that ties the whole node together.</li>
+</ol>
+<p>On every other count a sub-node and a node are the same. Both are self-contained, both run themselves, both moderate their own members and content, both set their own visibility. The relationship is adjacency with two obligations, not containment and not subordination.</p>
+<p>This is what makes the graduation path natural. A sub-node that wants its own direct federation simply becomes a node: nothing about its internal life has to change, it just stops routing through another node and stops being required to carry that node's feed. Growth runs the other way too, a community can start as a sub-node sharing a platform's federation and feed, then spin out into its own node when it is ready. (In Duckling terms, Ponds are sub-nodes that federate through Duckling and surface its Home Pond feed; a Pond that wanted full independence would become its own node.)</p>
+<p>None of this is required. Most platforms are a single node with no sub-nodes, which is the ordinary case, not a lesser one. Sub-nodes are the option a platform reaches for when it wants to host several self-governing communities that share its federation and its central feed.</p>
+<p>Sub-nodes are also how a platform grows without centralizing. Rather than scaling as one ever-larger central system, a node can let communities form beside it as self-governing sub-nodes, each running itself, each able to graduate into a full node. That federated, side-by-side way of growing is closer to Nordic Media Lab's values, communities that govern themselves, than the centralized growth of big tech, where scale means one company's servers and one company's rules. The structure is the values expressed in architecture.</p>
+<hr/>
+<h2 id="d2-indexing-within-a-node">Indexing within a node</h2>
+<p>A node publishes an index: its members, its visible collections, and the visible content of its sub-nodes. This index is also the central feed that every sub-node must expose, the single uniting view of everything visible across the node. It is what discovery and search run on. Plain federation has no directory, which is the fediverse's most common complaint; the node's index is the answer to it.</p>
+<p>The index obeys one rule above all: it respects visibility. It lists only what is meant to be seen. Private sub-nodes, private nests, and gated or unlisted collections do not appear in it. The index is a directory of the public face of the node, never a backdoor into what was meant to stay in. This is the privacy rule seen from the other side: the network only ever sees what a node publishes to it.</p>
+<p>Keeping the index current as members, sub-nodes, and collections come and go and change their visibility is a continuous job, and it is the node's own.</p>
+<hr/>
+<h2 id="d2-discovery-across-the-network">Discovery across the network</h2>
+<p>Within a node there is a center: the node itself, indexing its sub-nodes. Across the network there is none, by design.</p>
+<p>Each node publishes its index. Network-wide discovery is an aggregator that reads those published indexes and offers search across all of them. The crucial properties: the aggregator owns nothing, it only reads what nodes publish; it is replaceable, since anyone can build another over the same public indexes; and it is governed in common through NML, not owned by any one node. Nodes connect to other nodes as peers. There is no node of the whole network.</p>
+<p>This is the hybrid stated one level up. A single node is centralized in a thin, useful way: it indexes and unites its own sub-nodes. The network of nodes is decentralized: peer nodes, a replaceable aggregator over their public indexes, and no single point that owns the whole. The topology section below draws this.</p>
+<p>(The index format this depends on is young. The fediverse's emerging discovery-provider conventions are the nearest prior art, and the open question of which standard to publish is noted at the end.)</p>
+<hr/>
+<h2 id="d2-moderation-at-two-scopes">Moderation, at two scopes</h2>
+<p>Safety works at two scopes, matching the two scopes of discovery.</p>
+<p>Within a node, moderation is mostly local: each sub-node handles its own members and content, exactly as a standalone node does. The node adds a backstop, and it has a natural place to stand because of the two differences above. Since a sub-node's content federates through the node, the node is the point where the network's safety can be enforced on anything heading out to the wider network; and since the node is the central feed, it is where node-wide recourse lives. So the node can refuse to carry a sub-node's content onward, or remove a member or a sub-node from the shared feed, without reaching into how a sub-node runs itself. (At the platform level this is the network staff role; in Duckling, the Duckling Keepers.)</p>
+<p>Across the network, the lever is different, because no one governs the whole. A node cannot reach inside another node to moderate it. What it can do is decide who it federates with. The cross-network safety ladder runs from narrow to broad: drop a specific bad actor's content from your index, then refuse to carry a specific node, and at the far end defederate an entire node whose operators will not keep its people safe. Defederation is the heaviest tool and the last one: it means a node stops carrying another's content and members at all. The aggregator, being governed in common, can also stop listing a node that breaks the shared conventions.</p>
+<p>The honest tension here, noted again at the end, is whose judgment wins when nodes disagree. There is no central authority to appeal to, which is the cost, and the point, of having no central authority at all.</p>
+<hr/>
+<h2 id="d2-the-topology">The topology</h2>
+<p>Two relationships, and that is the whole structure.</p>
+<p>Within a node, each sub-node sits beside the node, reaches the network through it, and surfaces the node's central feed. This is the star: a node in the middle, its sub-nodes around it, the spokes standing for federate-through and expose-the-feed, not containment. A single-community node is just the center of this star with no spokes.</p>
+<p>Across the network, nodes connect to other nodes, as peers. No node is above the others, and no node owns the network-wide index. This is the mesh: nodes linked to nodes, with a replaceable aggregator reading their public indexes.</p>
+<pre><code>  Within a node: sub-nodes sit beside the node, federate through it
+
+      sub-node   sub-node   sub-node
+            \        |        /
+             \       |       /
+              [     node     ]   the central feed and safety seat
+
+
+  Across the network: nodes connect as peers, no single center
+
+   [ node ] ===== [ node ] ===== [ node ]
+      |              |              |
+  sub-nodes      sub-nodes      sub-nodes
+
+   ( ===== node to node: peer links, replaceable aggregator, no owner )
+</code></pre>
+<p>Two more properties complete the picture. A node can self-host, move to its own server, and still federate to other nodes as a peer; self-hosting changes where a node runs, not its place in the network. And every sub-node must expose its node's central feed, so the index and the safety backstop are always one reach away from any member, in any sub-node.</p>
+<hr/>
+<h2 id="d2-open-questions">Open questions</h2>
+<ul>
+<li><strong>Whose moderation wins across the network.</strong> With no authority over the whole network, nodes can disagree about who should be carried. The defederation ladder is the mechanism, but the judgment is cooperative and contestable. This is a governance problem for NML and the partners, not something the architecture can settle by itself.</li>
+<li><strong>The index standard is young.</strong> Publishing a node's index for network-wide discovery leans on emerging fediverse discovery-provider conventions that are not yet settled. Which standard to adopt, and how much to define ourselves versus wait for the ecosystem, is open.</li>
+<li><strong>Cross-network identity trust.</strong> A portable, network-wide handle lets a member be recognisably the same person across nodes, but trusting that a handle on another node is who it claims to be is a harder problem than discovery, and it is the one most dependent on the identity work that sits alongside Forest rather than inside it.</li>
+</ul>
+</section>
+<section class="doc reveal" id="d3-top">
+  <div class="doc-head"><p class="eyebrow">Document 3 of 4</p><button class="printbtn" type="button" aria-label="Print this document"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg><span>Print</span></button></div>
+  <h1 class="doc-title" id="d3">Forest: Card Format Specification</h1>
+  
+<p class="note"><em>The content format for Forest, grown from Duckling's card essays. It specifies how collections and cards are structured so they federate across platforms. This is the detailed companion to the card-format section of the Forest framework brief. It is conceptual and structural, a model to agree on, not yet a wire-format spec.</em></p>
+<hr/>
+<h2 id="d3-the-model">The model</h2>
+<p>Three nested things:</p>
+<ul>
+<li><strong>Collection</strong>: an ordered group of cards. The collection owns the sequence. It has a stable id, a title, and an ordered list of card ids.</li>
+<li><strong>Card</strong>: a unit of a collection. It has a stable id, a type, an ordered list of blocks, and optional settings. Every card guarantees a fallback.</li>
+<li><strong>Block</strong>: a piece of content inside a card, with a semantic role (title, body, media, caption, and so on).</li>
+</ul>
+<p>Each platform may name a collection in its own way. Duckling calls a collection a story; a chat app might experience it as a thread. The protocol term stays neutral: collection.</p>
+<p>Two principles run through all of it, carried from the Forest framework brief:</p>
+<ul>
+<li><strong>Meaning, not layout.</strong> A card says what it is and what it contains. How it is laid out on screen is the platform's choice. Settings are advisory hints, never instructions.</li>
+<li><strong>Always a fallback.</strong> Every card also presents as a standard object (article, image, audio, video), so a platform that does not know the format still receives the content. Every media card carries a text alternative.</li>
+</ul>
+<hr/>
+<h2 id="d3-identity-and-sequence-are-separate">Identity and sequence are separate</h2>
+<p>A card has a stable <strong>id</strong>. This is what lets you refer to it: link to a single card, let an editor propose a change to one card, address it from elsewhere. The id never changes, even if the card moves.</p>
+<p>Sequence does not live on the card. The <strong>collection</strong> holds the order, as an ordered list of card ids. Reordering a collection edits that list; the cards themselves are untouched, and their ids stay stable. This is why an index number on the card would be a mistake: it would have to be rewritten on every reorder, and could gap or collide. Identity belongs to the card; order belongs to the collection.</p>
+<hr/>
+<h2 id="d3-what-belongs-in-the-protocol-and-what-does-not">What belongs in the protocol, and what does not</h2>
+<p>Everything a card carries sorts into three buckets. Only two of them travel.</p>
+<p><strong>In: content and semantic structure.</strong> The blocks, their roles (title, body, media, caption), the media itself, intrinsic properties like a media file's real aspect ratio, and the text alternative. This is the meaning. It must travel so another platform can render the card.</p>
+<p><strong>In, but lightly: a few advisory presentation hints, expressed as intent.</strong> Not pixels, colors, or fonts. Intent that survives any layout: a media fit behavior, a generic emphasis, a mood, a caption position. A platform may honour these or ignore them, and ignoring them must still produce a correct rendering.</p>
+<p><strong>Out: literal styling, authoring limits, and exact layout.</strong> Hex colors, pixel sizes, and fonts belong to each platform's design system. Character, size, and duration limits are authoring constraints, enforced in each platform's editor, and are not properties of the finished card, so they do not travel. Swipe versus scroll, and precise positioning, are the platform's choice.</p>
+<p>The test for any setting: would this still make sense on a platform that lays the collection out completely differently from us? If yes, it can be a hint. If it only makes sense as our own layout, it is presentation, and it stays out.</p>
+<hr/>
+<h2 id="d3-the-four-basic-card-types">The four basic card types</h2>
+<p>The four basic types are the ones with an obvious, universal fallback. Each lists its blocks, its advisory settings, its guaranteed fallback, and what was deliberately left out.</p>
+<h3 id="d3-text">Text</h3>
+<ul>
+<li><strong>Blocks</strong>: kicker (top-title), title, subtitle, body.</li>
+<li><strong>Settings (advisory)</strong>: emphasis.</li>
+<li><strong>Fallback</strong>: a standard article or note, the text itself. Inherently portable.</li>
+<li><strong>Left out</strong>: character limit (an editor constraint, not a property of the card).</li>
+</ul>
+<h3 id="d3-image">Image</h3>
+<ul>
+<li><strong>Blocks</strong>: title (optional), image (its source and intrinsic aspect ratio), alt text (required), caption (optional).</li>
+<li><strong>Settings (advisory)</strong>: fit behaviour (fit, fill, cover), caption position (below, overlay), emphasis.</li>
+<li><strong>Fallback</strong>: a standard image object carrying its alt text, then a link as the floor.</li>
+<li><strong>Left out</strong>: size limit (editor constraint). "Aspect ratio, fill or fit" split into the intrinsic ratio (content) and a fit hint (presentation). Text and caption sizing replaced by semantic emphasis and a generic position, never pixel sizes.</li>
+</ul>
+<h3 id="d3-video">Video</h3>
+<ul>
+<li><strong>Blocks</strong>: title (optional), media (source, poster, intrinsic aspect ratio), captions or transcript (strongly recommended).</li>
+<li><strong>Settings (advisory)</strong>: fit behaviour, controls (show, hide, minimal), emphasis.</li>
+<li><strong>Fallback</strong>: a standard video object, or a poster image with a link and title, then a link as the floor. The transcript serves both accessibility and fallback.</li>
+<li><strong>Left out</strong>: duration and size limits (editor constraints). "Custom" controls (platform-specific, meaningless elsewhere). The "player" block renamed to media, since a player is a platform's UI, not the content.</li>
+</ul>
+<h3 id="d3-sound">Sound</h3>
+<ul>
+<li><strong>Blocks</strong>: title (optional), media (source, optional cover art), transcript (recommended).</li>
+<li><strong>Settings (advisory)</strong>: controls (show, minimal), emphasis.</li>
+<li><strong>Fallback</strong>: a standard audio object with title and transcript, then a link as the floor.</li>
+<li><strong>Left out</strong>: duration and size limits (editor constraints). Aspect ratio, which has no meaning for audio. The "player" block renamed to media.</li>
+</ul>
+<hr/>
+<h2 id="d3-settings-advisory-hints-only">Settings: advisory hints only</h2>
+<p>The full set of settings stays small, generic, and intent-based. As a starting point:</p>
+<ul>
+<li><strong>fit</strong>: how media sits in its frame (fit, fill, cover).</li>
+<li><strong>controls</strong>: for players (show, hide, minimal).</li>
+<li><strong>emphasis</strong>: relative prominence (normal, large), never a pixel size.</li>
+<li><strong>position</strong>: generic placement for a caption or overlaid text (below, overlay).</li>
+<li><strong>mood or theme</strong>: a semantic colour intent (light, dark, accent), never a hex value, so each platform renders it in its own palette and keeps its own accessibility.</li>
+</ul>
+<p>The rule for adding any future setting: it must pass the portability test, and it must be ignorable. A hint that becomes a requirement has put layout back into the data, and the format stops being portable.</p>
+<hr/>
+<h2 id="d3-fallback-a-guarantee-not-a-choice">Fallback: a guarantee, not a choice</h2>
+<p>Fallback is layered, and every card always emits it. It is not a per-card setting.</p>
+<ol>
+<li><strong>The rich card</strong>, for platforms that know the format.</li>
+<li><strong>A standard object underneath</strong>, for platforms that do not: a text card is also a plain article, an image card a plain image with its alt text, a video a plain video, a sound a plain audio. Align these with the long-form-article and audio patterns a generic reader already understands.</li>
+<li><strong>A link, or an icon with text, as the floor</strong>, when even the standard type is not supported.</li>
+</ol>
+<p>Every media card must carry a text alternative (alt text, transcript, or captions). It is required for accessibility, and it is the richest part of the fallback.</p>
+<hr/>
+<h2 id="d3-beyond-the-basics-interactive-cards-later">Beyond the basics: interactive cards (later)</h2>
+<p>Interactive cards (a map, a slideshow, an embed) are a second tier, deferred. They are exactly where fallback gets hard, which is why they wait until the basics are solid. The rule that governs them: no interactive card ships without a defined fallback.</p>
+<ul>
+<li><strong>Slideshow</strong>: not really a new type. It is a card with several image blocks plus a "show as slideshow" hint, falling back to the images shown in sequence.</li>
+<li><strong>Map</strong>: falls back to a static map image with alt text and a link.</li>
+<li><strong>Embed</strong>: falls back to a poster or thumbnail with a link.</li>
+</ul>
+<hr/>
+<h2 id="d3-access-and-monetization">Access and monetization</h2>
+<p>Some collections will not be free. A platform may put a collection behind a paywall, or a member may want to take payment or donations directly. Forest can support this, but it has to obey the same rules as everything else: carry the signal, not the money, and never federate what is meant to stay locked.</p>
+<p>The fediverse has run this experiment, and the lesson is clear. The one startup that tried to be a payment rail across ActivityPub, sub.club, shut down in early 2025. What works instead is the Ghost pattern: the public part of a paywalled piece federates as a preview, while the paid content stays in the source platform's own membership system, where you subscribe or pay. Forest follows that pattern.</p>
+<p><strong>Gating is access, not presentation.</strong> A card or collection can be marked as gated. Gating is a content-level attribute, the same kind of thing as visibility, not a presentation hint.</p>
+<p><strong>A gated card federates as its preview.</strong> This is the fallback discipline applied to access. A gated card's fallback is its public envelope: a title, a cover or teaser, the author, a marker that it is locked, and a pointer to where it can be unlocked. The locked content itself does not federate. It resolves at the source, after the viewer authenticates or pays there. So another platform can show the gated card, its preview and a "read at the source" gate, without ever holding the locked content. A generic platform that does not understand gating still sees a correct thing: a preview and a link onward.</p>
+<p>This also gives the teaser model for free, using the ordered-cards structure. Mark the first cards of a collection as open and the rest as gated, and any platform shows the free cards followed by a lock.</p>
+<p><strong>Direct support goes to the member, not the platform.</strong> A member, collection, or card can carry a support pointer: where money goes if a reader chooses to pay or donate. This is a pointer to the creator's own chosen rail, not a payment mechanism inside Forest. Any platform displaying the content shows the creator's support option, and the money goes to the creator, not the displaying platform. This is the values-aligned default, and it is what the fediverse community has consistently asked for: direct support, not platform rent.</p>
+<p><strong>What stays out, for now.</strong> Three things are deliberately not in the model, because they are hard and some pull against the ethos:</p>
+<ul>
+<li>The payment mechanics themselves. Forest carries the signal (gated, price, where to pay, who receives), never the payment rail. Payment happens off-protocol, at the source platform or the creator's chosen service.</li>
+<li>Reading paid content in place on another platform after paying there. That needs cross-platform entitlement, one platform proving to another that a reader has paid, which is a real trust and clearing problem. The simple model, unlock at the source, avoids it. Read-in-place is a later, harder tier.</li>
+<li>Revenue splitting, where a displaying platform takes a cut. This is what sub.club did. It adds the hardest machinery (cross-platform clearing, trust, tax) and it pulls against the people-over-profit ethos, so it is an open decision, not a default.</li>
+</ul>
+<hr/>
+<h2 id="d3-open-decisions">Open decisions</h2>
+<ul>
+<li><strong>Strict types or flexible blocks.</strong> Underneath, a card is just ordered blocks plus settings plus an id, so the named types are really recommended presets. Strict types (a text card holds only text blocks) are simpler to render and to fall back. Flexible blocks (a card mixing a title, an image, and a body) are more powerful but make fallback harder. A reasonable path is to start strict for predictable fallback, and loosen later.</li>
+<li><strong>How far the advisory hints go.</strong> The starting set above is deliberately small. Each addition is a small cooperative-governance decision among the Forest partners, against the portability test.</li>
+<li><strong>Theme and colour.</strong> Whether to carry any colour intent at all, or leave all colour to the platform, is worth settling early, because it is the most tempting place for literal styling to creep back in.</li>
+<li><strong>Monetization beyond direct support.</strong> Whether Forest ever supports revenue splitting (a displaying platform taking a cut) or read-in-place paid content (cross-platform entitlement) is a cooperative-economics decision, not just a technical one, and it touches the people-over-profit ethos directly. The recommendation is to start with direct-to-creator support only, and treat anything that makes a platform a paid intermediary as a separate, deliberate decision for the partners, not a default.</li>
+</ul>
+<hr/>
+<h2 id="d3-the-same-collection-on-different-platforms">The same collection, on different platforms</h2>
+<p>This is the meaning-not-layout principle made concrete. One collection, the same ordered cards with the same content, renders differently depending on the kind of platform, and every rendering is correct. The protocol provides ordered cards. Each platform decides how to present them, including whether the collection becomes one unit or many.</p>
+<ul>
+<li><strong>A media platform</strong>: the collection is a swipeable deck, one card per swipe.</li>
+<li><strong>A chat platform</strong>: the collection is a sequence of messages, each card appearing as its own message, in order.</li>
+<li><strong>A social platform</strong>: the collection is a post, or a short series of posts, each card rendered as post content, in order.</li>
+</ul>
+<p>Two things make this work, and both are already in the model:</p>
+<ul>
+<li>Because every card has a stable id and a standalone fallback, a platform can present each card as its own unit, a message or a post, and it still stands on its own.</li>
+<li>Because the collection holds the order, a platform that spreads the cards across many units can still keep them in sequence and tied together as one thread or series.</li>
+</ul>
+<p>So the platform chooses not just the styling but the container: one swipeable unit, or many linked ones. The protocol stays silent on that choice, which is exactly why the same collection can feel native everywhere.</p>
+</section>
+<section class="doc reveal" id="d4-top">
+  <div class="doc-head"><p class="eyebrow">Document 4 of 4</p><button class="printbtn" type="button" aria-label="Print this document"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg><span>Print</span></button></div>
+  <h1 class="doc-title" id="d4">Forest: Protocol Evaluation</h1>
+  
+<p class="note"><em>The reasoning behind the choices the Forest framework brief states. The brief gives the conclusions: build on ActivityPub, add the uniting layer, borrow portable identity. This document shows the working, the full evaluation of the options, so anyone who was not in the room can see why. Read it alongside <a href="#d1-top">A Nordic Media Federation Framework</a>. The content format has its own document, <a href="#d3-top">Card Format Specification</a>, and is not repeated here.</em></p>
+<hr/>
+<h2 id="d4-what-we-are-choosing-for">What we are choosing for</h2>
+<p>Forest does not need federation today. But the base protocol it eventually rests on has to fit the architecture already chosen, so it is worth knowing the options before making decisions that are hard to undo.</p>
+<p>The architecture asks four things of a base protocol:</p>
+<ol>
+<li>Each node is a self-contained, sovereign unit that can move to its own host and stay a peer.</li>
+<li>A member has one portable identity that survives a node changing hosts.</li>
+<li>A network's home node can index that network, its members, nodes, and visible collections, for discovery, and the framework can aggregate across networks.</li>
+<li>The network can be kept safe across nodes, including self-hosted ones, within a network by its home node and across networks by a shared backstop.</li>
+</ol>
+<p>Points 1 and 2 are about autonomy. Points 3 and 4 are about the uniting layer. The hard part is that most protocols are good at one pair and weak at the other. Forest's hybrid wants both.</p>
+<hr/>
+<h2 id="d4-the-model-we-already-trust-email">The model we already trust: email</h2>
+<p>Email is the most successful federated protocol ever built, and Forest's architecture is already shaped like it. That is not a coincidence, and it is worth saying plainly.</p>
+<p>In email, anyone can run a server. Your address is <code>you@yourdomain</code>. Servers talk to each other over a shared protocol (SMTP). No company owns the network, yet it works as one network. A small host and a giant host are peers. This is exactly the node model: a node is a mail server, a member is an address, the network is the set of servers that agree to talk.</p>
+<p>Email also teaches the two hard lessons to respect:</p>
+<ul>
+<li>Discovery and safety do not come for free. Email has no global search and no built-in directory, which is why finding people and fighting spam became the hard problems. Forest's answer is already designed: the home node is the index and the safety backstop that plain email lacks.</li>
+<li>Federation tends to drift toward a few big hosts (today most email is Gmail). Identity tied to a host (<code>you@gmail.com</code>) is what makes leaving painful. The lesson: keep identity portable, so a member or a node can change hosts without losing who they are.</li>
+</ul>
+<p>So the target is "email, plus a uniting layer, plus portable identity." The question is whether an existing protocol already gives us that, or close enough.</p>
+<hr/>
+<h2 id="d4-option-a-activitypub">Option A: ActivityPub</h2>
+<p>ActivityPub is the protocol behind Mastodon and most of the fediverse. It is a W3C standard, widely implemented, and email-like in spirit: independent servers (instances) send each other messages, and each instance governs itself.</p>
+<p>Where it fits Forest:</p>
+<ul>
+<li>The instance model maps almost one to one onto nodes. An instance is a self-governing community with its own members and moderation. That is a node.</li>
+<li>It is mature, documented, and already used by community software very close to ours (forums, blogs, photo sharing). WordPress and forum platforms like NodeBB federate with it today.</li>
+<li>Self-hosting is normal and cheap. A small node can run on modest hardware.</li>
+</ul>
+<p>Where it fights Forest:</p>
+<ul>
+<li>Discovery is its known weak spot. ActivityPub is "follow-based": content reaches you through who you follow, and there is no native cross-network search or directory. This is the single most common complaint about the fediverse, and it is exactly the job the home node index does. We would have to build that index ourselves (there is an emerging optional standard for this, Fediverse Discovery Providers, but it is young).</li>
+<li>Identity is tied to the host by default (<code>@you@instance</code>). If a node moves hosts, identity portability is manual and lossy. We would need to add stronger portable identity on top.</li>
+<li>It is loose. The spec leaves a lot open, so implementations differ and edge cases break between them.</li>
+</ul>
+<p>Summary: ActivityPub gives us the autonomy and self-hosting half almost for free, and leaves us to build the uniting half, which we were going to build anyway as the home node.</p>
+<hr/>
+<h2 id="d4-option-b-at-protocol-atproto-bluesky">Option B: AT Protocol (atproto / Bluesky)</h2>
+<p>AT Protocol is the protocol behind Bluesky. It splits a social platform into pieces: a Personal Data Server (PDS) that holds your data, Relays that aggregate everything into a firehose, and AppViews that index and serve it.</p>
+<p>Where it fits Forest:</p>
+<ul>
+<li>Identity and data portability are its headline strength. Your identity is a portable DID (think of it as a phone number you keep when you switch carrier), and your data repository can move hosts without cooperation from the old host. This is a strong answer to the "node moves hosts" requirement.</li>
+<li>It has discovery and search built into its design, via Relays and AppViews. That overlaps with what the home node index wants to do.</li>
+<li>The data model is consistent, so apps interoperate cleanly.</li>
+</ul>
+<p>Where it fights Forest:</p>
+<ul>
+<li>Its center of gravity is the opposite of ours. AT Proto is built for one very large shared network with central aggregation (a Relay that ingests everything). Our model is many small, sovereign, self-governing nodes. The "instance equals community" autonomy that makes a node a node is not where AT Proto is strong.</li>
+<li>Running full network infrastructure (a Relay over the whole network) is heavier and more expensive than running a small ActivityPub instance. A small node on its own does not map as naturally.</li>
+<li>It is effectively one network today. Almost all usage runs through Bluesky's own infrastructure, which raises the same de-facto-centralization worry we are trying to avoid.</li>
+</ul>
+<p>Summary: AT Proto solves portable identity and discovery beautifully, but its whole shape assumes one big network with central aggregation, which is the silo-flavored model the forest is meant to be an alternative to.</p>
+<hr/>
+<h2 id="d4-option-c-build-our-own-protocol">Option C: Build our own protocol</h2>
+<p>We could design a Forest-native protocol from scratch, exactly around nodes.</p>
+<ul>
+<li>Upside: a perfect fit, no compromises, no inherited baggage.</li>
+<li>Downside: this is the most expensive and slowest path, and it is the email lesson in reverse. Protocols win by being widely spoken. A protocol only we speak gives us federation with nobody. We would also be re-solving problems (identity, signing, delivery, abuse) that others have already solved and hardened over years.</li>
+</ul>
+<p>Building from scratch is almost never the right first move. It is worth holding as the far-future option only if both existing protocols genuinely cannot be bent to our shape.</p>
+<hr/>
+<h2 id="d4-option-d-extend-an-existing-protocol-the-recommended-directi">Option D: Extend an existing protocol (the recommended direction)</h2>
+<p>This is the realistic middle path, and it follows directly from the email model: adopt the widely-spoken base, and add the layer it lacks.</p>
+<p>Concretely, the most natural fit is ActivityPub for the federation transport, plus a Forest layer for the two things it does not give us:</p>
+<ul>
+<li>The home node as a discovery and index service on top of ActivityPub. This is not a hack. The fediverse is independently moving this exact direction with optional discovery providers and relays. We would be building the index we already planned, and speaking a standard underneath it.</li>
+<li>Portable identity, borrowing the idea AT Proto proves out (an identity that is not bound to a host), layered onto ActivityPub actors so a node can change hosts cleanly.</li>
+</ul>
+<p>In other words: ActivityPub gives us the forest (many sovereign, interoperable nodes), and the home node gives us the clearing in the middle where the whole forest can be seen and kept safe. We extend rather than invent, so we inherit a working network and a decade of hardening, and we add only the uniting layer that is uniquely ours.</p>
+<p>There is also a serious idea in the wild of running ActivityPub on top of an AT-Proto-style data server, to get AP's openness with AT Proto's portable identity. It is early and unproven, but it is the same instinct as the recommendation: take the open federation model, bolt on portable identity.</p>
+<hr/>
+<h2 id="d4-two-questions-that-decide-how-far-we-can-lean-on-a-protocol">Two questions that decide how far we can lean on a protocol</h2>
+<h3 id="d4-1-how-well-are-private-nodes-supported">1. How well are private nodes supported?</h3>
+<p>This is the weakest spot in federation generally, and it is worth being honest about.</p>
+<p>A federated protocol is built to move things between hosts. Privacy, by definition, is about not moving things, or moving them only to a trusted few. So privacy is always something you add carefully on top, not something the protocol guarantees for you. Email has the same shape: the protocol will happily carry a private message, but it is the servers, not the protocol, that decide who gets to read it, and a careless server leaks.</p>
+<p>For ActivityPub specifically:</p>
+<ul>
+<li>The protocol has a clear notion of public versus not-public, and a "followers-only" audience. But it does not define a real "authenticated users only" access level, and the spec itself warns that once something is fetched by another server, keeping it private depends on that server behaving. Private in the fediverse means "private if every host in the chain is honest," which is weaker than private inside one system.</li>
+<li>There is a stronger mode (Mastodon calls it secure mode or authorized fetch) where every cross-host request must be signed, so a node can refuse hosts it does not trust, and even run in limited-federation mode where it only talks to an explicit allowlist of hosts. That is the closest thing to a real private-node boundary, and it is buildable today.</li>
+<li>There is a real Group actor model (the events platform Mobilizon uses it for groups with roles), so a node as a private, role-bearing group is not exotic. It is an established pattern.</li>
+</ul>
+<p>What this means for Forest: a private, invitation-only node is fully workable while everything runs on one platform's own infrastructure, because that platform controls every host and can enforce access itself. The honesty comes in the federated future. Once a node can self-host, a truly private node is only as private as the hosts it federates with. The safe design, and the one that matches the architecture, is:</p>
+<ul>
+<li>A private node does not federate its private content at all by default. It stays local, the way a private nest stays contributors-only. Federation is for what a node chooses to make visible.</li>
+<li>If a private node wants to span hosts, it uses signed fetch and an allowlist, so it only ever talks to hosts it explicitly trusts.</li>
+</ul>
+<p>In short: private nodes are well supported inside one platform's walls, and supportable across hosts with care, as long as we treat "private" as "does not leave the node" rather than "leaves the node but politely asks others not to look." This fits the rule already written: feeding the network is opt-in, and private content stays put.</p>
+<h3 id="d4-2-how-would-we-interface-with-other-platforms">2. How would we interface with other platforms?</h3>
+<p>This is the strongest argument for not inventing our own protocol, and it is exactly the email lesson. The value of a shared protocol is that you can talk to people who are not on your app.</p>
+<p>The goal, that a member authenticated on one Nordic platform could see another platform's members and read its collections, and the reverse, is precisely what a federation protocol is for. If the platforms all speak the same protocol, this works without any of them building private one-to-one integrations with each other. That is the whole point: you build to the protocol once, and you interoperate with everyone who speaks it, present and future. Build a single-platform protocol and you would have to hand-build a bridge to each platform, one at a time, forever.</p>
+<p>So the path is:</p>
+<ul>
+<li>If the Nordic Media Lab platforms adopt the same base protocol (ActivityPub being the obvious candidate, since it has the broadest existing support, including WordPress and forum software), interoperability is close to free. A member on one platform can follow and read members and collections on another, because to the protocol a collection is just a published object and a member is just an actor.</li>
+<li>There is one honest catch, and it is the same one the home node already addresses: ActivityPub interoperates well for following and reading, but it is weak at discovery and search across platforms, and different apps map their content types differently, so richer collection formats can degrade into plainer ones when they cross over. Two platforms can each show the other's basic posts cleanly, but a swipeable card essay may arrive somewhere else as a simpler article or a link back.</li>
+<li>This is a strong reason to treat the Nordic Media Lab platforms as the first, friendly federation. Because they are a small group who can coordinate, they could agree together on a shared format for the richer content types, rather than waiting for the whole fediverse to converge. That shared format is exactly the Forest card format: standard ActivityPub so anyone can read the basics, plus an agreed extension so the partner platforms can render each other's collections fully. That is the highest-leverage interop move available, and it costs far less than bridges. (The card format is specified in <a href="#d3-top">Card Format Specification</a>.)</li>
+</ul>
+<p>The shape of the answer, then: adopt the common protocol so you interoperate with everyone by default, and coordinate the shared Forest extension with the Nordic Media Lab platforms so that among friends the experience is rich rather than lowest-common-denominator. Identity that survives moving between these platforms is the AT-Proto idea worth borrowing here too, so a person is recognisably the same person across the network.</p>
+<hr/>
+<h2 id="d4-recommendation">Recommendation</h2>
+<p>This is the conclusion the framework brief states in one line, here with its reasoning attached.</p>
+<p>Do not build from scratch, and do not adopt AT Proto wholesale. Lean toward ActivityPub as the base transport, because its sovereign-instance model is our node model, and build the discovery, index, and safety layer as the home node, which we were always going to build. Define the Forest card format on top, an ActivityStreams extension with a plain fallback in every card, and keep presentation a platform choice. Borrow AT Proto's portable-identity idea where it helps. Decide for real only when we reach the federation step in the roadmap; until then, keep node boundaries and identity clean, so either path stays open.</p>
+<hr/>
+<h2 id="d4-the-one-glance-comparison">The one-glance comparison</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Email (the model)</th>
+<th>ActivityPub</th>
+<th>AT Protocol</th>
+<th>Build our own</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sovereign, self-hosting nodes</td>
+<td>yes</td>
+<td>yes, natural fit</td>
+<td>weaker fit</td>
+<td>yes, by design</td>
+</tr>
+<tr>
+<td>Portable identity</td>
+<td>host-bound (its flaw)</td>
+<td>host-bound by default</td>
+<td>yes, its strength</td>
+<td>whatever we build</td>
+</tr>
+<tr>
+<td>Built-in discovery / index</td>
+<td>no</td>
+<td>no, we add it</td>
+<td>yes</td>
+<td>whatever we build</td>
+</tr>
+<tr>
+<td>Private spaces</td>
+<td>by server, not protocol</td>
+<td>weak by spec, workable with signed fetch + allowlist</td>
+<td>weak fit, built for public</td>
+<td>whatever we build</td>
+</tr>
+<tr>
+<td>Interop with other platforms</td>
+<td>total (the point)</td>
+<td>high, basics easy, rich formats degrade</td>
+<td>low outside its own network</td>
+<td>none until we build bridges</td>
+</tr>
+<tr>
+<td>Maturity and adoption</td>
+<td>total</td>
+<td>high</td>
+<td>growing, Bluesky-centric</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Effort for us</td>
+<td>n/a</td>
+<td>medium, add the index</td>
+<td>high, fight its shape</td>
+<td>highest</td>
+</tr>
+<tr>
+<td>Fits the forest, not the silo</td>
+<td>yes</td>
+<td>yes</td>
+<td>leans silo</td>
+<td>yes, but alone</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+  </main>
+
+  <footer class="reveal">
+    <svg class="footpine" viewBox="-8 0 130 182" aria-hidden="true"><path d="M62.9185 0C63.0374 0.0875785 100.976 28.056 106.529 63.75C107.624 70.7892 82.5537 49.9799 69.9439 39.1299L69.8433 54.8398C83.2477 62.8301 111.797 82.7946 116.029 110C117.169 117.328 84.161 97.3654 69.6274 88.2578L69.5171 105.396C80.77 112.642 101.974 128.751 113.029 153C116.07 159.67 84.0775 144.73 69.3091 137.561L69.0806 173.103L69.0669 173.515C68.8253 177.74 65.3088 181.078 61.0288 181.051C56.7488 181.023 53.2756 177.64 53.0884 173.412L53.0806 173L53.3023 138.552C34.5588 148.073 -7.05332 168.01 1.02882 153C3.67925 148.078 37.3234 120.791 53.5005 107.834L53.5845 94.8076C40.7953 108.862 18.8542 129.996 14.0288 115.5C11.5394 108.021 38.9834 76.835 53.8042 60.7266L53.9194 42.7832C40.827 56.3685 17.5933 77.7762 13.1216 63.75C10.5353 55.6376 62.9185 0 62.9185 0Z" fill="currentColor"/></svg>
+    <div class="fname">Nordic Media Lab</div>
+    <div class="ftag">Sammen skaber vi en demokratisk digital infrastruktur.</div>
+  </footer>
+
+</div>
+<a id="backtop" class="backtop" href="#contents" aria-label="Back to contents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>Contents</a>
+<script>
+  (function(){
+    var els = [].slice.call(document.querySelectorAll('.reveal'));
+    function reveal(){
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      for(var i = els.length - 1; i >= 0; i--){
+        if(els[i].getBoundingClientRect().top < vh * 0.92){
+          els[i].classList.add('in');
+          els.splice(i, 1);
+        }
+      }
+    }
+    reveal();
+    var ticking = false;
+    function onScroll(){
+      if(!ticking){ requestAnimationFrame(function(){ reveal(); ticking = false; }); ticking = true; }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll, {passive:true});
+    window.addEventListener('load', reveal);
+    setTimeout(reveal, 400);
+  })();
+
+  (function(){
+    var btn = document.getElementById('backtop');
+    var anchor = document.getElementById('contents');
+    if(!btn) return;
+    function onScroll(){
+      var trigger = anchor ? (anchor.offsetTop + anchor.offsetHeight) : 600;
+      if(window.scrollY > trigger + 60){ btn.classList.add('show'); }
+      else { btn.classList.remove('show'); }
+    }
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(!ticking){ requestAnimationFrame(function(){ onScroll(); ticking = false; }); ticking = true; }
+    }, {passive:true});
+    window.addEventListener('resize', onScroll, {passive:true});
+    onScroll();
+  })();
+
+  (function(){
+    var btns = document.querySelectorAll('.printbtn');
+    if(!btns.length) return;
+    function cleanup(){
+      document.body.classList.remove('printing');
+      var t = document.querySelector('.doc.print-target');
+      if(t){ t.classList.remove('print-target'); }
+    }
+    for(var i = 0; i < btns.length; i++){
+      btns[i].addEventListener('click', function(){
+        var doc = this.closest('.doc');
+        if(!doc) return;
+        cleanup();
+        document.body.classList.add('printing');
+        doc.classList.add('print-target');
+        window.print();
+      });
+    }
+    window.addEventListener('afterprint', cleanup);
+  })();
+</script>
+</body>
+</html>
