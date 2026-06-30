@@ -202,7 +202,7 @@
   <div class="pagehead reveal">
     <h1 class="doctitle">Forest</h1>
     <p class="subtitle">A Nordic media federation framework, in four documents.</p>
-    <p class="standfirst">Forest lets independent Nordic platforms interoperate as one network while each stays sovereign. It is built on ActivityPub and owned in common through Nordic Media Lab.</p>
+    <p class="standfirst">Forest lets independent Nordic platforms interoperate as one network while each stays sovereign. It is built on ActivityPub, which is extended with our own content format and node system, and is jointly owned by Nordic Media Lab.</p>
   </div>
 
 <nav class="toc reveal" id="contents" aria-label="Table of contents">
@@ -216,7 +216,7 @@
       <li><a href="#d1-where-it-comes-from">Where it comes from</a></li>
       <li><a href="#d1-why-activitypub-not-at-protocol">Why ActivityPub, not AT Protocol</a></li>
       <li><a href="#d1-the-vocabulary">The vocabulary</a></li>
-      <li><a href="#d1-the-three-layers">The three layers</a></li>
+      <li><a href="#d1-the-layers">The layers</a></li>
       <li><a href="#d1-how-forest-extends-activitypub">How Forest extends ActivityPub</a></li>
       <li><a href="#d1-two-ways-to-adopt-it-native-or-at-the-edge">Two ways to adopt it: native or at the edge</a></li>
       <li><a href="#d1-why-a-platform-would-adopt-it">Why a platform would adopt it</a></li>
@@ -309,11 +309,12 @@
 <p>Sub-nodes are optional, the node is not. Every platform that federates is a node; most platforms are a single community and have no sub-nodes at all, which is the ordinary case, not a lesser one. A platform adds sub-nodes only if it wants to host several self-governing communities beside it that share its federation and its central feed. Cross-network federation always runs node to node; a sub-node's content reaches the network through its node, so another platform only ever sees nodes, never how many sub-nodes sit behind one. A sub-node that wants its own direct federation simply becomes a node.</p>
 <p>This is also how a platform grows without centralizing. Rather than scaling as one ever-larger central system, a node can let communities form beside it as self-governing sub-nodes, each running itself and each able to graduate into a full node. That federated, side-by-side way of growing is closer to Nordic Media Lab's values, communities that govern themselves, than the centralized growth of big tech, where scale means one company's servers and one company's rules.</p>
 <hr/>
-<h2 id="d1-the-three-layers">The three layers</h2>
-<p>Forest is a middle layer, and it is precise about what it is and what it is not.</p>
+<h2 id="d1-the-layers">The layers</h2>
+<p>Forest is a framework consisting of ActivityPub and two layers of its own, with each platform's product on top.</p>
 <ol>
 <li><strong>ActivityPub underneath.</strong> The transport, shared with the whole fediverse. It moves objects between nodes and handles addressing and signatures. Forest does not reinvent this. Building on it means Forest platforms can already interoperate, at a basic level, with the entire existing fediverse, not only with each other.</li>
-<li><strong>Forest in the middle.</strong> What NML owns and shares: the card content format, the discovery conventions, portable identity, and the safety conventions. This is the layer that makes Nordic platforms interoperate richly, rather than at the lowest common denominator.</li>
+<li><strong>Cards:</strong> a content format built on a card concept.</li>
+<li><strong>Network conventions:</strong> discovery, portable identity, and safety conventions. This is the layer that makes Nordic platforms interoperate richly, rather than at the lowest common denominator.</li>
 <li><strong>Each platform's own product on top.</strong> Duckling's Ponds and card essays, and each partner's own experience and design. This stays each platform's own.</li>
 </ol>
 <p>This layering is what keeps "built on ActivityPub, not our own protocol" true, while still giving NML something real to own and govern.</p>
