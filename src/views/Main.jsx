@@ -1,5 +1,7 @@
 import Divider from "../components/Divider";
 import MembersSwiper from "../components/MembersSwiper";
+import BoardSlider from "../components/BoardSlider";
+import boardData from "../components/boardData.json";
 import { useTranslation, Trans } from 'react-i18next';
 
 const Main = () => {
@@ -169,12 +171,18 @@ const Main = () => {
             <Divider backgroundColor="#39A97C" />
             <section className="bg-[#39A97C] pb-32">
                 <a className="anchor" id="team"></a>
-                <div className="relative px-10 max-w-2xl mx-auto">
-                    <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-1 mb-5">{t('team.title')}</h1>
+                <div className="relative px-10 max-w-2xl mx-auto text-white">
+                    <span className="text-white/80 font-semibold uppercase text-base font-sans tracking-wide">{t('team.tagline')}</span>
+                    <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-1 mb-6">{t('team.title')}</h1>
+                    <div className="flex flex-col gap-4">
+                        <p className="font-serif text-lg lg:text-2xl">{t('team.story1')}</p>
+                        <p className="font-serif text-lg lg:text-2xl">{t('team.story2')}</p>
+                        <p className="font-serif text-lg lg:text-2xl">{t('team.story3')}</p>
+                        <p className="font-serif text-lg lg:text-2xl">{t('team.story4')}</p>
+                    </div>
+                    <h2 className="font-serif text-3xl lg:text-4xl font-bold mt-16 mb-8">{t('team.boardTitle')}</h2>
                 </div>
-                <div className="max-w-7xl mx-auto px-5">
-                <img src="people.png" className="w-full h-auto"/>
-                </div>
+                <BoardSlider members={boardData}/>
             </section>
             <Divider backgroundColor="#FEFBF3" />
             <section className="bg-[#FEFBF3] pb-32">

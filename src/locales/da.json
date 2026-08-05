@@ -125,7 +125,13 @@
     }
   },
   "team": {
-    "title": "Vi er startet og ledet af en lille gruppe ildsjæle og iværksættere"
+    "tagline": "Om os",
+    "title": "Sådan begyndte det",
+    "story1": "Det begyndte til lanceringen af Meningspunktet. Mens Tue og Jacob fortalte om deres vision for et sundere socialt medie, faldt en tanke, der havde ulmet i månedsvis, på plads: de mennesker, der bygger etiske alternativer, bør ikke stå alene.",
+    "story2": "Den aften samlede flere af dem i samme rum. Bjarke, der havde mødt Jeppe fra Zen Social et par måneder forinden, mødte nu også Anders fra Oase og Trine, en uafhængig forandringsskaber. I Norden, og især i Danmark, har vi en lang tradition for at bokse over vores vægtklasse, fordi vi stoler på hinanden og forstår at samarbejde og konkurrere på samme tid. Hvis en ny æra for etisk teknologi kunne begynde et sted, kunne den begynde her.",
+    "story3": "Så rakte Bjarke hånden op og sagde det højt: vi bør slå os sammen. Han tog hjem og skrev et første koncept for Nordic Media Lab. Trine og Tue arrangerede en opfølgende middag, den første af mange sammenkomster blandt de fem stiftere, Trine, Anders, Tue, Jeppe og Bjarke. I takt med at ordet spredte sig, kom flere til, og det stod klart, at idéen havde brug for sit eget hjem. Tech-advokat Martin von Haller hjalp med det juridiske, og Nordic Media Lab blev en realitet.",
+    "story4": "Det første møde var for omkring to år siden. Vi vokser stadig, hurtigt.",
+    "boardTitle": "Vores bestyrelse"
   },
   "contact": {
     "tagline": "Kontakt",
