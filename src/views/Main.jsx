@@ -17,13 +17,7 @@ const Main = () => {
                     <span className="text-emerald-500 font-semibold uppercase text-base font-sans">{t('hero.tagline')}</span>
                     <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-1 mb-5">{t('hero.title')}</h1>
                     <p className="font-serif text-lg lg:text-2xl">{t('hero.paragraph1')}</p>
-                    <p className="font-serif text-lg lg:text-2xl mt-5">
-                        <Trans i18nKey="hero.paragraph2">
-                            Derfor har vi lanceret Nordic Media Lab: Et teknologi-laboratorium forankret i <a href="#values" className="underline">tre nordiske værdier</a>: oplysning, tillid, sammenhængskraft.
-                        </Trans>
-                    </p>
-
-                    <p className="font-serif text-lg lg:text-2xl mt-5">{t('hero.paragraph3')}</p>
+                    <p className="font-serif text-lg lg:text-2xl mt-5">{t('hero.paragraph2')}</p>
 
                     <div className="flex w-full lg:-mt-5 justify-end">
                         <img src="nml-wood.png" className="w-20 lg:w-24"/>

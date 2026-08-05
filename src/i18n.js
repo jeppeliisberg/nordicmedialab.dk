@@ -10,8 +10,8 @@ i18n
       da: { translation: da },
       en: { translation: en }
     },
-    lng: 'da', // default language
-    fallbackLng: 'da',
+    lng: 'en', // default language
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false // React already escapes values
     }
