@@ -75,11 +75,7 @@ const Main = () => {
                 <div className="relative px-10 max-w-2xl mx-auto">
                     <span className="text-white font-semibold uppercase text-base font-sans">{t('members.tagline')}</span>
                     <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-1 mb-5">{t('members.title')}</h1>
-                    <p className="font-serif text-xl lg:text-2xl">
-                        <Trans i18nKey="members.description">
-                            Som iværksætter kan du blive medlem og få adgang til infrastruktur, viden, netværk og investering. Du skal underskrive vores Nordic Media Pagt og bidrage til projekter. Skriv til <a href="mailto:hej@nordicmedialab.dk" className="underline hover:text-white">hej@nordicmedialab.dk</a> for at høre mere.
-                        </Trans>
-                    </p>
+                    <p className="font-serif text-xl lg:text-2xl">{t('members.description')}</p>
                 </div>
                 <div className="w-full my-20">
                     <MembersSwiper cards={membersData}/>
