@@ -19,8 +19,8 @@
   },
   "projects": {
     "tagline": "Upcoming events",
-    "title": "Common ground: Federating Nordic Media Lab",
-    "intro1": "Common ground is a series of workshops exploring how Nordic Media Lab's members can be federated into a single network that lets us share in the network effects, without anyone losing their independence.",
+    "title": "Common Ground: Federating Nordic Media Lab",
+    "intro1": "Common Ground is a series of workshops exploring how Nordic Media Lab's members can be federated into a single network that lets us share in the network effects, without anyone losing their independence.",
     "intro2": "The biggest barrier to launching new social platforms is the network effect. When you join a new platform you have few connections, and you eventually switch back to LinkedIn, Facebook, or one of the other giants, where everyone already is. The solution is not to build another competing giant, we would only face the same problems. It's to let many small platforms work as one network while each stays sovereign, the way email lets every provider talk without anyone owning the whole. The federated web is already being rolled out in various forms, and we want to take it to the next level.",
     "w1tag": "Workshop #1",
     "w1title": "Needs & Principles",

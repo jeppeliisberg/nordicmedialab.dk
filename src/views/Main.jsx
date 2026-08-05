@@ -20,13 +20,6 @@ const Main = () => {
                     <div className="flex w-full lg:-mt-5 justify-end">
                         <img src="nml-wood.png" className="w-20 lg:w-24"/>
                     </div>
-                    <ul className="flex flex-col gap-y-2">
-                        <li className="font-sans font-bold text-sm">{t('hero.visitUs')}</li>
-                        <li><a href="https://oase.app/oase/46ec46bf-5445-4a32-bb21-ada8a61b4b0a/join/8f84eb1a-1e07-478c-9153-6e21850141fe" className="text-emerald-500 text-xl">{t('hero.joinOase')}</a></li>
-                        <li><a href="https://duckling.co" className="text-emerald-500 text-xl">Duckling</a></li>
-                        <li><a href="https://zensocial.dk" className="text-emerald-500 text-xl">Zen Social</a></li>
-                        <li><a href="https://meningspunktet.dk" className="text-emerald-500 text-xl">Meningspunktet</a></li>
-                    </ul>
                 </div>
             </section>
             <Divider backgroundColor="#FEFBF3" />
