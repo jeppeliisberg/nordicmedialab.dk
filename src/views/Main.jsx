@@ -1,12 +1,10 @@
 import Divider from "../components/Divider";
 import MembersSwiper from "../components/MembersSwiper";
-import ProjectsSwiper from "../components/ProjectsSwiper";
 import { useTranslation, Trans } from 'react-i18next';
 
 const Main = () => {
     const { t } = useTranslation();
 
-    const projectsData = t('projects.cards', { returnObjects: true });
     const membersData = t('members.cards', { returnObjects: true });
    
     return (
@@ -35,12 +33,46 @@ const Main = () => {
             <section className="bg-[#FEFBF3] pb-32">
                 <a className="anchor" id="projekter"></a>
                 <div className="relative px-10 max-w-2xl mx-auto">
-                    <span className="text-emerald-500 font-semibold uppercase text-base font-sans">{t('projects.tagline')}</span>
-                    <h1 className="font-serif text-xl lg:text-2xl font-normal mt-1 mb-5">{t('projects.description1')}</h1>
-                    <h1 className="font-serif text-xl lg:text-2xl font-normal mt-1 mb-5">{t('projects.description2')}</h1>
+                    <span className="text-[#39A97C] font-semibold uppercase text-base font-sans tracking-wide">{t('projects.tagline')}</span>
+                    <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-2 mb-6">{t('projects.title')}</h1>
+                    <p className="font-serif text-lg lg:text-xl leading-relaxed">{t('projects.intro1')}</p>
+                    <p className="font-sans text-base lg:text-lg text-neutral-700 mt-5 leading-relaxed">{t('projects.intro2')}</p>
                 </div>
-                <div className="w-full mt-20">
-                    <ProjectsSwiper cards={projectsData}/>
+
+                <div className="relative px-10 max-w-2xl mx-auto mt-12 flex flex-col gap-4">
+                    <article className="bg-white border border-black/10 rounded-3xl overflow-hidden shadow-sm grid grid-cols-1 sm:grid-cols-[120px_1fr]">
+                        <div className="bg-[#39A97C] text-white flex sm:flex-col flex-row items-center justify-center gap-x-3 text-center py-5 sm:py-7 px-4">
+                            <span className="text-xs uppercase tracking-wide opacity-90">{t('projects.w1dow')}</span>
+                            <span className="font-serif text-5xl font-extrabold leading-none">{t('projects.w1day')}</span>
+                            <span className="text-sm uppercase tracking-widest">{t('projects.w1mon')}</span>
+                            <span className="text-xs opacity-80">{t('projects.w1year')}</span>
+                        </div>
+                        <div className="px-7 py-6">
+                            <span className="inline-block text-xs font-semibold uppercase tracking-wide text-[#39A97C] bg-[#39A97C]/10 rounded-full px-3 py-1 mb-3">{t('projects.w1tag')}</span>
+                            <h2 className="font-serif text-2xl lg:text-3xl font-bold leading-tight">{t('projects.w1title')}</h2>
+                            <div className="flex flex-wrap gap-x-5 gap-y-2 mt-3 mb-3 text-sm text-neutral-600 font-sans">
+                                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#FF881B]"></span>{t('projects.w1time')}</span>
+                                <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#FF881B]"></span>{t('projects.w1location')}</span>
+                            </div>
+                            <p className="font-sans text-base text-neutral-700">{t('projects.w1desc')}</p>
+                        </div>
+                    </article>
+
+                    <article className="border border-dashed border-black/15 rounded-3xl overflow-hidden grid grid-cols-1 sm:grid-cols-[120px_1fr]">
+                        <div className="flex sm:flex-col flex-row items-center justify-center gap-x-3 text-center py-4 sm:py-7 px-4 text-neutral-400 sm:border-r border-dashed border-black/15">
+                            <span className="text-sm uppercase tracking-widest">{t('projects.w2when')}</span>
+                        </div>
+                        <div className="px-7 py-5">
+                            <span className="inline-block text-xs font-semibold uppercase tracking-wide text-neutral-500 bg-black/5 rounded-full px-3 py-1 mb-2">{t('projects.w2tag')}</span>
+                            <h2 className="font-serif text-xl font-bold text-neutral-500 leading-tight">{t('projects.w2title')}</h2>
+                            <p className="font-sans text-sm text-neutral-500 mt-1">{t('projects.w2note')}</p>
+                        </div>
+                    </article>
+
+                    <div className="flex flex-wrap items-center gap-4 mt-6">
+                        <a href="#medlemmer" className="bg-[#FF881B] hover:brightness-105 text-white font-semibold font-sans px-7 py-3 rounded-full transition">{t('projects.ctaButton')}</a>
+                        <span className="text-sm text-neutral-600 font-sans">{t('projects.ctaNote')}</span>
+                    </div>
                 </div>
             </section>
             

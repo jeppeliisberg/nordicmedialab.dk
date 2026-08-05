@@ -1,7 +1,7 @@
 {
   "nav": {
     "why": "Hvorfor?",
-    "projects": "Aktiviteter",
+    "projects": "Kommende events",
     "members": "Gratis medlemsskab",
     "pact": "Pagt",
     "values": "Værdier",
@@ -18,69 +18,25 @@
     "joinOase": "Deltag i vores Oase Techtopia chat"
   },
   "projects": {
-    "tagline": "Aktiviteter & Projekter",
-    "description1": "Vi fungerer som paraply og facilitator for en række aktiviteter & tech-projekter, der fokuserer på udvikling, research og oplysning.",
-    "description2": "Læs mere om projekterne herunder:",
-    "cards_hidden": [
-      {
-        "id": 6,
-        "headline": "Challenge your story",
-        "text": "I dette projekt undersøger vi, hvordan fortælllinger kan bruges som et redskab til at skabe digital dannelse, dialog og sundere fællesskaber i en verden domineret af sociale medier.",
-        "hero": "challenge_your_story.jpg",
-        "logo": "",
-        "projecturl": ""
-      },
-      {
-        "id": 3,
-        "headline": "Hjertet i Skyen",
-        "text": "Vi udvikler en åben og kollektivt ejet cloud-løsning som alternativ til f.eks Amazon og Google, hvor startups undgår at blive låst til tech-giganterne.",
-        "hero": "heart_in_the_cloud.jpg",
-        "logo": "",
-        "projecturl": ""
-      }
-    ],
-    "cards": [
-      {
-        "id": 2,
-        "headline": "Data Uden Grænser",
-        "text": "I samarbejde med bl.a. DATA for GOOD Foundation kortlægger og udvikler vi platforme, initiativer og projekter, som arbejder med at sikre, at data ikke kontrolleres af få private selskaber.",
-        "hero": "data_without_borders.jpg",
-        "logo": "dfg_logo_white.svg",
-        "projecturl": ""
-      },
-      {
-        "id": 8,
-        "headline": "Manifesto for Sustainable Software Design",
-        "text": "Et manifest med principper, der skal guide softwareudvikling mod en fremtid, hvor teknologi tjener samfundets, menneskehedens og planetens behov.",
-        "hero": "sustainable_manifesto.jpg",
-        "logo": "",
-        "projecturl": "https://sustainablemanifesto.org/"
-      },
-      {
-        "id": 4,
-        "headline": "Techtopia Tænketank",
-        "text": "Hvordan skal vi bygge alternativer til tech giganterne? Den samtale har journalist Henrik Føhns og Ingeniørforeningen IDA organiseret med fysiske møder og en løbende online vidensdeling på Oase Chat.",
-        "hero": "techtopia.jpg",
-        "logo": "",
-        "projecturl": ""
-      },
-      {
-        "id": 5,
-        "headline": "Promise Authentication",
-        "text": "Hvad hvis alle alternativer til tech-giganterne var bundet sammen af ét sikkert og privat kodeord? Det er tanken med Promise. Promise gør det nemt at vælge alternative tech platforme, fordi man allerede er autentificeret.",
-        "hero": "top_2.png",
-        "logo": "",
-        "projecturl": ""
-      },
-      {
-        "id": 7,
-        "headline": "Recoding democracy",
-        "text": "Vi bevæger os i hast ned ad en vej, hvor AI er ved at omskrive fundamentet for demokrati. Sammen med DemAI undersøger vi, hvordan AI kan bruges som en positiv kraft for demokratiet - og blive et redskab til demokratisk fornyelse i stedet for nedbrydning.",
-        "hero": "recoding_democracy.jpg",
-        "logo": "",
-        "projecturl": "https://dk.linkedin.com/company/demaitech"
-      }
-    ]
+    "tagline": "Kommende events",
+    "title": "Fælles grund: Føderering af Nordic Media Lab",
+    "intro1": "Fælles grund er en række workshops, der undersøger, hvordan Nordic Media Labs medlemmer kan fødereres til ét netværk, så vi kan få gavn af netværkseffekterne, uden at nogen mister sin uafhængighed.",
+    "intro2": "Den største barriere for at lancere nye sociale platforme er netværkseffekten. Når du melder dig ind på en ny platform, har du få forbindelser, og du ender med at skifte tilbage til LinkedIn, Facebook eller en af de andre giganter, hvor alle allerede er. Løsningen er ikke at bygge endnu en konkurrerende gigant, for så støder vi på de samme problemer. Den er at lade mange små platforme virke som ét netværk, mens hver forbliver suveræn, sådan som e-mail lader alle udbydere tale sammen, uden at nogen ejer det hele. Det fødererede web er allerede ved at blive rullet ud i forskellige former, og vi vil tage det til næste niveau.",
+    "w1tag": "Workshop #1",
+    "w1title": "Behov og principper",
+    "w1dow": "Tir",
+    "w1day": "18",
+    "w1mon": "Aug",
+    "w1year": "2026",
+    "w1time": "16:00 – 19:00",
+    "w1location": "Demokrati Lab, Rentemestervej, København",
+    "w1desc": "Her bliver vi enige om, hvad den fælles infrastruktur skal kunne, og de principper den aldrig må bryde, før vi vælger en protokol, der skal forene os.",
+    "w2tag": "Workshop #2",
+    "w2when": "Sidst i sep. 2026",
+    "w2title": "Protokoller i dybden",
+    "w2note": "Vi går mere i dybden med de konkrete protokoller. Mere information snarest.",
+    "ctaButton": "Bliv medlem (gratis)",
+    "ctaNote": "Medlemskab er gratis. Bliv medlem for at deltage i workshopsene."
   },
   "members": {
     "tagline": "Medlemmer",

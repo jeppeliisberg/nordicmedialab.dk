@@ -1,7 +1,7 @@
 {
   "nav": {
     "why": "Why?",
-    "projects": "Activities",
+    "projects": "Upcoming events",
     "members": "Free membership",
     "pact": "Pact",
     "values": "Values",
@@ -18,69 +18,25 @@
     "joinOase": "Join our Oase Techtopia chat"
   },
   "projects": {
-    "tagline": "Activities & Projects",
-    "description1": "We act as an umbrella and facilitator for a number of activities & tech projects focusing on development, research and education.",
-    "description2": "Read more about the projects below:",
-    "cards_hidden": [
-      {
-        "id": 6,
-        "headline": "Challenge your story",
-        "text": "In this project, we explore how storytelling can be used as a tool to create digital enlightenment, dialogue and healthier communities in a world dominated by social media.",
-        "hero": "challenge_your_story.jpg",
-        "logo": "",
-        "projecturl": ""
-      },
-      {
-        "id": 3,
-        "headline": "Heart in the Cloud",
-        "text": "We are developing an open and collectively owned cloud solution as an alternative to Amazon and Google, where startups avoid being locked into tech giants.",
-        "hero": "heart_in_the_cloud.jpg",
-        "logo": "",
-        "projecturl": ""
-      }
-    ],
-    "cards": [
-      {
-        "id": 2,
-        "headline": "Data Without Borders",
-        "text": "In collaboration with the DATA for GOOD Foundation and others, we map and develop platforms, initiatives and projects that work to ensure that data is not controlled by a few private companies.",
-        "hero": "data_without_borders.jpg",
-        "logo": "dfg_logo_white.svg",
-        "projecturl": ""
-      },
-      {
-        "id": 8,
-        "headline": "Manifesto for Sustainable Software Design",
-        "text": "A manifesto with principles to guide software development towards a future where technology serves the needs of society, humanity and the planet.",
-        "hero": "sustainable_manifesto.jpg",
-        "logo": "",
-        "projecturl": "https://sustainablemanifesto.org/"
-      },
-      {
-        "id": 4,
-        "headline": "Techtopia Think Tank",
-        "text": "How should we build alternatives to tech giants? This conversation has been organized by journalist Henrik Føhns and the Danish Society of Engineers (IDA) with physical meetings and ongoing online knowledge sharing on Oase Chat.",
-        "hero": "techtopia.jpg",
-        "logo": "",
-        "projecturl": ""
-      },
-      {
-        "id": 5,
-        "headline": "Promise Authentication",
-        "text": "What if all alternatives to tech giants were tied together by one secure and private password? That's the idea behind Promise. Promise makes it easy to choose alternative tech platforms because you're already authenticated.",
-        "hero": "top_2.png",
-        "logo": "",
-        "projecturl": ""
-      },
-      {
-        "id": 7,
-        "headline": "Recoding democracy",
-        "text": "We are rapidly moving down a path where AI is rewriting the foundation of democracy. Together with DemAI, we explore how AI can be used as a positive force for democracy - and become a tool for democratic renewal rather than breakdown.",
-        "hero": "recoding_democracy.jpg",
-        "logo": "",
-        "projecturl": "https://dk.linkedin.com/company/demaitech"
-      }
-    ]
+    "tagline": "Upcoming events",
+    "title": "Common ground: Federating Nordic Media Lab",
+    "intro1": "Common ground is a series of workshops exploring how Nordic Media Lab's members can be federated into a single network that lets us share in the network effects, without anyone losing their independence.",
+    "intro2": "The biggest barrier to launching new social platforms is the network effect. When you join a new platform you have few connections, and you eventually switch back to LinkedIn, Facebook, or one of the other giants, where everyone already is. The solution is not to build another competing giant, we would only face the same problems. It's to let many small platforms work as one network while each stays sovereign, the way email lets every provider talk without anyone owning the whole. The federated web is already being rolled out in various forms, and we want to take it to the next level.",
+    "w1tag": "Workshop #1",
+    "w1title": "Needs & Principles",
+    "w1dow": "Tue",
+    "w1day": "18",
+    "w1mon": "Aug",
+    "w1year": "2026",
+    "w1time": "16:00 – 19:00",
+    "w1location": "Demokrati Lab, Rentemestervej, Copenhagen",
+    "w1desc": "Where we agree what that shared infrastructure must do, and the principles it must never break, before we choose a protocol that will unite us.",
+    "w2tag": "Workshop #2",
+    "w2when": "Late Sep 2026",
+    "w2title": "Protocols in depth",
+    "w2note": "We go deeper into the concrete protocols. More soon.",
+    "ctaButton": "Become a member (free)",
+    "ctaNote": "Membership is free. Join to take part in the workshops."
   },
   "members": {
     "tagline": "Members",
