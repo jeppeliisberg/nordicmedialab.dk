@@ -83,9 +83,7 @@ const Main = () => {
                 <div className="max-w-6xl mx-auto px-6 md:px-10 mt-14">
                     <MembersGrid cards={membersData}/>
                 </div>
-                <div className="relative px-10 max-w-2xl mx-auto mt-16 text-white">
-                    <h2 className="font-serif text-2xl lg:text-3xl font-bold mb-2">{t('submit.ctaTitle')}</h2>
-                    <p className="font-serif text-lg mb-6">{t('submit.ctaText')}</p>
+                <div className="relative px-10 max-w-2xl mx-auto mt-14">
                     <MemberSubmit/>
                 </div>
                 {/**
