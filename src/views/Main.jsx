@@ -65,9 +65,8 @@ const Main = () => {
                         </div>
                     </article>
 
-                    <div className="flex flex-wrap items-center gap-4 mt-6">
-                        <a href="#medlemmer" className="bg-[#FF881B] hover:brightness-105 text-white font-semibold font-sans px-7 py-3 rounded-full transition">{t('projects.ctaButton')}</a>
-                        <span className="text-sm text-neutral-600 font-sans">{t('projects.ctaNote')}</span>
+                    <div className="mt-8">
+                        <MemberSubmit variant="link" triggerLabel={t('projects.applyLink')} />
                     </div>
                 </div>
             </section>

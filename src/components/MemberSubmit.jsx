@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 const MAX = 120;
 const MAX_PERSONS = 5;
 
-const MemberSubmit = () => {
+const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [type, setType] = useState('platform');
@@ -43,12 +43,23 @@ const MemberSubmit = () => {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="bg-[#FF881B] hover:brightness-105 text-white font-semibold font-sans px-8 py-3 rounded-full transition"
-      >
-        {t('submit.applyNow')}
-      </button>
+      {variant === 'link' ? (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="font-serif text-lg lg:text-xl text-[#39A97C] underline underline-offset-4 hover:brightness-110 text-left"
+        >
+          {triggerLabel || t('submit.applyNow')}
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="bg-[#FF881B] hover:brightness-105 text-white font-semibold font-sans px-8 py-3 rounded-full transition"
+        >
+          {triggerLabel || t('submit.applyNow')}
+        </button>
+      )}
 
       {open && (
         <div
