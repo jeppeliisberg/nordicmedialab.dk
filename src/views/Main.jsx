@@ -83,6 +83,11 @@ const Main = () => {
                 <div className="max-w-6xl mx-auto px-6 md:px-10 mt-14">
                     <MembersGrid cards={membersData}/>
                 </div>
+                <div className="relative px-10 max-w-2xl mx-auto mt-16 text-white">
+                    <h2 className="font-serif text-2xl lg:text-3xl font-bold mb-2">{t('submit.ctaTitle')}</h2>
+                    <p className="font-serif text-lg mb-6">{t('submit.ctaText')}</p>
+                    <MemberSubmit/>
+                </div>
                 {/**
                 <div className="relative px-10 max-w-2xl mx-auto">
                     <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-1 mb-5">Industri medlemmer</h1>
@@ -95,17 +100,6 @@ const Main = () => {
 
             </section>
             
-            <Divider backgroundColor="#FEFBF3" />
-            <section className="bg-[#FEFBF3] pb-32">
-                <a className="anchor" id="join"></a>
-                <div className="relative px-10 max-w-2xl mx-auto">
-                    <span className="text-[#39A97C] font-semibold uppercase text-base font-sans tracking-wide">{t('submit.tagline')}</span>
-                    <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-1 mb-5">{t('submit.title')}</h1>
-                    <p className="font-serif text-lg lg:text-xl mb-8">{t('submit.intro')}</p>
-                    <MemberSubmit/>
-                </div>
-            </section>
-
             <Divider backgroundColor="#1d1f2a" />
             
             <section className="bg-[#1d1f2a] pb-32">

@@ -19,12 +19,27 @@
   <body>
     <!-- Hidden static form so Netlify registers "member-submission" (incl. file upload) at build time -->
     <form name="member-submission" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="type" />
       <input type="text" name="name" />
       <textarea name="description"></textarea>
       <input type="url" name="website" />
-      <input type="email" name="contact" />
       <input type="text" name="language" />
       <input type="file" name="logo" />
+      <input type="text" name="contact1_name" />
+      <input type="email" name="contact1_email" />
+      <input type="text" name="contact1_title" />
+      <input type="text" name="contact2_name" />
+      <input type="email" name="contact2_email" />
+      <input type="text" name="contact2_title" />
+      <input type="text" name="contact3_name" />
+      <input type="email" name="contact3_email" />
+      <input type="text" name="contact3_title" />
+      <input type="text" name="contact4_name" />
+      <input type="email" name="contact4_email" />
+      <input type="text" name="contact4_title" />
+      <input type="text" name="contact5_name" />
+      <input type="email" name="contact5_email" />
+      <input type="text" name="contact5_title" />
       <input type="text" name="bot-field" />
     </form>
     <div id="root"></div>
