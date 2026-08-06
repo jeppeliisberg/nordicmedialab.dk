@@ -78,13 +78,11 @@ const Main = () => {
                 <div className="relative px-10 max-w-2xl mx-auto">
                     <span className="text-white font-semibold uppercase text-base font-sans">{t('members.tagline')}</span>
                     <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-1 mb-5">{t('members.title')}</h1>
-                    <p className="font-serif text-xl lg:text-2xl">{t('members.description')}</p>
+                    <p className="font-serif text-xl lg:text-2xl mb-8">{t('members.description')}</p>
+                    <MemberSubmit/>
                 </div>
                 <div className="max-w-6xl mx-auto px-6 md:px-10 mt-14">
                     <MembersGrid cards={membersData}/>
-                </div>
-                <div className="relative px-10 max-w-2xl mx-auto mt-14">
-                    <MemberSubmit/>
                 </div>
                 {/**
                 <div className="relative px-10 max-w-2xl mx-auto">
