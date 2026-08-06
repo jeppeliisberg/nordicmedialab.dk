@@ -17,6 +17,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
   <body>
+    <!-- Hidden static form so Netlify registers "member-submission" (incl. file upload) at build time -->
+    <form name="member-submission" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <textarea name="description"></textarea>
+      <input type="url" name="website" />
+      <input type="email" name="contact" />
+      <input type="text" name="language" />
+      <input type="file" name="logo" />
+      <input type="text" name="bot-field" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -133,6 +133,24 @@
     "story4": "Det første møde var for omkring to år siden. Vi vokser stadig, hurtigt.",
     "boardTitle": "Vores bestyrelse"
   },
+  "submit": {
+    "tagline": "Bliv medlem",
+    "title": "Indsend din platform",
+    "intro": "Bygger du etisk teknologi i nordisk ånd? Tilføj din platform til netværket. Vi gennemgår hver indsendelse manuelt, før den går live.",
+    "name": "Platformens navn",
+    "description": "Beskrivelse",
+    "descriptionHelp": "Én sætning, højst 120 tegn. Hvad I laver, og hvilket alternativ I er.",
+    "website": "Webadresse",
+    "email": "Kontakt-e-mail",
+    "language": "Sprog på din beskrivelse",
+    "logo": "Logo (valgfrit)",
+    "logoHelp": "SVG eller kvadratisk PNG (mindst 400px), gennemsigtig baggrund, som fungerer på en lys baggrund.",
+    "send": "Indsend",
+    "sending": "Sender…",
+    "error": "Noget gik galt. Prøv igen, eller skriv til hej@nordicmedialab.dk.",
+    "thanksTitle": "Tak",
+    "thanksBody": "Vi har modtaget din indsendelse. Vi gennemgår hver enkelt manuelt og får jer på netværket snart."
+  },
   "contact": {
     "tagline": "Kontakt",
     "title": "Skriv til os"

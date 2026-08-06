@@ -1,6 +1,7 @@
 import Divider from "../components/Divider";
 import MembersGrid from "../components/MembersGrid";
 import BoardSlider from "../components/BoardSlider";
+import MemberSubmit from "../components/MemberSubmit";
 import boardData from "../components/boardData.json";
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -94,6 +95,17 @@ const Main = () => {
 
             </section>
             
+            <Divider backgroundColor="#FEFBF3" />
+            <section className="bg-[#FEFBF3] pb-32">
+                <a className="anchor" id="join"></a>
+                <div className="relative px-10 max-w-2xl mx-auto">
+                    <span className="text-[#39A97C] font-semibold uppercase text-base font-sans tracking-wide">{t('submit.tagline')}</span>
+                    <h1 className="font-serif text-3xl lg:text-5xl font-bold mt-1 mb-5">{t('submit.title')}</h1>
+                    <p className="font-serif text-lg lg:text-xl mb-8">{t('submit.intro')}</p>
+                    <MemberSubmit/>
+                </div>
+            </section>
+
             <Divider backgroundColor="#1d1f2a" />
             
             <section className="bg-[#1d1f2a] pb-32">

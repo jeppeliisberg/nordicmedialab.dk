@@ -133,6 +133,24 @@
     "story4": "That first meeting was about two years ago. We're still growing, fast.",
     "boardTitle": "Our board"
   },
+  "submit": {
+    "tagline": "Join",
+    "title": "Submit your platform",
+    "intro": "Building ethical technology in the Nordic spirit? Add your platform to the network. We review every submission by hand before it goes live.",
+    "name": "Platform name",
+    "description": "Description",
+    "descriptionHelp": "One sentence, max 120 characters. What you do, and what you're an alternative to.",
+    "website": "Website",
+    "email": "Contact email",
+    "language": "Language of your description",
+    "logo": "Logo (optional)",
+    "logoHelp": "SVG or square PNG (min 400px), transparent background, works on a light background.",
+    "send": "Submit",
+    "sending": "Sending…",
+    "error": "Something went wrong. Please try again, or email hej@nordicmedialab.dk.",
+    "thanksTitle": "Thank you",
+    "thanksBody": "We've received your submission. We review each one by hand and will get you onto the network soon."
+  },
   "contact": {
     "tagline": "Contact",
     "title": "Write to us"
