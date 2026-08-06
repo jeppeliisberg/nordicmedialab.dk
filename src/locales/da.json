@@ -42,7 +42,7 @@
   "members": {
     "tagline": "Medlemmer",
     "title": "Bliv medlem",
-    "description": "Vi har tre slags medlemmer i Nordic Media Lab: iværksættere, der bygger teknologiplatforme, organisationer, der arbejder for etisk og open source-teknologi, og enkeltpersoner, der er interesserede i at ændre det teknologiske landskab, vi har i dag. Du kan blive medlem af Nordic Media Lab gratis. Det eneste vi beder om, er, at du støtter op om og arbejder for vores Nordic Media Pagt. Her er vores nuværende medlemmer:",
+    "description": "Vi har tre slags medlemmer i Nordic Media Lab: iværksættere, der bygger teknologiplatforme, organisationer, der arbejder for etisk og open source-teknologi, og enkeltpersoner, der er interesserede i at ændre det teknologiske landskab, vi har i dag. Du kan blive medlem af Nordic Media Lab gratis. Det eneste vi beder om, er, at du støtter op om og arbejder for vores Nordic Media Pagt. Her er vores platforme og organisationer:",
     "cards": [
       {
         "id": 1,
@@ -146,7 +146,7 @@
     "typeIndividual": "Person",
     "namePlatform": "Platformens navn",
     "nameOrganization": "Organisationens navn",
-    "nameIndividual": "Navn",
+    "nameIndividual": "Fulde navn",
     "description": "Beskrivelse",
     "descriptionHelp": "Én sætning, højst 120 tegn. Hvad I laver, og hvilket alternativ I er.",
     "website": "Webadresse (valgfrit)",
@@ -155,10 +155,13 @@
     "logoHelp": "SVG eller kvadratisk PNG (mindst 400px), gennemsigtig baggrund, som fungerer på en lys baggrund.",
     "contactsTitle": "Kontakter",
     "contactsHelp": "Alle, der skal inviteres til møder og events. Dette er til os, det vises ikke på siden.",
-    "personName": "Navn",
+    "personName": "Fulde navn",
     "personEmail": "E-mail",
     "personTitle": "Titel (valgfrit)",
     "addPerson": "Tilføj en person mere",
+    "indivBio": "Kort bio (valgfrit)",
+    "indivLink": "Link (valgfrit)",
+    "individualNote": "Som person bliver du en del af fællesskabet og får invitationer til events.",
     "send": "Indsend",
     "sending": "Sender…",
     "error": "Noget gik galt. Prøv igen, eller skriv til hej@nordicmedialab.dk.",

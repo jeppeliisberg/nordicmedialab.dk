@@ -42,7 +42,7 @@
   "members": {
     "tagline": "Members",
     "title": "Become a member",
-    "description": "We have three kinds of members in Nordic Media Lab: entrepreneurs building tech platforms, organizations that push for ethical and open-source technology, and individuals interested in changing our current technology landscape. You can join Nordic Media Lab for free. All we ask is that you support and work within our Nordic Media Pact. Here are our current members:",
+    "description": "We have three kinds of members in Nordic Media Lab: entrepreneurs building tech platforms, organisations that push for ethical and open-source technology, and individuals interested in changing our current technology landscape. You can join Nordic Media Lab for free. All we ask is that you support and work within our Nordic Media Pact. Here are our platforms and organisations:",
     "cards": [
       {
         "id": 1,
@@ -146,7 +146,7 @@
     "typeIndividual": "Individual",
     "namePlatform": "Platform name",
     "nameOrganization": "Organization name",
-    "nameIndividual": "Name",
+    "nameIndividual": "Full Name",
     "description": "Description",
     "descriptionHelp": "One sentence, max 120 characters. What you do, and what you're an alternative to.",
     "website": "Website (optional)",
@@ -155,10 +155,13 @@
     "logoHelp": "SVG or square PNG (min 400px), transparent background, works on a light background.",
     "contactsTitle": "Contacts",
     "contactsHelp": "Everyone who should get invitations to meetings and events. This is for us, not shown on the site.",
-    "personName": "Name",
+    "personName": "Full Name",
     "personEmail": "Email",
     "personTitle": "Title (optional)",
     "addPerson": "Add another person",
+    "indivBio": "Short bio (optional)",
+    "indivLink": "Link (optional)",
+    "individualNote": "As an individual you join the community and get invitations to events.",
     "send": "Submit",
     "sending": "Sending…",
     "error": "Something went wrong. Please try again, or email hej@nordicmedialab.dk.",

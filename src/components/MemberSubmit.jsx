@@ -14,10 +14,12 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
   const [done, setDone] = useState(false);
   const [error, setError] = useState(false);
 
+  const isIndividual = type === 'individual';
+
   const nameLabel =
     type === 'organization'
       ? t('submit.nameOrganization')
-      : type === 'individual'
+      : isIndividual
       ? t('submit.nameIndividual')
       : t('submit.namePlatform');
 
@@ -125,68 +127,88 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
                     <input type="text" name="name" required className={field} />
                   </div>
 
-                  <div>
-                    <label className={label}>{t('submit.description')}</label>
-                    <textarea
-                      name="description"
-                      required
-                      maxLength={MAX}
-                      rows={3}
-                      onChange={(e) => setCount(e.target.value.length)}
-                      className={field + ' resize-none'}
-                    />
-                    <div className="flex justify-between gap-3">
-                      <span className={help}>{t('submit.descriptionHelp')}</span>
-                      <span className={help}>
-                        {count}/{MAX}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className={label}>{t('submit.website')}</label>
-                    <input type="url" name="website" placeholder="https://" className={field} />
-                  </div>
-
-                  <div>
-                    <label className={label}>{t('submit.language')}</label>
-                    <select name="language" defaultValue="da" className={field}>
-                      <option value="da">Dansk</option>
-                      <option value="en">English</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className={label}>{t('submit.logo')}</label>
-                    <input
-                      type="file"
-                      name="logo"
-                      accept=".svg,.png,image/svg+xml,image/png"
-                      className="block w-full text-sm text-neutral-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-[#39A97C] file:text-white file:font-semibold hover:file:brightness-105"
-                    />
-                    <div className={help}>{t('submit.logoHelp')}</div>
-                  </div>
-
-                  <div className="border-t border-black/10 pt-4 mt-1">
-                    <h4 className="font-serif text-lg font-bold text-[#1D1F29]">{t('submit.contactsTitle')}</h4>
-                    <p className={help + ' mb-3'}>{t('submit.contactsHelp')}</p>
-                    {Array.from({ length: persons }).map((_, i) => (
-                      <div key={i} className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-2">
-                        <input type="text" name={`contact${i + 1}_name`} placeholder={t('submit.personName')} required={i === 0} className={field} />
-                        <input type="email" name={`contact${i + 1}_email`} placeholder={t('submit.personEmail')} required={i === 0} className={field} />
-                        <input type="text" name={`contact${i + 1}_title`} placeholder={t('submit.personTitle')} className={field} />
+                  {isIndividual ? (
+                    <>
+                      <div>
+                        <label className={label}>{t('submit.personEmail')}</label>
+                        <input type="email" name="email" required className={field} />
                       </div>
-                    ))}
-                    {persons < MAX_PERSONS && (
-                      <button
-                        type="button"
-                        onClick={() => setPersons((p) => p + 1)}
-                        className="text-sm font-semibold text-[#39A97C] hover:underline mt-1"
-                      >
-                        + {t('submit.addPerson')}
-                      </button>
-                    )}
-                  </div>
+                      <div>
+                        <label className={label}>{t('submit.indivBio')}</label>
+                        <textarea name="bio" rows={2} className={field + ' resize-none'} />
+                      </div>
+                      <div>
+                        <label className={label}>{t('submit.indivLink')}</label>
+                        <input type="url" name="website" placeholder="https://" className={field} />
+                      </div>
+                      <p className={help}>{t('submit.individualNote')}</p>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <label className={label}>{t('submit.description')}</label>
+                        <textarea
+                          name="description"
+                          required
+                          maxLength={MAX}
+                          rows={3}
+                          onChange={(e) => setCount(e.target.value.length)}
+                          className={field + ' resize-none'}
+                        />
+                        <div className="flex justify-between gap-3">
+                          <span className={help}>{t('submit.descriptionHelp')}</span>
+                          <span className={help}>
+                            {count}/{MAX}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className={label}>{t('submit.website')}</label>
+                        <input type="url" name="website" placeholder="https://" className={field} />
+                      </div>
+
+                      <div>
+                        <label className={label}>{t('submit.language')}</label>
+                        <select name="language" defaultValue="da" className={field}>
+                          <option value="da">Dansk</option>
+                          <option value="en">English</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className={label}>{t('submit.logo')}</label>
+                        <input
+                          type="file"
+                          name="logo"
+                          accept=".svg,.png,image/svg+xml,image/png"
+                          className="block w-full text-sm text-neutral-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-[#39A97C] file:text-white file:font-semibold hover:file:brightness-105"
+                        />
+                        <div className={help}>{t('submit.logoHelp')}</div>
+                      </div>
+
+                      <div className="border-t border-black/10 pt-4 mt-1">
+                        <h4 className="font-serif text-lg font-bold text-[#1D1F29]">{t('submit.contactsTitle')}</h4>
+                        <p className={help + ' mb-3'}>{t('submit.contactsHelp')}</p>
+                        {Array.from({ length: persons }).map((_, i) => (
+                          <div key={i} className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-2">
+                            <input type="text" name={`contact${i + 1}_name`} placeholder={t('submit.personName')} required={i === 0} className={field} />
+                            <input type="email" name={`contact${i + 1}_email`} placeholder={t('submit.personEmail')} required={i === 0} className={field} />
+                            <input type="text" name={`contact${i + 1}_title`} placeholder={t('submit.personTitle')} className={field} />
+                          </div>
+                        ))}
+                        {persons < MAX_PERSONS && (
+                          <button
+                            type="button"
+                            onClick={() => setPersons((p) => p + 1)}
+                            className="text-sm font-semibold text-[#39A97C] hover:underline mt-1"
+                          >
+                            + {t('submit.addPerson')}
+                          </button>
+                        )}
+                      </div>
+                    </>
+                  )}
 
                   {error && <p className="text-sm text-red-600">{t('submit.error')}</p>}
 
