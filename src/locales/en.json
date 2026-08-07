@@ -157,6 +157,7 @@
     "contactsHelp": "Everyone who should get invitations to meetings and events. This is for us, not shown on the site.",
     "personName": "Full Name",
     "personEmail": "Email",
+    "personPhone": "Phone (optional)",
     "personTitle": "Title (optional)",
     "addPerson": "Add another person",
     "indivBio": "Short bio (optional)",

@@ -157,6 +157,7 @@
     "contactsHelp": "Alle, der skal inviteres til møder og events. Dette er til os, det vises ikke på siden.",
     "personName": "Fulde navn",
     "personEmail": "E-mail",
+    "personPhone": "Telefon (valgfrit)",
     "personTitle": "Titel (valgfrit)",
     "addPerson": "Tilføj en person mere",
     "indivBio": "Kort bio (valgfrit)",
