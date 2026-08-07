@@ -168,10 +168,43 @@
     "error": "Something went wrong. Please try again, or email hej@nordicmedialab.dk.",
     "thanksTitle": "Thank you",
     "thanksBody": "We've received your submission. We review each one at our monthly board meeting and will get back to you.",
-    "close": "Close"
+    "close": "Close",
+    "typeConsultant": "Consultant",
+    "typeOther": "Other",
+    "nameConsultant": "Name",
+    "nameOther": "Name",
+    "pactCommit": "I commit to work for and support the"
   },
   "contact": {
     "tagline": "Contact",
     "title": "Write to us"
+  },
+  "update": {
+    "loading": "Loading your details…",
+    "invalid": "This link isn’t valid. Please use the link from your email, or contact hej@nordicmedialab.dk.",
+    "notFound": "We couldn’t find a member for this link. It may have been renewed. Contact hej@nordicmedialab.dk and we’ll send a fresh one.",
+    "title": "Update your details",
+    "intro": "Check that everything below is still correct and make any changes. Your updates go to the Nordic Media Lab board and appear on the site once approved.",
+    "name": "Name",
+    "descriptionEN": "Description (English)",
+    "descriptionDA": "Description (Danish)",
+    "descriptionHelp": "One sentence, max 120 characters. What you do, and what you’re an alternative to.",
+    "website": "Website",
+    "logo": "Logo",
+    "logoCurrent": "Current logo",
+    "logoHelp": "Upload to replace. SVG or square PNG (min 400px), transparent background.",
+    "contactsTitle": "Contacts",
+    "contactsHelp": "Everyone who should get invitations to meetings and events. Not shown on the site.",
+    "contactName": "Full name",
+    "contactEmail": "Email",
+    "contactPhone": "Phone",
+    "contactRole": "Title (optional)",
+    "addContact": "Add another person",
+    "remove": "Remove",
+    "save": "Save changes",
+    "saving": "Saving…",
+    "savedTitle": "Thanks, saved",
+    "savedBody": "Your details have been sent to the board. Changes appear on the site once approved. You can close this page.",
+    "error": "Something went wrong saving. Please try again, or email hej@nordicmedialab.dk."
   }
 }

@@ -168,10 +168,43 @@
     "error": "Noget gik galt. Prøv igen, eller skriv til hej@nordicmedialab.dk.",
     "thanksTitle": "Tak",
     "thanksBody": "Vi har modtaget din indsendelse. Vi gennemgår hver enkelt på vores månedlige bestyrelsesmøde og vender tilbage.",
-    "close": "Luk"
+    "close": "Luk",
+    "typeConsultant": "Konsulent",
+    "typeOther": "Andet",
+    "nameConsultant": "Navn",
+    "nameOther": "Navn",
+    "pactCommit": "Jeg forpligter mig til at arbejde for og støtte"
   },
   "contact": {
     "tagline": "Kontakt",
     "title": "Skriv til os"
+  },
+  "update": {
+    "loading": "Henter dine oplysninger…",
+    "invalid": "Linket er ikke gyldigt. Brug linket fra din e-mail, eller kontakt hej@nordicmedialab.dk.",
+    "notFound": "Vi kunne ikke finde et medlem til dette link. Det kan være blevet fornyet. Kontakt hej@nordicmedialab.dk, så sender vi et nyt.",
+    "title": "Opdater dine oplysninger",
+    "intro": "Tjek at alt herunder stadig er korrekt, og ret det, der skal rettes. Dine ændringer sendes til Nordic Media Labs bestyrelse og vises på siden, når de er godkendt.",
+    "name": "Navn",
+    "descriptionEN": "Beskrivelse (engelsk)",
+    "descriptionDA": "Beskrivelse (dansk)",
+    "descriptionHelp": "Én sætning, maks. 120 tegn. Hvad I laver, og hvad I er et alternativ til.",
+    "website": "Hjemmeside",
+    "logo": "Logo",
+    "logoCurrent": "Nuværende logo",
+    "logoHelp": "Upload for at erstatte. SVG eller kvadratisk PNG (min. 400px), gennemsigtig baggrund.",
+    "contactsTitle": "Kontaktpersoner",
+    "contactsHelp": "Alle, der skal have invitationer til møder og events. Vises ikke på siden.",
+    "contactName": "Fulde navn",
+    "contactEmail": "E-mail",
+    "contactPhone": "Telefon",
+    "contactRole": "Titel (valgfrit)",
+    "addContact": "Tilføj en person mere",
+    "remove": "Fjern",
+    "save": "Gem ændringer",
+    "saving": "Gemmer…",
+    "savedTitle": "Tak, det er gemt",
+    "savedBody": "Dine oplysninger er sendt til bestyrelsen. Ændringer vises på siden, når de er godkendt. Du kan lukke denne side.",
+    "error": "Noget gik galt. Prøv igen, eller skriv til hej@nordicmedialab.dk."
   }
 }

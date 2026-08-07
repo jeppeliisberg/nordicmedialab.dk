@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -13,12 +14,17 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState(false);
+  const [pactOpen, setPactOpen] = useState(false);
 
   const isIndividual = type === 'individual';
 
   const nameLabel =
     type === 'organization'
       ? t('submit.nameOrganization')
+      : type === 'consultant'
+      ? t('submit.nameConsultant')
+      : type === 'other'
+      ? t('submit.nameOther')
       : isIndividual
       ? t('submit.nameIndividual')
       : t('submit.namePlatform');
@@ -31,7 +37,7 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
       const data = new FormData(e.target);
       await fetch('/', { method: 'POST', body: data });
       setDone(true);
-    } catch (err) {
+    } catch {
       setError(true);
     } finally {
       setSending(false);
@@ -118,7 +124,9 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
                     <select name="type" value={type} onChange={(e) => setType(e.target.value)} className={field}>
                       <option value="platform">{t('submit.typePlatform')}</option>
                       <option value="organization">{t('submit.typeOrganization')}</option>
+                      <option value="consultant">{t('submit.typeConsultant')}</option>
                       <option value="individual">{t('submit.typeIndividual')}</option>
+                      <option value="other">{t('submit.typeOther')}</option>
                     </select>
                   </div>
 
@@ -215,6 +223,21 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
                     </>
                   )}
 
+                  <label className="flex items-start gap-2 text-sm text-[#1D1F29]">
+                    <input type="checkbox" name="pact_commit" value="yes" required className="mt-1 accent-[#39A97C]" />
+                    <span>
+                      {t('submit.pactCommit')}{' '}
+                      <button
+                        type="button"
+                        onClick={() => setPactOpen(true)}
+                        className="text-[#39A97C] underline underline-offset-2 hover:brightness-110"
+                      >
+                        {t('pact.mainTitle')}
+                      </button>
+                      .
+                    </span>
+                  </label>
+
                   {error && <p className="text-sm text-red-600">{t('submit.error')}</p>}
 
                   <button
@@ -227,6 +250,46 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
                 </form>
               </>
             )}
+          </div>
+        </div>
+      )}
+
+      {pactOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-start justify-center bg-black/60 p-4 overflow-y-auto"
+          onClick={() => setPactOpen(false)}
+        >
+          <div
+            className="bg-white rounded-2xl w-full max-w-lg my-8 p-6 md:p-8 relative text-left"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setPactOpen(false)}
+              aria-label={t('submit.close')}
+              className="absolute right-4 top-4 text-neutral-400 hover:text-[#1D1F29]"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#1D1F29] mb-2 pr-8">{t('pact.mainTitle')}</h3>
+            <p className="text-neutral-600 mb-4">{t('pact.mainDescription')}</p>
+            <div className="space-y-4">
+              {['transparency', 'design', 'ownership'].map((k) => (
+                <div key={k}>
+                  <h4 className="font-serif text-lg font-bold text-[#1D1F29]">{t(`pact.${k}.title`)}</h4>
+                  <p className="text-neutral-600 text-sm">{t(`pact.${k}.description`)}</p>
+                </div>
+              ))}
+              <div>
+                <h4 className="font-serif text-lg font-bold text-[#1D1F29]">{t('pact.beliefs.title')}</h4>
+                <ul className="list-disc pl-5 text-neutral-600 text-sm space-y-1">
+                  {(t('pact.beliefs.items', { returnObjects: true }) || []).map((it, i) => (
+                    <li key={i}>{it}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       )}
