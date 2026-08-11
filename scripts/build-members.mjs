@@ -114,6 +114,7 @@ async function main() {
 
     const descEN = (f['Description EN'] || '').trim();
     const descDA = (f['Description DA'] || '').trim();
+    const type = typeof f.Type === 'string' ? f.Type : (f.Type && f.Type.name) || '';
     const logoAtt = Array.isArray(f.Logo) && f.Logo[0];
     const hasContent = descEN || descDA || logoAtt;
 
@@ -134,7 +135,7 @@ async function main() {
     }
     const memberurl = displayUrl(f.Website);
 
-    const base = { id, headline: name };
+    const base = { id, headline: name, ...(type ? { type } : {}) };
     en.push({ ...base, text: descEN || descDA || '', ...(logo ? { logo } : {}), ...(memberurl ? { memberurl } : {}) });
     da.push({ ...base, text: descDA || descEN || '', ...(logo ? { logo } : {}), ...(memberurl ? { memberurl } : {}) });
   }

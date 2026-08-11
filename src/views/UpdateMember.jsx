@@ -26,6 +26,7 @@ export default function UpdateMember() {
         const d = await r.json();
         setData({
           name: d.name || '',
+          type: d.type || '',
           descriptionEN: d.descriptionEN || '',
           descriptionDA: d.descriptionDA || '',
           website: d.website || '',
@@ -64,6 +65,7 @@ export default function UpdateMember() {
         body: JSON.stringify({
           token,
           name: data.name,
+          type: data.type,
           descriptionEN: data.descriptionEN,
           descriptionDA: data.descriptionDA,
           website: data.website,
@@ -101,6 +103,17 @@ export default function UpdateMember() {
           <form onSubmit={submit} className="flex flex-col gap-4">
             <h1 className="font-serif text-3xl md:text-4xl font-bold">{t('update.title')}</h1>
             <p className="text-neutral-600 mb-2">{t('update.intro')}</p>
+
+            <div>
+              <label className={labelCls}>{t('update.type')}</label>
+              <select className={field} value={data.type} onChange={(e) => set('type', e.target.value)}>
+                <option value="">{t('update.typePlaceholder')}</option>
+                <option value="Platform">{t('submit.typePlatform')}</option>
+                <option value="Organisation">{t('submit.typeOrganization')}</option>
+                <option value="Consultant">{t('submit.typeConsultant')}</option>
+                <option value="Other">{t('submit.typeOther')}</option>
+              </select>
+            </div>
 
             <div>
               <label className={labelCls}>{t('update.name')}</label>

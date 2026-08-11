@@ -43,6 +43,10 @@
     "tagline": "Members",
     "title": "Become a member",
     "description": "We have three kinds of members in Nordic Media Lab: entrepreneurs building tech platforms, organisations that push for ethical and open-source technology, and individuals interested in changing our current technology landscape. You can join Nordic Media Lab for free. All we ask is that you support and work within our Nordic Media Pact. Here are our platforms and organisations:",
+    "filterAll": "All",
+    "filterPlatforms": "Platforms",
+    "filterOrganisations": "Organisations",
+    "filterConsultants": "Consultants",
     "cards": [
       {
         "id": 1,
@@ -185,6 +189,8 @@
     "notFound": "We couldn’t find a member for this link. It may have been renewed. Contact hej@nordicmedialab.dk and we’ll send a fresh one.",
     "title": "Update your details",
     "intro": "Check that everything below is still correct and make any changes. Your updates go to the Nordic Media Lab board and appear on the site once approved.",
+    "type": "Type",
+    "typePlaceholder": "Select a type",
     "name": "Name",
     "descriptionEN": "Description (English)",
     "descriptionDA": "Description (Danish)",

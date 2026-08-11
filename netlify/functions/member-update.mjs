@@ -25,8 +25,10 @@ export async function handler(event) {
     const orgId = org.id;
 
     // 1) Organisation listing fields.
+    const VALID_TYPES = ['Platform', 'Organisation', 'Consultant', 'Other'];
     const fields = {};
     if (typeof payload.name === 'string') fields['Name'] = payload.name.trim();
+    if (VALID_TYPES.includes(payload.type)) fields['Type'] = payload.type;
     if (typeof payload.descriptionEN === 'string') fields['Description EN'] = payload.descriptionEN.trim().slice(0, 200);
     if (typeof payload.descriptionDA === 'string') fields['Description DA'] = payload.descriptionDA.trim().slice(0, 200);
     if (typeof payload.website === 'string') fields['Website'] = payload.website.trim();

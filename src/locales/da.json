@@ -43,6 +43,10 @@
     "tagline": "Medlemmer",
     "title": "Bliv medlem",
     "description": "Vi har tre slags medlemmer i Nordic Media Lab: iværksættere, der bygger teknologiplatforme, organisationer, der arbejder for etisk og open source-teknologi, og enkeltpersoner, der er interesserede i at ændre det teknologiske landskab, vi har i dag. Du kan blive medlem af Nordic Media Lab gratis. Det eneste vi beder om, er, at du støtter op om og arbejder for vores Nordic Media Pagt. Her er vores platforme og organisationer:",
+    "filterAll": "Alle",
+    "filterPlatforms": "Platforme",
+    "filterOrganisations": "Organisationer",
+    "filterConsultants": "Konsulenter",
     "cards": [
       {
         "id": 1,
@@ -185,6 +189,8 @@
     "notFound": "Vi kunne ikke finde et medlem til dette link. Det kan være blevet fornyet. Kontakt hej@nordicmedialab.dk, så sender vi et nyt.",
     "title": "Opdater dine oplysninger",
     "intro": "Tjek at alt herunder stadig er korrekt, og ret det, der skal rettes. Dine ændringer sendes til Nordic Media Labs bestyrelse og vises på siden, når de er godkendt.",
+    "type": "Type",
+    "typePlaceholder": "Vælg en type",
     "name": "Navn",
     "descriptionEN": "Beskrivelse (engelsk)",
     "descriptionDA": "Beskrivelse (dansk)",
