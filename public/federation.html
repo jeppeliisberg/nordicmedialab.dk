@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="da">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,22 +81,17 @@ nav.contents ol{
   margin:0;
   padding:0 0 0 22px;
 }
-nav.contents li{margin:0 0 8px;}
+nav.contents li{margin:0 0 12px;}
 nav.contents a{
   color:var(--ink);
   text-decoration:none;
   font-weight:600;
 }
 nav.contents a:hover{color:var(--forest);}
-nav.contents ul.sub{
-  list-style:none;
-  padding:6px 0 4px 0;
-  margin:0;
-}
-nav.contents ul.sub li{margin:0 0 4px;}
-nav.contents ul.sub a{
+nav.contents .cn-sub{
+  display:block;
   font-weight:400;
-  color:rgba(29,31,41,0.72);
+  color:rgba(29,31,41,0.6);
   font-size:15px;
 }
 
@@ -108,6 +103,7 @@ h2.workshop-title{
   font-size:24px;
   margin:0 0 4px;
 }
+h3{font-size:20px; margin:28px 0 12px;}
 .workshop-kicker{
   font-family:'Inter', sans-serif;
   font-weight:600;
@@ -119,6 +115,50 @@ h2.workshop-title{
 }
 
 p{margin:0 0 18px;}
+
+.event-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 32px;
+  margin:0 0 28px;
+  padding:16px 20px;
+  border:1px solid var(--hair);
+  border-radius:4px;
+  background:var(--paper-tint);
+  font-size:15px;
+}
+.event-meta .item{display:flex; gap:8px; align-items:baseline;}
+.event-meta .k{
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:rgba(29,31,41,0.5);
+}
+.event-meta .v{font-weight:500;}
+
+.rsvp{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+  font-size:15px;
+  margin:0 0 28px;
+  padding:12px 18px;
+  border:1px dashed var(--ember);
+  border-radius:4px;
+  color:rgba(29,31,41,0.85);
+}
+.rsvp .tag{
+  font-family:'Inter', sans-serif;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ember);
+}
+.rsvp a{font-weight:600;}
 
 .callout{
   border-left:3px solid var(--forest);
@@ -140,6 +180,44 @@ p{margin:0 0 18px;}
   margin:0 0 32px;
 }
 .preread a{font-weight:600;}
+
+ol.themes{
+  list-style:none;
+  counter-reset:themes;
+  margin:0 0 8px;
+  padding:0;
+}
+ol.themes > li{
+  counter-increment:themes;
+  position:relative;
+  padding:0 0 20px 44px;
+  margin:0 0 4px;
+}
+ol.themes > li::before{
+  content:counter(themes);
+  position:absolute;
+  left:0;
+  top:0;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--forest);
+  color:var(--paper);
+  font-family:'Inter', sans-serif;
+  font-weight:700;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.theme-head{
+  font-weight:700;
+  margin:0 0 4px;
+}
+.theme-body{
+  margin:0;
+  color:rgba(29,31,41,0.85);
+}
 
 ol.agenda{
   list-style:none;
@@ -212,51 +290,10 @@ ol.agenda ul li{margin:0 0 6px;}
 .branches .outcome{font-weight:700;}
 .branches .then{color:rgba(29,31,41,0.75);}
 
-.next-steps h3{
-  font-size:20px;
-  margin:0 0 14px;
-}
-
-table{
-  border-collapse:collapse;
-  width:100%;
-  font-size:15px;
-}
-.table-wrap{
-  overflow-x:auto;
-  margin:0 0 24px;
-  border:1px solid var(--hair);
-  border-radius:4px;
-}
-th,td{
-  padding:10px 14px;
-  border-bottom:1px solid var(--hair);
-  text-align:left;
-  vertical-align:top;
-}
-th{
-  background:var(--paper-tint);
-  font-family:'Inter', sans-serif;
-  font-weight:600;
-}
-tr:last-child td{border-bottom:none;}
-
-code{
-  background:var(--paper-tint);
-  padding:2px 6px;
-  border-radius:3px;
-  font-size:0.9em;
-}
-
 hr{
   border:none;
   border-top:1px solid var(--hair);
   margin:48px 0;
-}
-
-.reading-intro{
-  font-style:italic;
-  color:rgba(29,31,41,0.7);
 }
 
 .backtop{
@@ -310,261 +347,166 @@ footer.page-footer{
 <header class="hero">
   <p class="eyebrow">Nordic Media Lab</p>
   <h1>Federating Nordic Media Lab</h1>
-  <p>En serie af workshops, der afdækker, hvordan NML's platforme kan hænge sammen som ét netværk uden, at nogen mister deres selvstændighed, men derimod vinder ved fælles netværksfordele.</p>
+  <p>A series of workshops exploring how NML's platforms can connect as one network without anyone losing their independence, and instead gain from being part of something shared.</p>
 </header>
 
 <nav class="contents" id="contents">
-  <p class="label">Indhold</p>
+  <p class="label">Contents</p>
   <ol>
-    <li><a href="#workshop-1">Workshop 1: Oplægget</a></li>
-    <li><a href="#hvad-saa">Hvad sker der herfra</a></li>
-    <li><a href="#laesemateriale">Baggrundsmateriale</a>
-      <ul class="sub">
-        <li><a href="#part-1-why-activitypub-not-at-protocol">Part 1: Why ActivityPub, Not AT Protocol</a></li>
-        <li><a href="#part-2-protocol-evaluation">Part 2: Protocol Evaluation</a></li>
-      </ul>
+    <li><a href="#workshop-1">Workshop 1: Needs and principles</a>
+      <span class="cn-sub">We open the question: why a shared infrastructure, and on what principles?</span>
     </li>
+    <li><a href="#workshop-2">Workshop 2: The proposal</a>
+      <span class="cn-sub">We present a concrete proposal and pressure-test it together.</span>
+    </li>
+    <li><a href="#from-here">What happens from here</a></li>
   </ol>
 </nav>
 
 <section id="workshop-1">
   <p class="workshop-kicker">Workshop 1</p>
-  <h2 class="workshop-title">Oplægget</h2>
-  <p>Formålet med workshoppen er at præsentere en retning og tage en temperaturmåling på, om der er opbakning til at arbejde videre i denne retning, og hvilke bekymringer vi skal have afklaret undervejs.</p>
+  <h2 class="workshop-title">Needs and principles</h2>
 
-  <p class="preread">Inden workshoppen må man gerne have læst <a href="#laesemateriale">baggrundsmaterialet</a>, som tager ca. 20-25 minutter.</p>
+  <div class="event-meta">
+    <div class="item"><span class="k">Date</span><span class="v">Tuesday 18 August 2026</span></div>
+    <div class="item"><span class="k">Time</span><span class="v">16.00&ndash;19.00</span></div>
+    <div class="item"><span class="k">Place</span><span class="v">Demokrati Lab, Rentemestervej</span></div>
+    <div class="item"><span class="k">Moderator</span><span class="v">Bjarke Winding, chairperson of Nordic Media Lab</span></div>
+  </div>
 
-  <h3>Dagsorden <span style="font-weight:400; color:rgba(29,31,41,0.55); font-size:16px;">(ca. 3 timer inkl. pauser)</span></h3>
+  <p class="rsvp"><span class="tag">RSVP</span> Email <a href="mailto:bjarke@nordicmedialab.dk">bjarke@nordicmedialab.dk</a> if you would like to join.</p>
+
+  <p>We begin the work of defining a shared platform for our different social platforms. To build broad understanding and common ground, we start the series with the overall needs and principles for a shared infrastructure and its protocols, before we look at concrete solutions.</p>
+
+  <div class="callout">
+    <p>How this runs depends on how many we are. Up to about ten, we can stay in one conversation. More than that, we split into small groups of 3-5 that each work the themes and present their findings back to the room. Either way, we open by framing the question, not by presenting a solution, and we end by turning the discussion into a first set of evaluation criteria.</p>
+  </div>
+
+  <p>In Workshop 1 we discuss the following themes:</p>
+
+  <ol class="themes">
+    <li>
+      <div class="theme-head">Purpose and stakeholders</div>
+      <p class="theme-body">Why should we build a shared infrastructure and protocol at all, and who are the primary stakeholders beyond Nordic Media Lab's members?</p>
+    </li>
+    <li>
+      <div class="theme-head">Architecture and layering</div>
+      <p class="theme-body">What does an ideal, modular infrastructure look like that matches our shared needs and standards, and where can the application layer and the data layer be separated? Should everyone have a data/ID wallet, and should you be able to switch data provider the way we &ldquo;switch banks&rdquo; today?</p>
+    </li>
+    <li>
+      <div class="theme-head">Open and closed</div>
+      <p class="theme-body">What can and should be open, what should be closed, and how encrypted should the closed parts be?</p>
+    </li>
+    <li>
+      <div class="theme-head">Governance and ownership</div>
+      <p class="theme-body">How should governance, including ownership, be composed around a shared infrastructure?</p>
+    </li>
+    <li>
+      <div class="theme-head">Breadth across platform types</div>
+      <p class="theme-body">How do we account for all types of social platforms, per the <a href="https://www.rebuild.net/tools/">Rebuild taxonomy</a>?</p>
+    </li>
+  </ol>
+
+  <p>From the discussion we draft a set of evaluation criteria to support our ambitions. We close by brainstorming existing protocols to investigate further, including whether there are elements we will need to build ourselves.</p>
+
+  <h3>Agenda <span style="font-weight:400; color:rgba(29,31,41,0.55); font-size:16px;">(about 3 hours incl. breaks)</span></h3>
 
   <ol class="agenda">
     <li>
-      <div class="agenda-head">Velkommen <span class="agenda-who">5 min, facilitator</span></div>
+      <div class="agenda-head">Welcome and framing <span class="agenda-who">15 min, moderator</span></div>
+      <p class="agenda-body">Why we are here, the scope, and how the two workshops connect. We open the question. We do not present a solution yet.</p>
     </li>
     <li>
-      <div class="agenda-head">Oplæg <span class="agenda-who">30 min, Bjarke</span></div>
-      <p class="agenda-body">Præsentation af Forest, som er et tidligt koncept for et &ldquo;Nordic Media Lab Federation Framework&rdquo; baseret på ActivityPub. Herunder spørgsmålene: &ldquo;Hvorfor skal vi overhovedet federere?&rdquo; og &ldquo;Hvorfor ActivityPub frem for AT Proto eller en anden løsning?&rdquo;</p>
+      <div class="agenda-head">Opening round <span class="agenda-who">15 min, everyone</span></div>
+      <p class="agenda-body">Each person names what a shared infrastructure would need to do for their platform: one hope and one worry. Everyone speaks early.</p>
     </li>
     <li>
-      <div class="agenda-head">Arbejdsgrupper <span class="agenda-who">30 min, facilitator</span></div>
+      <div class="agenda-head">The themes <span class="agenda-who">55 min, one group or split</span></div>
+      <p class="agenda-body">We work through the five themes, either as one conversation or split into small groups of 3-5 that each take the themes and capture their points. The moderator decides on the day, based on how many we are.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Findings <span class="agenda-who">15 min, groups or plenary</span></div>
+      <p class="agenda-body">If we split, each group presents its 2-3 main points to the room. In a single group, we gather the points together and carry them straight into the criteria.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Break <span class="agenda-who">10 min</span></div>
+    </li>
+    <li>
+      <div class="agenda-head">Draft evaluation criteria <span class="agenda-who">30 min, moderator</span></div>
+      <p class="agenda-body">We turn the discussion into a first list of criteria that any solution should meet.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Protocols to investigate <span class="agenda-who">25 min, everyone</span></div>
+      <p class="agenda-body">We brainstorm existing protocols to look into, and note anything we may have to build ourselves.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Close and next step <span class="agenda-who">15 min, moderator</span></div>
+      <p class="agenda-body">We recap the criteria and set the frame for Workshop 2: a concrete proposal to pressure-test against them.</p>
+    </li>
+  </ol>
+
+  <div class="callout ember">
+    <p>The work in Workshop 1 forms the basis for Workshop 2, where we go deeper into concrete protocols and present a proposal to test against these criteria. Workshop 2 is expected late September 2026, more information to follow.</p>
+  </div>
+</section>
+
+<section id="workshop-2" class="divider-top">
+  <p class="workshop-kicker">Workshop 2</p>
+  <h2 class="workshop-title">The proposal</h2>
+  <p style="color:rgba(29,31,41,0.6); font-size:15px; margin:0 0 20px;">Expected late September 2026.</p>
+
+  <p>Here we present a concrete proposal for the shared infrastructure and take the temperature on whether there is support to develop it further, and which concerns we need to resolve along the way. The proposal is measured against the needs and evaluation criteria we formulate in Workshop 1.</p>
+
+  <p class="preread">Before Workshop 2 we share a short piece of background reading that makes the case for the direction we propose. It goes out in good time beforehand.</p>
+
+  <h3>Agenda <span style="font-weight:400; color:rgba(29,31,41,0.55); font-size:16px;">(about 3 hours incl. breaks)</span></h3>
+
+  <ol class="agenda">
+    <li>
+      <div class="agenda-head">Welcome <span class="agenda-who">5 min, moderator</span></div>
+    </li>
+    <li>
+      <div class="agenda-head">Presentation <span class="agenda-who">30 min, Bjarke Winding</span></div>
+      <p class="agenda-body">A concrete proposal for a shared framework for Nordic Media Lab, and the reasoning for the foundation it is built on. Including the question: why this direction over the alternatives, whether a purpose-built protocol or the larger existing networks?</p>
+    </li>
+    <li>
+      <div class="agenda-head">Working groups <span class="agenda-who">30 min, moderator</span></div>
       <ul>
-        <li>Hvad bekymrer jer specifikt ved at basere dette på ActivityPub?</li>
-        <li>Hvad ville få jer til at tøve med at afsætte udviklingstid til det her?</li>
-        <li>Passer node- og cards-modellen til, hvordan jeres platform er struktureret?</li>
+        <li>What concerns you specifically about basing this on the proposed foundation?</li>
+        <li>What would make you hesitate to commit development time to this?</li>
+        <li>Does the proposed content model fit how your platform is structured?</li>
       </ul>
     </li>
     <li>
-      <div class="agenda-head">Opsamling <span class="agenda-who">30 min, facilitator</span></div>
-      <p class="agenda-body">Hver gruppe fremlægger sine 2-3 punkter.</p>
+      <div class="agenda-head">Synthesis <span class="agenda-who">30 min, moderator</span></div>
+      <p class="agenda-body">Each group presents its 2-3 points.</p>
     </li>
     <li>
-      <div class="agenda-head">Mandattjek <span class="agenda-who">30 min, facilitator</span></div>
-      <p class="agenda-body">Har vi et mandat til at fortsætte udviklingen af Forest i den retning, vi har beskrevet, med de bekymringer og forslag, vi har noteret og afdækket?</p>
+      <div class="agenda-head">Mandate check <span class="agenda-who">30 min, moderator</span></div>
+      <p class="agenda-body">Do we have a mandate to continue developing the proposal in the direction described, with the concerns and suggestions we have noted?</p>
     </li>
     <li>
-      <div class="agenda-head">Afslutning <span class="agenda-who">10 min, facilitator</span></div>
+      <div class="agenda-head">Close <span class="agenda-who">10 min, moderator</span></div>
       <ul class="branches">
-        <li><span class="outcome">Vi har mandat til at fortsætte i retningen, evt. med forbehold.</span><br><span class="then">Bjarke samler forslag, spørgsmål og forbehold og skriver Forest v2-konceptet til Workshop 2.</span></li>
-        <li><span class="outcome">Gruppen ønsker en grundigere afklaringsproces, før vi går videre.</span><br><span class="then">Hvem er ansvarlig, hvad skal afklares, og hvad er tidsrammen?</span></li>
-        <li><span class="outcome">Gruppen ønsker ikke at gå videre.</span><br><span class="then">Processen stopper her.</span></li>
+        <li><span class="outcome">We have a mandate to continue, possibly with reservations.</span><br><span class="then">Bjarke Winding gathers suggestions, questions and reservations and works them into the next version of the proposal for the following workshops.</span></li>
+        <li><span class="outcome">The group wants a more thorough clarification process before we go on.</span><br><span class="then">Who is responsible, what needs clarifying, and what is the timeframe?</span></li>
+        <li><span class="outcome">The group does not want to proceed.</span><br><span class="then">The process stops here.</span></li>
       </ul>
     </li>
   </ol>
 </section>
 
-<section id="hvad-saa" class="divider-top">
-  <h2>Hvis der er mandat til at fortsætte</h2>
-  <p>Bjarke arbejder videre på v2 af Forest, hvor forbehold, forslag og idéer bliver indarbejdet. Hvis der er behov for det, arbejder han og facilitatoren i dybden med enkelte medlemmer og deres konkrete forslag.</p>
-  <p>Herefter afholdes 2-3 yderligere workshops, hvor Forest-konceptet gennemarbejdes efter opskriften: oplæg, arbejdsgrupper, opsamling og mandattjek. Når konceptet skønnes modent, afholdes en afsluttende workshop, hvor det endeligt vedtages eller forkastes. Hvis det vedtages, følger en plan for mulig finansiering og onboarding på platformene.</p>
-</section>
-
-<section id="laesemateriale" class="divider-top">
-  <h2>Baggrundsmateriale til Workshop 1</h2>
-  <p class="reading-intro">Dette er de to tekster, der ligger til grund for Workshop 1. De er skrevet af Bjarke som led i at udvikle Forest, og de udgør hans argument for at basere Forest på ActivityPub, fremfor AT Protocol eller en selvbygget protokol.</p>
-  <div class="callout">
-    <p>Læs dem som et argument, I bliver bedt om at forholde jer kritisk til, ikke som neutral baggrund. Workshoppens formål er netop at høre, hvor argumentet er stærkt, og hvor det er svagt.</p>
-  </div>
-  <p class="reading-intro"><em>Note: Dette dokument er skrevet med Claude som sparringspartner og redaktør, men alt er gennemskrevet og formuleret af Bjarke, og baseret på hans idéer gennem mange år.</em></p>
-
-  <h2 id="part-1-why-activitypub-not-at-protocol">Part 1: Why ActivityPub, Not AT Protocol</h2>
-<p>There are really only two viable foundations: ActivityPub, the protocol behind Mastodon and most of the fediverse, and the AT Protocol, the protocol behind Bluesky. Everything else is unproven, niche, or dead, and building our own would speak to no one, which is the single outcome a federation framework cannot afford. So the real choice is between these two.</p>
-<p>Forest is built on ActivityPub, for two reasons. The first is decisive: its shape is our shape. ActivityPub is a network of sovereign instances that federate as peers, each governing itself. That is exactly the forest, autonomous trees standing together. Self-hosting is normal and inexpensive, it is mature and widely spoken (Mastodon, WordPress, and more), and building on it means Forest platforms interoperate with the entire existing fediverse from day one, not only with each other.</p>
-<p>The second reason matters for a values-led network: governance. ActivityPub is an open standard stewarded by the World Wide Web Consortium, the independent, multi-stakeholder body that has maintained the core standards of the web for thirty years. AT Protocol's main support, by contrast, currently rests with a single company, Bluesky. Forest would rather build on a standard held by an independent body than on one whose direction depends largely on one firm. That is not anti-Bluesky, it is the same commitment Forest makes about itself, to be owned in common rather than by any single party.</p>
-<p>AT Protocol is impressive, and genuinely better at two things: portable identity, and built-in discovery. But its center of gravity is the opposite of ours. It is designed around one very large shared network with central aggregation, and in practice it is effectively a single network. That is the silo a forest is meant to be an alternative to. So we do not adopt its shape. We borrow its one genuinely better idea, portable identity, and layer it on top of ActivityPub, taking the good part without the centralization.</p>
-<p>Choosing ActivityPub does not cut us off from AT Protocol either. The two do not interoperate natively today, but bridges between them are being actively built (Bridgy Fed is the best known), so a Forest platform can still reach Bluesky and the wider AT Protocol world through a bridge, and that interoperability is more likely to grow than to shrink. We are choosing a foundation, not building a wall.</p>
-<p>In short: ActivityPub because it is a forest already and an open standard held in common, AT Protocol's best idea borrowed on top, our own protocol rejected because it would federate with nobody, and no door closed to AT Protocol because bridges are coming.</p>
-<hr/>
-<h2 id="part-2-protocol-evaluation">Part 2: Protocol Evaluation</h2>
-<h3 id="what-we-are-choosing-for">What we are choosing for</h3>
-<p>Forest does not need federation today. But the base protocol it eventually rests on has to fit the architecture already chosen, so it is worth knowing the options before making decisions that are hard to undo.</p>
-<p>The architecture asks four things of a base protocol:</p>
-<ol>
-<li>Each node is a self-contained, sovereign unit that can move to its own host and stay a peer.</li>
-<li>A member has one portable identity that survives a node changing hosts.</li>
-<li>A node can index its own network of sub-nodes, members, and visible collections, for discovery, and the framework can aggregate across nodes.</li>
-<li>The network can be kept safe across nodes, including self-hosted ones, within a node by that node and across nodes by a shared backstop.</li>
-</ol>
-<p>Points 1 and 2 are about autonomy. Points 3 and 4 are about the uniting layer. The hard part is that most protocols are good at one pair and weak at the other. Forest's hybrid wants both.</p>
-<h3 id="the-model-we-already-trust-email">The model we already trust: email</h3>
-<p>Email is the most successful federated protocol ever built, and Forest's architecture is already shaped like it. That is not a coincidence, and it is worth saying plainly.</p>
-<p>In email, anyone can run a server. Your address is <code>you@yourdomain</code>. Servers talk to each other over a shared protocol (SMTP). No company owns the network, yet it works as one network. A small host and a giant host are peers. This is exactly the node model: a node is a mail server, a member is an address, the network is the set of servers that agree to talk.</p>
-<p>Email also teaches the two hard lessons to respect:</p>
-<ul>
-<li>Discovery and safety do not come for free. Email has no global search and no built-in directory, which is why finding people and fighting spam became the hard problems. Forest's answer is already designed: the node is the index and the safety backstop that plain email lacks.</li>
-<li>Federation tends to drift toward a few big hosts (today most email is Gmail). Identity tied to a host (<code>you@gmail.com</code>) is what makes leaving painful. The lesson: keep identity portable, so a member or a node can change hosts without losing who they are.</li>
-</ul>
-<p>So the target is "email, plus a uniting layer, plus portable identity." The question is whether an existing protocol already gives us that, or close enough.</p>
-<h3 id="option-a-activitypub">Option A: ActivityPub</h3>
-<p>ActivityPub is the protocol behind Mastodon and most of the fediverse. It is a W3C standard, widely implemented, and email-like in spirit: independent servers (instances) send each other messages, and each instance governs itself.</p>
-<p>Where it fits Forest:</p>
-<ul>
-<li>The instance model maps almost one to one onto nodes. An instance is a self-governing community with its own members and moderation. That is a node.</li>
-<li>It is mature, documented, and already used by community software very close to ours (forums, blogs, photo sharing). WordPress and forum platforms like NodeBB federate with it today.</li>
-<li>Self-hosting is normal and cheap. A small node can run on modest hardware.</li>
-</ul>
-<p>Where it fights Forest:</p>
-<ul>
-<li>Discovery is its known weak spot. ActivityPub is "follow-based": content reaches you through who you follow, and there is no native cross-network search or directory. This is the single most common complaint about the fediverse, and it is exactly the job the node's index does. We would have to build that index ourselves (there is an emerging optional standard for this, Fediverse Discovery Providers, but it is young).</li>
-<li>Identity is tied to the host by default (<code>@you@instance</code>). If a node moves hosts, identity portability is manual and lossy. We would need to add stronger portable identity on top.</li>
-<li>It is loose. The spec leaves a lot open, so implementations differ and edge cases break between them.</li>
-</ul>
-<p>Summary: ActivityPub gives us the autonomy and self-hosting half almost for free, and leaves us to build the uniting half, which we were going to build anyway as the node's own index.</p>
-<h3 id="option-b-at-protocol-atproto-bluesky">Option B: AT Protocol (atproto / Bluesky)</h3>
-<p>AT Protocol is the protocol behind Bluesky. It splits a social platform into pieces: a Personal Data Server (PDS) that holds your data, Relays that aggregate everything into a firehose, and AppViews that index and serve it.</p>
-<p>Where it fits Forest:</p>
-<ul>
-<li>Identity and data portability are its headline strength. Your identity is a portable DID (think of it as a phone number you keep when you switch carrier), and your data repository can move hosts without cooperation from the old host. This is a strong answer to the "node moves hosts" requirement.</li>
-<li>It has discovery and search built into its design, via Relays and AppViews. That overlaps with what the node's index wants to do.</li>
-<li>The data model is consistent, so apps interoperate cleanly.</li>
-</ul>
-<p>Where it fights Forest:</p>
-<ul>
-<li>Its center of gravity is the opposite of ours. AT Proto is built for one very large shared network with central aggregation (a Relay that ingests everything). Our model is many small, sovereign, self-governing nodes. The "instance equals community" autonomy that makes a node a node is not where AT Proto is strong.</li>
-<li>Running full network infrastructure (a Relay over the whole network) is heavier and more expensive than running a small ActivityPub instance. A small node on its own does not map as naturally.</li>
-<li>It is effectively one network today. Almost all usage runs through Bluesky's own infrastructure, which raises the same de-facto-centralization worry we are trying to avoid.</li>
-</ul>
-<p>Summary: AT Proto solves portable identity and discovery beautifully, but its whole shape assumes one big network with central aggregation, which is the silo-flavored model the forest is meant to be an alternative to.</p>
-<h3 id="option-c-build-our-own-protocol">Option C: Build our own protocol</h3>
-<p>We could design a Forest-native protocol from scratch, exactly around nodes.</p>
-<ul>
-<li>Upside: a perfect fit, no compromises, no inherited baggage.</li>
-<li>Downside: this is the most expensive and slowest path, and it is the email lesson in reverse. Protocols win by being widely spoken. A protocol only we speak gives us federation with nobody. We would also be re-solving problems (identity, signing, delivery, abuse) that others have already solved and hardened over years.</li>
-</ul>
-<p>Building from scratch is almost never the right first move. It is worth holding as the far-future option only if both existing protocols genuinely cannot be bent to our shape.</p>
-<h3 id="option-d-extend-an-existing-protocol-the-recommended-direction">Option D: Extend an existing protocol (the recommended direction)</h3>
-<p>This is the realistic middle path, and it follows directly from the email model: adopt the widely-spoken base, and add the layer it lacks.</p>
-<p>Concretely, the most natural fit is ActivityPub for the federation transport, plus a Forest layer for the two things it does not give us:</p>
-<ul>
-<li>The node as a discovery and index service on top of ActivityPub. This is not a hack. The fediverse is independently moving this exact direction with optional discovery providers and relays. We would be building the index we already planned, and speaking a standard underneath it.</li>
-<li>Portable identity, borrowing the idea AT Proto proves out (an identity that is not bound to a host), layered onto ActivityPub actors so a node can change hosts cleanly.</li>
-</ul>
-<p>In other words: ActivityPub gives us the forest (many sovereign, interoperable nodes), and each node's own index gives it the clearing in the middle where its part of the forest can be seen and kept safe. We extend rather than invent, so we inherit a working network and a decade of hardening, and we add only the uniting layer that is uniquely ours.</p>
-<p>There is also a serious idea in the wild of running ActivityPub on top of an AT-Proto-style data server, to get AP's openness with AT Proto's portable identity. It is early and unproven, but it is the same instinct as the recommendation: take the open federation model, bolt on portable identity.</p>
-<h3 id="two-questions-that-decide-how-far-we-can-lean-on-a-protocol">Two questions that decide how far we can lean on a protocol</h3>
-<p><strong>1. How well are private nodes supported?</strong></p>
-<p>This is the weakest spot in federation generally, and it is worth being honest about.</p>
-<p>A federated protocol is built to move things between hosts. Privacy, by definition, is about not moving things, or moving them only to a trusted few. So privacy is always something you add carefully on top, not something the protocol guarantees for you. Email has the same shape: the protocol will happily carry a private message, but it is the servers, not the protocol, that decide who gets to read it, and a careless server leaks.</p>
-<p>For ActivityPub specifically:</p>
-<ul>
-<li>The protocol has a clear notion of public versus not-public, and a "followers-only" audience. But it does not define a real "authenticated users only" access level, and the spec itself warns that once something is fetched by another server, keeping it private depends on that server behaving. Private in the fediverse means "private if every host in the chain is honest," which is weaker than private inside one system.</li>
-<li>There is a stronger mode (Mastodon calls it secure mode or authorized fetch) where every cross-host request must be signed, so a node can refuse hosts it does not trust, and even run in limited-federation mode where it only talks to an explicit allowlist of hosts. That is the closest thing to a real private-node boundary, and it is buildable today.</li>
-<li>There is a real Group actor model (the events platform Mobilizon uses it for groups with roles), so a node as a private, role-bearing group is not exotic. It is an established pattern.</li>
-</ul>
-<p>What this means for Forest: a private, invitation-only node is fully workable while everything runs on one platform's own infrastructure, because that platform controls every host and can enforce access itself. The honesty comes in the federated future. Once a node can self-host, a truly private node is only as private as the hosts it federates with. The safe design, and the one that matches the architecture, is:</p>
-<ul>
-<li>A private node does not federate its private content at all by default. It stays local, the way a private nest stays contributors-only. Federation is for what a node chooses to make visible.</li>
-<li>If a private node wants to span hosts, it uses signed fetch and an allowlist, so it only ever talks to hosts it explicitly trusts.</li>
-</ul>
-<p>In short: private nodes are well supported inside one platform's walls, and supportable across hosts with care, as long as we treat "private" as "does not leave the node" rather than "leaves the node but politely asks others not to look." This fits the rule already written: feeding the network is opt-in, and private content stays put.</p>
-<p><strong>2. How would we interface with other platforms?</strong></p>
-<p>This is the strongest argument for not inventing our own protocol, and it is exactly the email lesson. The value of a shared protocol is that you can talk to people who are not on your app.</p>
-<p>The goal, that a member authenticated on one Nordic platform could see another platform's members and read its collections, and the reverse, is precisely what a federation protocol is for. If the platforms all speak the same protocol, this works without any of them building private one-to-one integrations with each other. That is the whole point: you build to the protocol once, and you interoperate with everyone who speaks it, present and future. Build a single-platform protocol and you would have to hand-build a bridge to each platform, one at a time, forever.</p>
-<p>So the path is:</p>
-<ul>
-<li>If the Nordic Media Lab platforms adopt the same base protocol (ActivityPub being the obvious candidate, since it has the broadest existing support, including WordPress and forum software), interoperability is close to free. A member on one platform can follow and read members and collections on another, because to the protocol a collection is just a published object and a member is just an actor.</li>
-<li>There is one honest catch, and it is the same one the node's own index already addresses: ActivityPub interoperates well for following and reading, but it is weak at discovery and search across platforms, and different apps map their content types differently, so richer collection formats can degrade into plainer ones when they cross over. Two platforms can each show the other's basic posts cleanly, but a swipeable card essay may arrive somewhere else as a simpler article or a link back.</li>
-<li>This is a strong reason to treat the Nordic Media Lab platforms as the first, friendly federation. Because they are a small group who can coordinate, they could agree together on a shared format for the richer content types, rather than waiting for the whole fediverse to converge. That shared format is exactly the Forest card format: standard ActivityPub so anyone can read the basics, plus an agreed extension so the partner platforms can render each other's collections fully. That is the highest-leverage interop move available, and it costs far less than bridges.</li>
-</ul>
-<p>The shape of the answer, then: adopt the common protocol so you interoperate with everyone by default, and coordinate the shared Forest extension with the Nordic Media Lab platforms so that among friends the experience is rich rather than lowest-common-denominator. Identity that survives moving between these platforms is the AT-Proto idea worth borrowing here too, so a person is recognisably the same person across the network.</p>
-<h3 id="recommendation">Recommendation</h3>
-<p>This is the conclusion the framework brief states in one line, here with its reasoning attached.</p>
-<p>Do not build from scratch, and do not adopt AT Proto wholesale. Lean toward ActivityPub as the base transport, because its sovereign-instance model is our node model, and build the discovery, index, and safety layer as each node's own responsibility, which we were always going to build. Define the Forest card format on top, an ActivityStreams extension with a plain fallback in every card, and keep presentation a platform choice. Borrow AT Proto's portable-identity idea where it helps. Decide for real only when we reach the federation step in the roadmap, until then, keep node boundaries and identity clean, so either path stays open.</p>
-<h3 id="the-one-glance-comparison">The one-glance comparison</h3>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th></th>
-<th>Email (the model)</th>
-<th>ActivityPub</th>
-<th>AT Protocol</th>
-<th>Build our own</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sovereign, self-hosting nodes</td>
-<td>yes</td>
-<td>yes, natural fit</td>
-<td>weaker fit</td>
-<td>yes, by design</td>
-</tr>
-<tr>
-<td>Portable identity</td>
-<td>host-bound (its flaw)</td>
-<td>host-bound by default</td>
-<td>yes, its strength</td>
-<td>whatever we build</td>
-</tr>
-<tr>
-<td>Built-in discovery / index</td>
-<td>no</td>
-<td>no, we add it</td>
-<td>yes</td>
-<td>whatever we build</td>
-</tr>
-<tr>
-<td>Private spaces</td>
-<td>by server, not protocol</td>
-<td>weak by spec, workable with signed fetch + allowlist</td>
-<td>weak fit, built for public</td>
-<td>whatever we build</td>
-</tr>
-<tr>
-<td>Interop with other platforms</td>
-<td>total (the point)</td>
-<td>high, basics easy, rich formats degrade</td>
-<td>low outside its own network</td>
-<td>none until we build bridges</td>
-</tr>
-<tr>
-<td>Maturity and adoption</td>
-<td>total</td>
-<td>high</td>
-<td>growing, Bluesky-centric</td>
-<td>none</td>
-</tr>
-<tr>
-<td>Effort for us</td>
-<td>n/a</td>
-<td>medium, add the index</td>
-<td>high, fight its shape</td>
-<td>highest</td>
-</tr>
-<tr>
-<td>Fits the forest, not the silo</td>
-<td>yes</td>
-<td>yes</td>
-<td>leans silo</td>
-<td>yes, but alone</td>
-</tr>
-</tbody>
-</table></div>
+<section id="from-here" class="divider-top">
+  <h2>If there is a mandate to continue</h2>
+  <p>Bjarke Winding works on the next version of the proposal, incorporating reservations, suggestions and ideas. If needed, he works in depth with individual members and their concrete proposals.</p>
+  <p>After that, 2-3 further workshops are held, working the concept through by the same recipe: presentation, working groups, synthesis and mandate check. When the concept is judged mature, a final workshop is held where it is adopted or rejected. If adopted, a plan follows for possible funding and onboarding across the platforms.</p>
 </section>
 
 </div>
 
-<a id="backtop" class="backtop" href="#contents" aria-label="Tilbage til indhold">
+<a id="backtop" class="backtop" href="#contents" aria-label="Back to contents">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
-  Indhold
+  Contents
 </a>
 
 <script>
