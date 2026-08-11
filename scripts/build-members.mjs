@@ -95,11 +95,10 @@ async function main() {
 
   const records = await fetchApproved();
 
-  // Stable order: originally seeded members first (older createdTime), then name.
-  records.sort((a, b) => {
-    const t = (a.createdTime || '').localeCompare(b.createdTime || '');
-    return t !== 0 ? t : (a.fields?.Name || '').localeCompare(b.fields?.Name || '');
-  });
+  // Alphabetical by name, Danish collation so æ/ø/å sort correctly. No weighting.
+  records.sort((a, b) =>
+    (a.fields?.Name || '').localeCompare(b.fields?.Name || '', 'da', { sensitivity: 'base' })
+  );
 
   await mkdir(LOGO_DIR, { recursive: true });
 
