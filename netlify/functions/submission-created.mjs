@@ -32,15 +32,14 @@ function fileUrl(v) {
   return '';
 }
 
-// Pull contact1..5_{name,email,phone,title} out of the flat form data.
+// Pull contact1..5_{name,email,title} out of the flat form data.
 function readContacts(d) {
   const out = [];
   for (let i = 1; i <= 5; i++) {
     const name = (d[`contact${i}_name`] || '').trim();
     const email = (d[`contact${i}_email`] || '').trim();
-    const phone = (d[`contact${i}_phone`] || '').trim();
     const title = (d[`contact${i}_title`] || '').trim();
-    if (name || email) out.push({ name, email, phone, title });
+    if (name || email) out.push({ name, email, title });
   }
   return out;
 }
@@ -72,7 +71,6 @@ export async function handler(event) {
           fields: {
             'Full name': name,
             Email: (d.email || '').trim(),
-            Phone: (d.phone || '').trim(),
             Bio: (d.bio || '').trim(),
             Link: (d.website || '').trim(),
             'Person type': 'Individual member',
@@ -114,7 +112,6 @@ export async function handler(event) {
           fields: {
             'Full name': c.name,
             Email: c.email,
-            Phone: c.phone,
             'Title / role': c.title,
             'Person type': 'Contact',
             Added: today(),

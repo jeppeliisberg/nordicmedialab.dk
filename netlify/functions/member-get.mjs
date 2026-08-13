@@ -24,7 +24,6 @@ export async function handler(event) {
         id: r.id,
         name: r.fields['Full name'] || '',
         email: r.fields['Email'] || '',
-        phone: r.fields['Phone'] || '',
         title: r.fields['Title / role'] || '',
       }));
     }

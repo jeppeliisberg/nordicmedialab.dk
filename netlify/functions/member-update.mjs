@@ -1,7 +1,7 @@
 // POST /.netlify/functions/member-update
 // Body: { token, name, descriptionEN, descriptionDA, website,
 //         logo?: { filename, contentType, dataBase64 },
-//         contacts: [{ id?, name, email, phone, title }] }
+//         contacts: [{ id?, name, email, title }] }
 //
 // Writes the member's edits back to Airtable. It does NOT publish:
 // changes wait for the board's "Publish to site" tick, which is the
@@ -61,7 +61,6 @@ export async function handler(event) {
           fields: {
             'Full name': (c.name || '').trim(),
             Email: (c.email || '').trim(),
-            Phone: (c.phone || '').trim(),
             'Title / role': (c.title || '').trim(),
           },
         },
@@ -77,7 +76,6 @@ export async function handler(event) {
           fields: {
             'Full name': (c.name || '').trim(),
             Email: (c.email || '').trim(),
-            Phone: (c.phone || '').trim(),
             'Title / role': (c.title || '').trim(),
             'Person type': 'Contact',
             Organisation: [orgId],

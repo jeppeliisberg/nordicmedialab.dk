@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 const MAX = 120;
 const field =
@@ -7,7 +7,7 @@ const field =
 const labelCls = 'block font-sans font-semibold text-sm text-[#1D1F29] mb-1';
 const helpCls = 'text-xs text-neutral-500 mt-1';
 
-const emptyContact = () => ({ id: null, name: '', email: '', phone: '', title: '' });
+const emptyContact = () => ({ id: null, name: '', email: '', title: '' });
 
 export default function UpdateMember() {
   const { t } = useTranslation();
@@ -185,7 +185,6 @@ export default function UpdateMember() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <input className={field} placeholder={t('update.contactName')} value={c.name} onChange={(e) => setContact(i, 'name', e.target.value)} />
                     <input className={field} type="email" placeholder={t('update.contactEmail')} value={c.email} onChange={(e) => setContact(i, 'email', e.target.value)} />
-                    <input className={field} type="tel" placeholder={t('update.contactPhone')} value={c.phone} onChange={(e) => setContact(i, 'phone', e.target.value)} />
                     <input className={field} placeholder={t('update.contactRole')} value={c.title} onChange={(e) => setContact(i, 'title', e.target.value)} />
                   </div>
                   {data.contacts.length > 1 && (
@@ -199,6 +198,22 @@ export default function UpdateMember() {
                 + {t('update.addContact')}
               </button>
             </div>
+
+            <p className="text-xs text-neutral-500">
+              <Trans
+                i18nKey="submit.privacyNote"
+                components={{
+                  a: (
+                    <a
+                      className="text-[#39A97C] underline underline-offset-2 hover:brightness-110"
+                      href="/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  ),
+                }}
+              />
+            </p>
 
             {status === 'error' && <p className="text-sm text-red-600">{t('update.error')}</p>}
 

@@ -142,10 +142,6 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
                         <input type="email" name="email" required className={field} />
                       </div>
                       <div>
-                        <label className={label}>{t('submit.personPhone')}</label>
-                        <input type="tel" name="phone" className={field} />
-                      </div>
-                      <div>
                         <label className={label}>{t('submit.indivBio')}</label>
                         <textarea name="bio" rows={2} className={field + ' resize-none'} />
                       </div>
@@ -206,7 +202,6 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
                           <div key={i} className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
                             <input type="text" name={`contact${i + 1}_name`} placeholder={t('submit.personName')} required={i === 0} className={field} />
                             <input type="email" name={`contact${i + 1}_email`} placeholder={t('submit.personEmail')} required={i === 0} className={field} />
-                            <input type="tel" name={`contact${i + 1}_phone`} placeholder={t('submit.personPhone')} className={field} />
                             <input type="text" name={`contact${i + 1}_title`} placeholder={t('submit.personTitle')} className={field} />
                           </div>
                         ))}
