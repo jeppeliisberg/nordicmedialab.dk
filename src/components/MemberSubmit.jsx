@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 const MAX = 120;
 const MAX_PERSONS = 5;
@@ -237,6 +237,22 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
                       .
                     </span>
                   </label>
+
+                  <p className="text-xs text-neutral-500">
+                    <Trans
+                      i18nKey="submit.privacyNote"
+                      components={{
+                        a: (
+                          <a
+                            className="text-[#39A97C] underline underline-offset-2 hover:brightness-110"
+                            href="/privacy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          />
+                        ),
+                      }}
+                    />
+                  </p>
 
                   {error && <p className="text-sm text-red-600">{t('submit.error')}</p>}
 

@@ -178,7 +178,8 @@
     "typeOther": "Other",
     "nameConsultant": "Name",
     "nameOther": "Name",
-    "pactCommit": "I commit to work for and support the"
+    "pactCommit": "I commit to work for and support the",
+    "privacyNote": "We handle your details as set out in our <a>privacy policy</a>."
   },
   "contact": {
     "tagline": "Contact",
@@ -213,5 +214,32 @@
     "savedTitle": "Thanks, saved",
     "savedBody": "Your details have been sent to the board. Changes appear on the site once approved. You can close this page.",
     "error": "Something went wrong saving. Please try again, or email hej@nordicmedialab.dk."
+  },
+  "footer": {
+    "privacy": "Privacy policy"
+  },
+  "privacy": {
+    "title": "How we handle your data",
+    "lede": "A plain account of what we hold about you, why, and what you can do about it. No jargon, no small print, just the terms stated honestly.",
+    "whoTitle": "Who we are",
+    "who": "Nordic Media Lab (forening), Denmark, is responsible for the data described here. If you have any question about your data, or want to see, correct, or remove it, write to us at <email>hej@nordicmedialab.dk</email>.",
+    "collectTitle": "What we collect",
+    "collect1": "If you or your platform is a member, we hold your organisation's name, a short description, its website and logo, and the name, email, and role of the people who represent it. If you join as an individual, we hold your name, email, a short bio, and a link if you gave one. Where we are hoping to invite an organisation to join, we may hold a name, an organisation, an email, and a note of how we came across you. We also keep working notes as we run the network.",
+    "collect2": "We do not collect anything we do not need. We keep no special-category data (nothing about health, beliefs, or the like).",
+    "whyTitle": "Why we hold it",
+    "why1": "For two reasons, and only two. First, to communicate with members and run the network: to reach you, keep you informed, and organise our shared work. Second, to show approved member platforms on our website, so the movement is visible. Only the organisation itself appears publicly, its name, description, website, and logo. The personal contact details of the people behind it stay internal, and individual members are never listed publicly.",
+    "why2": "We do not use your data for advertising or marketing, and we do not sell it or pass it to anyone for their own purposes.",
+    "basisTitle": "Our legal basis",
+    "basis": "We rely on our legitimate interest in running the association and staying in contact with members and the people we hope will join, and, for members, on the membership relationship itself. Where we list your organisation publicly, we do so because you asked to be a member and a listing is part of that.",
+    "whereTitle": "Who can see it, and where it lives",
+    "where": "Only the Nordic Media Lab board and the people running the network can see the internal member database, which we keep in Airtable. Our website's code and its published content, which includes the public member listings and our board's own contact details, live in GitHub and are served to visitors by Netlify. These are all services that process data on our behalf under data-processing agreements. Airtable, GitHub, and Netlify are based in the United States, and those transfers are covered by the standard legal safeguards each provider offers.",
+    "keepTitle": "How long we keep it",
+    "keep": "While you are a member or in contact with us. We remove your data when you ask us to, or when we no longer need it.",
+    "rightsTitle": "Your rights",
+    "rights": "You can ask to see the data we hold about you, correct it, object to how we use it, or have it deleted. Members can also correct their own listing at any time through the personal update link we email them. To exercise any of these, write to <email>hej@nordicmedialab.dk</email>. If you are ever unhappy with how we have handled your data, you have the right to complain to the Danish Data Protection Agency (<dpa>Datatilsynet</dpa>).",
+    "changesTitle": "Changes",
+    "changes": "If we change how we handle data, we will update this page and, for anything significant, tell members directly.",
+    "updated": "Last updated: 13 August 2026",
+    "back": "Back to nordicmedialab.dk"
   }
 }

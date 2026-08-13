@@ -178,7 +178,8 @@
     "typeOther": "Andet",
     "nameConsultant": "Navn",
     "nameOther": "Navn",
-    "pactCommit": "Jeg forpligter mig til at arbejde for og støtte"
+    "pactCommit": "Jeg forpligter mig til at arbejde for og støtte",
+    "privacyNote": "Vi behandler dine oplysninger som beskrevet i vores <a>privatlivspolitik</a>."
   },
   "contact": {
     "tagline": "Kontakt",
@@ -213,5 +214,32 @@
     "savedTitle": "Tak, det er gemt",
     "savedBody": "Dine oplysninger er sendt til bestyrelsen. Ændringer vises på siden, når de er godkendt. Du kan lukke denne side.",
     "error": "Noget gik galt. Prøv igen, eller skriv til hej@nordicmedialab.dk."
+  },
+  "footer": {
+    "privacy": "Privatlivspolitik"
+  },
+  "privacy": {
+    "title": "Sådan behandler vi dine data",
+    "lede": "En ligefrem forklaring på, hvad vi har om dig, hvorfor, og hvad du kan gøre ved det. Uden jargon, uden småtryk, med vilkårene sagt ærligt.",
+    "whoTitle": "Hvem vi er",
+    "who": "Nordic Media Lab (forening), Danmark, er ansvarlig for de data, der beskrives her. Har du spørgsmål til dine data, eller vil du se, rette eller fjerne dem, så skriv til os på <email>hej@nordicmedialab.dk</email>.",
+    "collectTitle": "Hvad vi indsamler",
+    "collect1": "Er du eller din platform medlem, har vi organisationens navn, en kort beskrivelse, dens hjemmeside og logo, samt navn, e-mail og rolle på de personer, der repræsenterer den. Melder du dig som privatperson, har vi dit navn, din e-mail, en kort bio og et link, hvis du har oplyst et. Hvor vi håber at invitere en organisation ind, kan vi have et navn, en organisation, en e-mail og en note om, hvordan vi er stødt på jer. Vi gør os også arbejdsnotater, mens vi driver netværket.",
+    "collect2": "Vi indsamler ikke noget, vi ikke har brug for. Vi opbevarer ingen følsomme oplysninger (intet om helbred, overbevisning eller lignende).",
+    "whyTitle": "Hvorfor vi har dem",
+    "why1": "Af to grunde, og kun to. For det første for at kommunikere med medlemmer og drive netværket: for at kunne nå dig, holde dig orienteret og organisere vores fælles arbejde. For det andet for at vise godkendte medlemsplatforme på vores hjemmeside, så bevægelsen er synlig. Kun selve organisationen vises offentligt, altså navn, beskrivelse, hjemmeside og logo. De personlige kontaktoplysninger på menneskene bag forbliver interne, og privatpersoner vises aldrig offentligt.",
+    "why2": "Vi bruger ikke dine data til reklame eller markedsføring, og vi sælger dem ikke og giver dem ikke videre til andres formål.",
+    "basisTitle": "Vores retsgrundlag",
+    "basis": "Vi støtter os på vores legitime interesse i at drive foreningen og holde kontakt med medlemmer og de mennesker, vi håber vil melde sig ind, og for medlemmer desuden på selve medlemsforholdet. Når vi viser din organisation offentligt, sker det, fordi du bad om at blive medlem, og en visning er en del af det.",
+    "whereTitle": "Hvem kan se dem, og hvor ligger de",
+    "where": "Kun Nordic Media Labs bestyrelse og de mennesker, der driver netværket, kan se den interne medlemsdatabase, som vi opbevarer i Airtable. Vores hjemmesides kode og dens offentliggjorte indhold, som omfatter de offentlige medlemsvisninger og bestyrelsens egne kontaktoplysninger, ligger i GitHub og leveres til de besøgende af Netlify. Det er alt sammen tjenester, der behandler data på vores vegne under databehandleraftaler. Airtable, GitHub og Netlify har hjemsted i USA, og de overførsler er dækket af de standardretlige garantier, som hver udbyder tilbyder.",
+    "keepTitle": "Hvor længe vi gemmer dem",
+    "keep": "Så længe du er medlem eller i kontakt med os. Vi fjerner dine data, når du beder om det, eller når vi ikke længere har brug for dem.",
+    "rightsTitle": "Dine rettigheder",
+    "rights": "Du kan bede om at se de data, vi har om dig, få dem rettet, gøre indsigelse mod, hvordan vi bruger dem, eller få dem slettet. Medlemmer kan desuden altid rette deres egen visning via det personlige opdateringslink, vi sender dem på e-mail. Vil du gøre brug af noget af dette, så skriv til <email>hej@nordicmedialab.dk</email>. Er du utilfreds med, hvordan vi har behandlet dine data, har du ret til at klage til <dpa>Datatilsynet</dpa>.",
+    "changesTitle": "Ændringer",
+    "changes": "Ændrer vi måden, vi behandler data på, opdaterer vi denne side, og ved noget væsentligt siger vi det direkte til medlemmerne.",
+    "updated": "Senest opdateret: 13. august 2026",
+    "back": "Tilbage til nordicmedialab.dk"
   }
 }
