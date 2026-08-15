@@ -10,6 +10,14 @@ const Header = () => {
 
      const changeLanguage = (lng: string) => {
        i18n.changeLanguage(lng);
+       // Write the choice into the URL (no reload, no history entry) so it
+       // survives a refresh, is shareable, and beats navigator.language on the
+       // next load. See the precedence order in src/i18n.js.
+       if (typeof window !== 'undefined') {
+         const url = new URL(window.location.href);
+         url.searchParams.set('lang', lng);
+         window.history.replaceState({}, '', url);
+       }
      };
     
       const backdropVariants: Variants = {

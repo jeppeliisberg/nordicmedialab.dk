@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Føderering af Nordic Media Lab</title>
+<link rel="alternate" hreflang="en" href="/federation.html">
+<link rel="alternate" hreflang="da" href="/federation-da.html">
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=playfair-display:700,700i|inter:400,500,600" rel="stylesheet">
+<style>
+:root{
+  --paper:#FEFBF4;
+  --ink:#1D1F29;
+  --forest:#39A97C;
+  --ember:#FF881B;
+  --hair: rgba(29,31,41,0.14);
+  --paper-tint: rgba(29,31,41,0.035);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter', -apple-system, sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:'Playfair Display', Georgia, serif;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:-0.01em;
+}
+a{color:var(--forest);}
+a:hover{color:var(--ember);}
+
+.wrap{max-width:720px; margin:0 auto; padding:0 24px;}
+
+.langswitch{
+  display:flex;
+  justify-content:flex-end;
+  gap:4px;
+  padding:20px 0 0;
+}
+.langswitch a{
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:rgba(29,31,41,0.5);
+  padding:5px 10px;
+  border-radius:4px;
+}
+.langswitch a:hover{color:var(--forest); background:var(--paper-tint);}
+.langswitch a[aria-current="true"]{background:var(--forest); color:var(--paper);}
+.langswitch a[aria-current="true"]:hover{color:var(--paper);}
+
+header.hero{
+  padding:56px 0 56px;
+  border-bottom:1px solid var(--hair);
+}
+header.hero .eyebrow{
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:0.09em;
+  text-transform:uppercase;
+  color:var(--forest);
+  margin:0 0 14px;
+}
+header.hero h1{
+  font-size:42px;
+  margin:0 0 20px;
+}
+header.hero p{
+  font-size:19px;
+  color:rgba(29,31,41,0.78);
+  max-width:60ch;
+  margin:0;
+}
+
+.hosted-by{margin:32px 0 0;}
+header.hero .hosted-by p{
+  font-size:15px;
+  color:rgba(29,31,41,0.62);
+  max-width:none;
+  margin:0 0 12px;
+}
+.hosted-by-logo{display:inline-block; line-height:0;}
+.hosted-by-logo img{width:220px; height:auto; display:block;}
+
+nav.contents{
+  margin:48px 0 64px;
+  padding:28px 28px 24px;
+  border:1px solid var(--hair);
+  border-radius:4px;
+  background:var(--paper-tint);
+}
+nav.contents .label{
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:rgba(29,31,41,0.55);
+  margin:0 0 14px;
+}
+nav.contents ol{
+  margin:0;
+  padding:0 0 0 22px;
+}
+nav.contents li{margin:0 0 12px;}
+nav.contents a{
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:600;
+}
+nav.contents a:hover{color:var(--forest);}
+nav.contents .cn-sub{
+  display:block;
+  font-weight:400;
+  color:rgba(29,31,41,0.6);
+  font-size:15px;
+}
+
+section{padding:8px 0 64px;}
+section.divider-top{border-top:1px solid var(--hair); padding-top:56px;}
+
+h2{font-size:28px; margin:0 0 20px;}
+h2.workshop-title{
+  font-size:24px;
+  margin:0 0 4px;
+}
+h3{font-size:20px; margin:28px 0 12px;}
+.workshop-kicker{
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ember);
+  margin:0 0 8px;
+}
+
+p{margin:0 0 18px;}
+
+.event-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 32px;
+  margin:0 0 28px;
+  padding:16px 20px;
+  border:1px solid var(--hair);
+  border-radius:4px;
+  background:var(--paper-tint);
+  font-size:15px;
+}
+.event-meta .item{display:flex; gap:8px; align-items:baseline;}
+.event-meta .k{
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:rgba(29,31,41,0.5);
+}
+.event-meta .v{font-weight:500;}
+
+.rsvp{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+  font-size:15px;
+  margin:0 0 28px;
+  padding:12px 18px;
+  border:1px dashed var(--ember);
+  border-radius:4px;
+  color:rgba(29,31,41,0.85);
+}
+.rsvp .tag{
+  font-family:'Inter', sans-serif;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ember);
+}
+.rsvp a{font-weight:600;}
+
+.callout{
+  border-left:3px solid var(--forest);
+  background:var(--paper-tint);
+  padding:16px 20px;
+  margin:0 0 24px;
+  border-radius:0 4px 4px 0;
+}
+.callout p:last-child{margin-bottom:0;}
+.callout.ember{border-left-color:var(--ember);}
+
+.preread{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+  font-size:15px;
+  color:rgba(29,31,41,0.75);
+  margin:0 0 32px;
+}
+.preread a{font-weight:600;}
+
+ol.themes{
+  list-style:none;
+  counter-reset:themes;
+  margin:0 0 8px;
+  padding:0;
+}
+ol.themes > li{
+  counter-increment:themes;
+  position:relative;
+  padding:0 0 20px 44px;
+  margin:0 0 4px;
+}
+ol.themes > li::before{
+  content:counter(themes);
+  position:absolute;
+  left:0;
+  top:0;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--forest);
+  color:var(--paper);
+  font-family:'Inter', sans-serif;
+  font-weight:700;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.theme-head{
+  font-weight:700;
+  margin:0 0 4px;
+}
+.theme-body{
+  margin:0;
+  color:rgba(29,31,41,0.85);
+}
+
+ol.agenda{
+  list-style:none;
+  counter-reset:agenda;
+  margin:0 0 8px;
+  padding:0;
+}
+ol.agenda > li{
+  counter-increment:agenda;
+  position:relative;
+  padding:0 0 22px 44px;
+  margin:0 0 4px;
+}
+ol.agenda > li::before{
+  content:counter(agenda);
+  position:absolute;
+  left:0;
+  top:0;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--forest);
+  color:var(--paper);
+  font-family:'Inter', sans-serif;
+  font-weight:700;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.agenda-head{
+  font-weight:700;
+  margin:0 0 4px;
+}
+.agenda-who{
+  font-weight:400;
+  color:rgba(29,31,41,0.55);
+  font-size:15px;
+}
+.agenda-body{
+  margin:6px 0 0;
+  color:rgba(29,31,41,0.85);
+}
+ol.agenda ul{
+  margin:10px 0 0;
+  padding:0 0 0 20px;
+}
+ol.agenda ul li{margin:0 0 6px;}
+
+.branches{
+  list-style:none;
+  margin:8px 0 0 44px;
+  padding:0;
+  border-left:2px solid var(--hair);
+}
+.branches li{
+  padding:2px 0 16px 20px;
+  position:relative;
+}
+.branches li::before{
+  content:'';
+  position:absolute;
+  left:-6px;
+  top:8px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--ember);
+}
+.branches .outcome{font-weight:700;}
+.branches .then{color:rgba(29,31,41,0.75);}
+
+hr{
+  border:none;
+  border-top:1px solid var(--hair);
+  margin:48px 0;
+}
+
+.backtop{
+  position:fixed;
+  right:28px;
+  bottom:28px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:999px;
+  text-decoration:none;
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+  font-size:14px;
+  box-shadow:0 6px 20px rgba(29,31,41,0.25);
+  opacity:0;
+  transform:translateY(8px);
+  pointer-events:none;
+  transition:opacity 0.25s ease, transform 0.25s ease;
+  z-index:50;
+}
+.backtop.show{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+.backtop svg{width:16px; height:16px;}
+
+footer.page-footer{
+  border-top:1px solid var(--hair);
+  padding:32px 0 80px;
+  font-size:15px;
+}
+footer.page-footer p{margin:0;}
+footer.page-footer a{font-weight:600; text-decoration:none;}
+
+@media (max-width:600px){
+  header.hero{padding:40px 0 40px;}
+  header.hero h1{font-size:32px;}
+  .wrap{padding:0 18px;}
+  .branches{margin-left:16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<nav class="langswitch" aria-label="Sprog">
+  <a href="/federation-da.html" aria-current="true" hreflang="da">DA</a>
+  <a href="/federation.html" hreflang="en">EN</a>
+</nav>
+
+<header class="hero">
+  <p class="eyebrow">Nordic Media Lab</p>
+  <h1>Føderering af Nordic Media Lab</h1>
+  <p>En række workshops, der undersøger, hvordan NML's platforme kan forbindes som ét netværk, uden at nogen mister sin uafhængighed, og i stedet får gavn af at være en del af noget fælles.</p>
+
+  <div class="hosted-by">
+    <p>Workshoppen afholdes af <a href="https://kooperationen.dk" target="_blank" rel="noopener">Kooperationen</a> i Demokrati Lab.</p>
+    <a class="hosted-by-logo" href="https://kooperationen.dk" target="_blank" rel="noopener">
+      <img src="/kooperationen_logo.svg" alt="Kooperationen" width="220" height="26" loading="lazy">
+    </a>
+  </div>
+</header>
+
+<nav class="contents" id="contents">
+  <p class="label">Indhold</p>
+  <ol>
+    <li><a href="#workshop-1">Workshop 1: Behov og principper</a>
+      <span class="cn-sub">Vi åbner spørgsmålet: hvorfor en fælles infrastruktur, og efter hvilke principper?</span>
+    </li>
+    <li><a href="#workshop-2">Workshop 2: Forslaget</a>
+      <span class="cn-sub">Vi præsenterer et konkret forslag og trykprøver det sammen.</span>
+    </li>
+    <li><a href="#from-here">Hvad der sker herfra</a></li>
+  </ol>
+</nav>
+
+<section id="workshop-1">
+  <p class="workshop-kicker">Workshop 1</p>
+  <h2 class="workshop-title">Behov og principper</h2>
+
+  <div class="event-meta">
+    <div class="item"><span class="k">Dato</span><span class="v">Tirsdag den 18. august 2026</span></div>
+    <div class="item"><span class="k">Tid</span><span class="v">16.00&ndash;19.00</span></div>
+    <div class="item"><span class="k">Sted</span><span class="v">Demokrati Lab, Rentemestervej</span></div>
+  </div>
+
+  <p class="rsvp"><span class="tag">Tilmelding</span> Skriv til <a href="mailto:bjarke@nordicmedialab.dk">bjarke@nordicmedialab.dk</a>, hvis du gerne vil være med.</p>
+
+  <p>Vi begynder arbejdet med at definere en fælles platform for vores forskellige sociale platforme. For at skabe bred forståelse og fælles grund starter vi serien med de overordnede behov og principper for en fælles infrastruktur og dens protokoller, før vi ser på konkrete løsninger.</p>
+
+  <div class="callout">
+    <p>Hvordan dagen forløber, afhænger af, hvor mange vi er. Op til omkring ti kan vi holde os til én samtale. Er vi flere, deler vi os i små grupper på 3-5, der hver arbejder med temaerne og fremlægger deres pointer for de andre. Uanset hvad åbner vi med at ramme spørgsmålet ind, ikke med at præsentere en løsning, og vi slutter med at omsætte diskussionen til et første sæt evalueringskriterier.</p>
+  </div>
+
+  <p>På Workshop 1 drøfter vi følgende temaer:</p>
+
+  <ol class="themes">
+    <li>
+      <div class="theme-head">Formål og interessenter</div>
+      <p class="theme-body">Hvorfor skal vi overhovedet bygge en fælles infrastruktur og protokol, og hvem er de primære interessenter ud over Nordic Media Labs medlemmer?</p>
+    </li>
+    <li>
+      <div class="theme-head">Arkitektur og lagdeling</div>
+      <p class="theme-body">Hvordan ser en ideel, modulær infrastruktur ud, som svarer til vores fælles behov og standarder, og hvor kan applikationslaget og datalaget adskilles? Skal alle have en data- og id-wallet, og skal man kunne skifte dataudbyder, sådan som vi &raquo;skifter bank&laquo; i dag?</p>
+    </li>
+    <li>
+      <div class="theme-head">Åbent og lukket</div>
+      <p class="theme-body">Hvad kan og skal være åbent, hvad skal være lukket, og hvor krypteret skal det lukkede være?</p>
+    </li>
+    <li>
+      <div class="theme-head">Governance og ejerskab</div>
+      <p class="theme-body">Hvordan skal governance, herunder ejerskab, sættes sammen omkring en fælles infrastruktur?</p>
+    </li>
+    <li>
+      <div class="theme-head">Bredde på tværs af platformstyper</div>
+      <p class="theme-body">Hvordan tager vi højde for alle typer af sociale platforme, jf. <a href="https://www.rebuild.net/tools/">Rebuild-taksonomien</a>?</p>
+    </li>
+  </ol>
+
+  <p>Ud fra diskussionen udarbejder vi et sæt evalueringskriterier, der understøtter vores ambitioner. Vi slutter med at brainstorme eksisterende protokoller, vi skal undersøge nærmere, herunder om der er elementer, vi selv bliver nødt til at bygge.</p>
+
+  <h3>Program <span style="font-weight:400; color:rgba(29,31,41,0.55); font-size:16px;">(ca. 3 timer inkl. pauser)</span></h3>
+
+  <ol class="agenda">
+    <li>
+      <div class="agenda-head">Velkomst og rammesætning <span class="agenda-who">15 min, moderator</span></div>
+      <p class="agenda-body">Hvorfor vi er her, hvad vi holder os til, og hvordan de to workshops hænger sammen. Vi åbner spørgsmålet. Vi præsenterer ikke en løsning endnu.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Åbningsrunde <span class="agenda-who">15 min, alle</span></div>
+      <p class="agenda-body">Hver enkelt siger, hvad en fælles infrastruktur skal kunne for netop deres platform: ét håb og én bekymring. Alle kommer til orde tidligt.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Temaerne <span class="agenda-who">55 min, én gruppe eller opdelt</span></div>
+      <p class="agenda-body">Vi arbejder os gennem de fem temaer, enten som én samtale eller opdelt i små grupper på 3-5, der hver tager temaerne og noterer deres pointer. Moderatoren beslutter på dagen ud fra, hvor mange vi er.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Pointerne <span class="agenda-who">15 min, grupper eller plenum</span></div>
+      <p class="agenda-body">Deler vi os op, fremlægger hver gruppe sine 2-3 vigtigste pointer for de andre. Er vi én gruppe, samler vi pointerne i fællesskab og tager dem direkte med over i kriterierne.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Pause <span class="agenda-who">10 min</span></div>
+    </li>
+    <li>
+      <div class="agenda-head">Udkast til evalueringskriterier <span class="agenda-who">30 min, moderator</span></div>
+      <p class="agenda-body">Vi omsætter diskussionen til en første liste over kriterier, som enhver løsning skal leve op til.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Protokoller til nærmere undersøgelse <span class="agenda-who">25 min, alle</span></div>
+      <p class="agenda-body">Vi brainstormer eksisterende protokoller, vi skal se nærmere på, og noterer det, vi eventuelt selv må bygge.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Afrunding og næste skridt <span class="agenda-who">15 min, moderator</span></div>
+      <p class="agenda-body">Vi opsummerer kriterierne og sætter rammen for Workshop 2: et konkret forslag, der skal trykprøves mod dem.</p>
+    </li>
+  </ol>
+
+  <div class="callout ember">
+    <p>Arbejdet på Workshop 1 danner grundlag for Workshop 2, hvor vi går i dybden med konkrete protokoller og præsenterer et forslag, der skal måles mod disse kriterier. Workshop 2 forventes sidst i september 2026, mere information følger.</p>
+  </div>
+</section>
+
+<section id="workshop-2" class="divider-top">
+  <p class="workshop-kicker">Workshop 2</p>
+  <h2 class="workshop-title">Forslaget</h2>
+  <p style="color:rgba(29,31,41,0.6); font-size:15px; margin:0 0 20px;">Forventes sidst i september 2026.</p>
+
+  <p>Her præsenterer vi et konkret forslag til den fælles infrastruktur og tager temperaturen på, om der er opbakning til at udvikle det videre, og hvilke bekymringer vi skal have løst undervejs. Forslaget måles mod de behov og evalueringskriterier, vi formulerer på Workshop 1.</p>
+
+  <p class="preread">Inden Workshop 2 deler vi en kort baggrundstekst, der argumenterer for den retning, vi foreslår. Den sendes ud i god tid.</p>
+
+  <h3>Program <span style="font-weight:400; color:rgba(29,31,41,0.55); font-size:16px;">(ca. 3 timer inkl. pauser)</span></h3>
+
+  <ol class="agenda">
+    <li>
+      <div class="agenda-head">Velkomst <span class="agenda-who">5 min, moderator</span></div>
+    </li>
+    <li>
+      <div class="agenda-head">Præsentation <span class="agenda-who">30 min, Bjarke Winding</span></div>
+      <p class="agenda-body">Et konkret forslag til en fælles ramme for Nordic Media Lab og begrundelsen for det fundament, den bygger på. Herunder spørgsmålet: hvorfor denne retning frem for alternativerne, hvad enten det er en protokol bygget til formålet eller de større eksisterende netværk?</p>
+    </li>
+    <li>
+      <div class="agenda-head">Arbejdsgrupper <span class="agenda-who">30 min, moderator</span></div>
+      <ul>
+        <li>Hvad bekymrer dig konkret ved at bygge dette på det foreslåede fundament?</li>
+        <li>Hvad ville få dig til at tøve med at lægge udviklingstid i det?</li>
+        <li>Passer den foreslåede indholdsmodel til den måde, din platform er bygget op på?</li>
+      </ul>
+    </li>
+    <li>
+      <div class="agenda-head">Syntese <span class="agenda-who">30 min, moderator</span></div>
+      <p class="agenda-body">Hver gruppe fremlægger sine 2-3 pointer.</p>
+    </li>
+    <li>
+      <div class="agenda-head">Mandattjek <span class="agenda-who">30 min, moderator</span></div>
+      <p class="agenda-body">Har vi mandat til at udvikle forslaget videre i den beskrevne retning, med de bekymringer og forslag, vi har noteret?</p>
+    </li>
+    <li>
+      <div class="agenda-head">Afrunding <span class="agenda-who">10 min, moderator</span></div>
+      <ul class="branches">
+        <li><span class="outcome">Vi har mandat til at fortsætte, eventuelt med forbehold.</span><br><span class="then">Bjarke Winding samler forslag, spørgsmål og forbehold og arbejder dem ind i næste version af forslaget til de følgende workshops.</span></li>
+        <li><span class="outcome">Gruppen ønsker en grundigere afklaring, før vi går videre.</span><br><span class="then">Hvem er ansvarlig, hvad skal afklares, og hvad er tidsrammen?</span></li>
+        <li><span class="outcome">Gruppen ønsker ikke at gå videre.</span><br><span class="then">Processen stopper her.</span></li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<section id="from-here" class="divider-top">
+  <h2>Hvis der er mandat til at fortsætte</h2>
+  <p>Bjarke Winding arbejder videre på næste version af forslaget og indarbejder forbehold, forslag og idéer. Om nødvendigt går han i dybden med de enkelte medlemmer og deres konkrete forslag.</p>
+  <p>Derefter holdes 2-3 yderligere workshops, hvor konceptet arbejdes igennem efter samme opskrift: præsentation, arbejdsgrupper, syntese og mandattjek. Når konceptet vurderes modent, holdes en afsluttende workshop, hvor det vedtages eller forkastes. Vedtages det, følger en plan for mulig finansiering og onboarding på tværs af platformene.</p>
+</section>
+
+<footer class="page-footer">
+  <p><a href="/?lang=da#projekter">&larr; Tilbage til nordicmedialab.dk</a></p>
+</footer>
+
+</div>
+
+<a id="backtop" class="backtop" href="#contents" aria-label="Tilbage til indhold">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+  Indhold
+</a>
+
+<script>
+(function(){
+  var btn = document.getElementById('backtop');
+  var anchor = document.getElementById('contents');
+  if(!btn) return;
+  function onScroll(){
+    var trigger = anchor ? (anchor.offsetTop + anchor.offsetHeight) : 600;
+    if(window.scrollY > trigger + 60){ btn.classList.add('show'); }
+    else { btn.classList.remove('show'); }
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(function(){ onScroll(); ticking = false; }); ticking = true; }
+  }, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

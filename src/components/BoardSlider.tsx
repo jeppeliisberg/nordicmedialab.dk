@@ -35,42 +35,42 @@ const BoardSlider: FC<BoardSliderProps> = ({ members }) => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-10 flex gap-4 items-stretch">
+    // Below sm: a plain stacked list of everyone, rows sized by their content.
+    // From sm up: the original 3-at-a-time vertical slider with side controls.
+    <div className="max-w-2xl mx-auto px-4 sm:px-10 flex gap-0 sm:gap-4 items-stretch">
       <div
         ref={ref}
-        className="flex-1 bg-white rounded-3xl shadow-xl overflow-y-auto"
-        style={{ height: ITEM_H * VISIBLE + 'px', scrollSnapType: 'y proximity' }}
+        className="flex-1 min-w-0 bg-white rounded-3xl shadow-xl overflow-hidden sm:overflow-y-auto sm:h-[396px] sm:[scroll-snap-type:y_proximity]"
       >
         {members.map((m, i) => (
           <div
             key={m.email}
-            className="flex gap-4 items-center px-6 border-b border-[#eee7d8] last:border-0"
-            style={{ height: ITEM_H + 'px', scrollSnapAlign: 'start' }}
+            className="flex gap-4 items-center px-5 py-5 sm:px-6 sm:py-0 sm:h-[132px] border-b border-[#eee7d8] last:border-0 sm:[scroll-snap-align:start]"
           >
             {m.photo ? (
               <img
                 src={m.photo}
                 alt={m.name}
-                className="w-16 h-16 rounded-full object-cover flex-none grayscale"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover flex-none grayscale"
               />
             ) : (
               <div
-                className="w-16 h-16 rounded-full flex-none flex items-center justify-center text-white font-serif font-bold text-xl"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex-none flex items-center justify-center text-white font-serif font-bold text-xl"
                 style={{ background: colors[i % colors.length] }}
               >
                 {initials(m.name)}
               </div>
             )}
             <div className="min-w-0">
-              <div className="text-[#39A97C] font-semibold text-xs uppercase tracking-wide">
+              <div className="text-[#39A97C] font-semibold text-[11px] sm:text-xs uppercase tracking-wide leading-snug">
                 {m.role}
               </div>
-              <h4 className="font-serif text-lg font-bold text-[#1D1F29] leading-tight">
+              <h4 className="font-serif text-base sm:text-lg font-bold text-[#1D1F29] leading-tight">
                 {m.name}
               </h4>
               <a
                 href={`mailto:${m.email}`}
-                className="text-sm text-neutral-600 hover:text-[#39A97C] break-all"
+                className="text-[13px] sm:text-sm text-neutral-600 hover:text-[#39A97C] break-words [overflow-wrap:anywhere]"
               >
                 {m.email}
               </a>
@@ -79,7 +79,7 @@ const BoardSlider: FC<BoardSliderProps> = ({ members }) => {
         ))}
       </div>
 
-      <div className="flex flex-col justify-center gap-3">
+      <div className="hidden sm:flex flex-col justify-center gap-3">
         <button
           onClick={() => scroll(-1)}
           aria-label="Scroll up"

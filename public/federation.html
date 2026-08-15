@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Federating Nordic Media Lab</title>
+<link rel="alternate" hreflang="en" href="/federation.html">
+<link rel="alternate" hreflang="da" href="/federation-da.html">
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=playfair-display:700,700i|inter:400,500,600" rel="stylesheet">
 <style>
@@ -37,8 +39,29 @@ a:hover{color:var(--ember);}
 
 .wrap{max-width:720px; margin:0 auto; padding:0 24px;}
 
+.langswitch{
+  display:flex;
+  justify-content:flex-end;
+  gap:4px;
+  padding:20px 0 0;
+}
+.langswitch a{
+  font-family:'Inter', sans-serif;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:rgba(29,31,41,0.5);
+  padding:5px 10px;
+  border-radius:4px;
+}
+.langswitch a:hover{color:var(--forest); background:var(--paper-tint);}
+.langswitch a[aria-current="true"]{background:var(--forest); color:var(--paper);}
+.langswitch a[aria-current="true"]:hover{color:var(--paper);}
+
 header.hero{
-  padding:88px 0 56px;
+  padding:56px 0 56px;
   border-bottom:1px solid var(--hair);
 }
 header.hero .eyebrow{
@@ -338,12 +361,13 @@ hr{
 footer.page-footer{
   border-top:1px solid var(--hair);
   padding:32px 0 80px;
-  font-size:14px;
-  color:rgba(29,31,41,0.55);
+  font-size:15px;
 }
+footer.page-footer p{margin:0;}
+footer.page-footer a{font-weight:600; text-decoration:none;}
 
 @media (max-width:600px){
-  header.hero{padding:64px 0 40px;}
+  header.hero{padding:40px 0 40px;}
   header.hero h1{font-size:32px;}
   .wrap{padding:0 18px;}
   .branches{margin-left:16px;}
@@ -353,6 +377,11 @@ footer.page-footer{
 <body>
 
 <div class="wrap">
+
+<nav class="langswitch" aria-label="Language">
+  <a href="/federation-da.html" hreflang="da">DA</a>
+  <a href="/federation.html" aria-current="true" hreflang="en">EN</a>
+</nav>
 
 <header class="hero">
   <p class="eyebrow">Nordic Media Lab</p>
@@ -517,6 +546,10 @@ footer.page-footer{
   <p>Bjarke Winding works on the next version of the proposal, incorporating reservations, suggestions and ideas. If needed, he works in depth with individual members and their concrete proposals.</p>
   <p>After that, 2-3 further workshops are held, working the concept through by the same recipe: presentation, working groups, synthesis and mandate check. When the concept is judged mature, a final workshop is held where it is adopted or rejected. If adopted, a plan follows for possible funding and onboarding across the platforms.</p>
 </section>
+
+<footer class="page-footer">
+  <p><a href="/?lang=en#projekter">&larr; Back to nordicmedialab.dk</a></p>
+</footer>
 
 </div>
 

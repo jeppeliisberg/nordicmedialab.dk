@@ -6,7 +6,8 @@ import boardData from "../components/boardData.json";
 import { useTranslation, Trans } from 'react-i18next';
 
 const Main = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const federationHref = i18n.language && i18n.language.startsWith('da') ? '/federation-da.html' : '/federation.html';
 
     const membersData = t('members.cards', { returnObjects: true });
    
@@ -51,7 +52,7 @@ const Main = () => {
                                 <span className="inline-flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#FF881B]"></span>{t('projects.w1location')}</span>
                             </div>
                             <p className="font-sans text-base text-neutral-700">{t('projects.w1desc')}</p>
-                            <a href="/federation.html" className="inline-flex items-center gap-1 mt-4 font-sans text-sm font-semibold text-[#39A97C] hover:text-[#FF881B] transition-colors">{t('projects.w1link')}<span aria-hidden="true">→</span></a>
+                            <a href={federationHref} className="inline-flex items-center gap-1 mt-4 font-sans text-sm font-semibold text-[#39A97C] hover:text-[#FF881B] transition-colors">{t('projects.w1link')}<span aria-hidden="true">→</span></a>
                         </div>
                     </article>
 
