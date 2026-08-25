@@ -1,4 +1,4 @@
-# nordicmedialab.dk
+# nordicmedialab.org
 
 Marketing site for Nordic Media Lab. Built with React + Vite, styled with Tailwind, with i18next for translations (Danish/English).
 
