@@ -6,6 +6,33 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Canonical host: every other domain (old .dk, www variants) 301s to
+# nordicmedialab.org, preserving the path. `force = true` is required so these
+# win over the SPA rule below and over any static file match.
+[[redirects]]
+  from = "https://nordicmedialab.dk/*"
+  to = "https://nordicmedialab.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.nordicmedialab.dk/*"
+  to = "https://nordicmedialab.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.nordicmedialab.org/*"
+  to = "https://nordicmedialab.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://nordicmedialab.netlify.app/*"
+  to = "https://nordicmedialab.org/:splat"
+  status = 301
+  force = true
+
 # Single-page app: let client routing handle /update and any other path.
 # Function routes (/.netlify/functions/*) are matched before this rule.
 [[redirects]]
