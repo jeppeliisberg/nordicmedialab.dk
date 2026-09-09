@@ -17,6 +17,12 @@ import { at, BASE, ORG, PERSON } from './_airtable.mjs';
 const today = () => new Date().toISOString().slice(0, 10);
 
 // Form "type" value → Initiatives "Type" single-select option.
+const COUNTRIES = ['Denmark', 'Sweden', 'Norway', 'Finland', 'Iceland', 'Germany', 'Other'];
+
+// The form sends one of COUNTRIES; anything else is dropped rather than
+// guessed at, so the single-select never gains stray options.
+const country = (v) => (COUNTRIES.includes((v || '').trim()) ? (v || '').trim() : '');
+
 const TYPE_MAP = {
   platform: 'Platform',
   organization: 'Organisation',
@@ -73,6 +79,7 @@ export async function handler(event) {
             Email: (d.email || '').trim(),
             Bio: (d.bio || '').trim(),
             Link: (d.website || '').trim(),
+            Country: country(d.country),
             'Person type': 'Individual member',
             Added: today(),
           },
@@ -91,6 +98,7 @@ export async function handler(event) {
       Type: TYPE_MAP[type] || 'Other',
       Status: 'New',
       Website: (d.website || '').trim(),
+      Country: country(d.country),
       Applied: today(),
     };
     // The submitter picks one language for their description; store it in the

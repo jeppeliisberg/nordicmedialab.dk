@@ -179,7 +179,9 @@
     "nameConsultant": "Name",
     "nameOther": "Name",
     "pactCommit": "I commit to work for and support the",
-    "privacyNote": "We handle your details as set out in our <a>privacy policy</a>."
+    "privacyNote": "We handle your details as set out in our <a>privacy policy</a>.",
+    "country": "Country",
+    "countryPlaceholder": "Select a country"
   },
   "contact": {
     "tagline": "Contact",
@@ -213,7 +215,9 @@
     "saving": "Saving…",
     "savedTitle": "Thanks, saved",
     "savedBody": "Your details have been sent to the board. Changes appear on the site once approved. You can close this page.",
-    "error": "Something went wrong saving. Please try again, or email hej@nordicmedialab.dk."
+    "error": "Something went wrong saving. Please try again, or email hej@nordicmedialab.dk.",
+    "country": "Country",
+    "countryPlaceholder": "Select a country"
   },
   "footer": {
     "privacy": "Privacy policy"
@@ -241,5 +245,14 @@
     "changes": "If we change how we handle data, we will update this page and, for anything significant, tell members directly.",
     "updated": "Last updated: 13 August 2026",
     "back": "Back to nordicmedialab.org"
+  },
+  "countries": {
+    "denmark": "Denmark",
+    "sweden": "Sweden",
+    "norway": "Norway",
+    "finland": "Finland",
+    "iceland": "Iceland",
+    "germany": "Germany",
+    "other": "Other"
   }
 }

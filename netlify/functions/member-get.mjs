@@ -32,6 +32,7 @@ export async function handler(event) {
       id: org.id,
       name: f['Name'] || '',
       type: f['Type'] || '',
+      country: f['Country'] || '',
       descriptionEN: f['Description EN'] || '',
       descriptionDA: f['Description DA'] || '',
       website: f['Website'] || '',

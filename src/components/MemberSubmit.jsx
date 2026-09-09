@@ -4,6 +4,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 const MAX = 120;
 const MAX_PERSONS = 5;
+const COUNTRIES = ['Denmark', 'Sweden', 'Norway', 'Finland', 'Iceland', 'Germany', 'Other'];
 
 const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
   const { t } = useTranslation();
@@ -133,6 +134,20 @@ const MemberSubmit = ({ variant = 'button', triggerLabel } = {}) => {
                   <div>
                     <label className={label}>{nameLabel}</label>
                     <input type="text" name="name" required className={field} />
+                  </div>
+
+                  <div>
+                    <label className={label}>{t('submit.country')}</label>
+                    <select name="country" defaultValue="" required className={field}>
+                      <option value="" disabled>
+                        {t('submit.countryPlaceholder')}
+                      </option>
+                      {COUNTRIES.map((c) => (
+                        <option key={c} value={c}>
+                          {t(`countries.${c.toLowerCase()}`)}
+                        </option>
+                      ))}
+                    </select>
                   </div>
 
                   {isIndividual ? (

@@ -7,6 +7,8 @@ const field =
 const labelCls = 'block font-sans font-semibold text-sm text-[#1D1F29] mb-1';
 const helpCls = 'text-xs text-neutral-500 mt-1';
 
+const COUNTRIES = ['Denmark', 'Sweden', 'Norway', 'Finland', 'Iceland', 'Germany', 'Other'];
+
 const emptyContact = () => ({ id: null, name: '', email: '', title: '' });
 
 export default function UpdateMember() {
@@ -27,6 +29,7 @@ export default function UpdateMember() {
         setData({
           name: d.name || '',
           type: d.type || '',
+          country: d.country || '',
           descriptionEN: d.descriptionEN || '',
           descriptionDA: d.descriptionDA || '',
           website: d.website || '',
@@ -66,6 +69,7 @@ export default function UpdateMember() {
           token,
           name: data.name,
           type: data.type,
+          country: data.country,
           descriptionEN: data.descriptionEN,
           descriptionDA: data.descriptionDA,
           website: data.website,
@@ -112,6 +116,18 @@ export default function UpdateMember() {
                 <option value="Organisation">{t('submit.typeOrganization')}</option>
                 <option value="Consultant">{t('submit.typeConsultant')}</option>
                 <option value="Other">{t('submit.typeOther')}</option>
+              </select>
+            </div>
+
+            <div>
+              <label className={labelCls}>{t('update.country')}</label>
+              <select className={field} value={data.country} onChange={(e) => set('country', e.target.value)}>
+                <option value="">{t('update.countryPlaceholder')}</option>
+                {COUNTRIES.map((c) => (
+                  <option key={c} value={c}>
+                    {t(`countries.${c.toLowerCase()}`)}
+                  </option>
+                ))}
               </select>
             </div>
 
