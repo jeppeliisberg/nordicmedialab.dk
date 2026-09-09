@@ -91,8 +91,32 @@ export async function handler(event) {
       });
     }
 
+    // 4) Flag for board review. The member's edits are now in Airtable but
+    // nobody has looked at them, so raise "Pending update" and stamp the date.
+    // An Airtable automation emails the board on this. It does NOT touch
+    // Status, so the member stays on the site; the publish tick clears it.
+    await at(`${BASE}/${ORG.table}/${orgId}`, {
+      method: 'PATCH',
+      body: {
+        fields: {
+          'Pending update': true,
+          'Last member update': todayInCopenhagen(),
+        },
+      },
+    });
+
     return json(200, { ok: true });
   } catch (e) {
     return json(500, { error: 'server', message: String(e.message || e) });
+  }
+}
+
+// Today's date as YYYY-MM-DD in Danish local time, so an evening save is not
+// stamped with yesterday's UTC date.
+function todayInCopenhagen() {
+  try {
+    return new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Copenhagen' });
+  } catch {
+    return new Date().toISOString().slice(0, 10);
   }
 }
